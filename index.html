@@ -5,23 +5,21 @@
   <title>Arfhacom — IT Consulting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Hello! Just neat, tidy code. -->
+  <!-- neat & tidy -->
 
   <!-- SEO -->
-  <meta name="description" content="Arfhacom provides dependable IT consulting in support, infrastructure, systems, administration, and security. Practical solutions delivered with clarity and care." />
+  <meta name="description" content="Arfhacom provides dependable IT consulting in support, infrastructure, systems, administration, security, training, and consultation." />
   <meta name="keywords" content="IT consulting, IT support, helpdesk, network, infrastructure, system administration, cloud administration, cybersecurity, IT training, IT consultation, Bogor, Indonesia" />
   <link rel="canonical" href="https://arfha.com/" />
   <meta name="robots" content="index,follow" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- OG -->
+  <!-- OG / Twitter -->
   <meta property="og:title" content="Arfhacom — IT Consulting" />
   <meta property="og:description" content="Reliable IT services in support, infrastructure, systems, security, and training." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://arfha.com/" />
   <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'></svg>" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Arfhacom — IT Consulting" />
   <meta name="twitter:description" content="Reliable IT services in support, infrastructure, systems, security, and training." />
@@ -125,8 +123,15 @@
       border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow:var(--shadow)}
     .btn.primary{background:linear-gradient(135deg,var(--pine),var(--emerald)); color:#0b0e0c; border:none}
 
-    /* Grid + flip cards */
+    /* Generic cards (About/Contact) */
     .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{padding:18px; min-height:150px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(160deg,var(--card), rgba(15,21,18,.6)); transition:transform .3s ease, border-color .3s ease}
+    .card:hover{transform:translateY(-3px); border-color:rgba(16,185,129,.35)}
+    .card .row{display:flex; align-items:center; gap:12px}
+    .card .icon{width:22px; height:22px; color:var(--emerald)}
+
+    /* Flip cards (Services only) */
     .flip{perspective:1000px}
     .flip-inner{position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s}
     .flip:hover .flip-inner,.flip:focus-within .flip-inner{transform:rotateY(180deg)}
@@ -137,10 +142,9 @@
     .face .icon{width:22px; height:22px; color:var(--emerald)}
     .back .icon{width:56px; height:56px; color:var(--emerald); opacity:.9}
 
-    /* Bismillah block */
-    .bismillah{margin:14px 0 18px; text-align:center}
-    .bismillah-title{font-weight:800; font-size:18px; letter-spacing:.3px; color:var(--emerald)}
-    .bismillah-ar{font-size:28px; line-height:1.7; margin-top:6px; font-family:'Amiri','Scheherazade New','Times New Roman',serif}
+    /* Bismillah */
+    .bismillah{margin:10px 0 16px; text-align:center}
+    .bismillah-ar{font-size:28px; line-height:1.7; margin-top:4px; font-family:'Amiri','Scheherazade New','Times New Roman',serif}
 
     /* Testimonials */
     .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
@@ -150,14 +154,14 @@
     .quote-top svg{width:20px; height:20px; color:var(--emerald)}
     blockquote{margin:0; color:var(--ink)} .quote-foot{margin-top:12px; color:var(--muted); font-size:14px}
 
-    /* Past Work grid (no marquee) */
+    /* Past Work grid */
     .logos-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:var(--logoGap); place-items:center}
     .logo-wrap{height:calc(var(--logoH) + 24px); display:flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:12px; transition:transform .25s ease, box-shadow .25s ease}
     .logo-wrap img{height:var(--logoH); width:auto; object-fit:contain; filter:grayscale(100%) opacity(.85); transition:filter .25s ease, opacity .25s ease}
     .logo-wrap:hover img{filter:none; opacity:1}
     .logo-wrap:hover{box-shadow:0 0 0 2px rgba(16,185,129,.55), 0 0 18px rgba(16,185,129,.25); transform:translateY(-2px)}
 
-    /* Contact */
+    /* Contact / form */
     .contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     form{display:grid; gap:10px; padding:16px; border:1px solid rgba(255,255,255,.08); border-radius:14px; background:var(--card)}
     input,textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0c110f; color:var(--ink); font:inherit; outline:none}
@@ -168,7 +172,7 @@
     /* Reveal */
     .reveal{opacity:0; transform:translateY(16px); transition:all .7s cubic-bezier(.2,.8,.2,1)} .reveal.show{opacity:1; transform:none}
 
-    /* WhatsApp FAB (solid color, no gradient) */
+    /* WhatsApp FAB (solid) */
     .fab{position:fixed; right:18px; bottom:18px; z-index:998; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 20px rgba(0,0,0,.35); cursor:pointer; transition:transform .2s ease}
     .fab:hover{transform:scale(1.06)}
     .tooltip{position:fixed; right:88px; bottom:28px; background:#0a0f0d; color:#fff; padding:6px 10px; border-radius:8px; font-size:12px; border:1px solid rgba(255,255,255,.12); opacity:0; transform:translateY(4px); pointer-events:none; transition:.2s ease; white-space:nowrap}
@@ -186,7 +190,7 @@
     .foot{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
     footer a{color:var(--muted) !important}
 
-    /* Light (no background gradient) */
+    /* Light (no gradient bg) */
     body.light{color:var(--black); background:#fff}
     body.light::after{background:none}
     body.light header{background:#fff; border-bottom:1px solid rgba(0,0,0,.08); backdrop-filter:none}
@@ -199,9 +203,11 @@
     #sunIcon{color:var(--ink)} body.light #sunIcon{color:#facc15}
 
     body.light .wrap{background:#fff; border:1px solid var(--pine); padding:18px}
-    body.light .face, body.light .info, body.light form{background:#fff; border-color:rgba(0,0,0,.10)}
-    body.light .quote-card{background:#fff; border-color:rgba(0,0,0,.10)}
-    body.light .quote-card::after{background:#fff; border-color:rgba(0,0,0,.10)}
+    body.light .card, body.light .info, body.light form{background:#fff; border-color:rgba(0,0,0,.10)}
+    /* testimonials: remove outline in light mode */
+    body.light .quote-card{background:#fff; border-color:transparent; box-shadow:none}
+    body.light .quote-card::after{background:#fff; border-color:transparent}
+    body.light .face{background:#fff; border-color:rgba(0,0,0,.10)}
     body.light .list li, body.light .sub, body.light h1, body.light h2, body.light h3, body.light p, body.light a{color:var(--black)}
     body.light input, body.light textarea{background:#fff; color:var(--black); border:1px solid rgba(0,0,0,.18)}
     body.light input::placeholder, body.light textarea::placeholder{color:#333}
@@ -216,8 +222,8 @@
 
     /* RWD + mobile-only drawer */
     @media (max-width:980px){
-      header nav{display:none}
-      .menu-btn{display:inline-flex}
+      header nav{display:none}         /* top menu hidden on mobile */
+      .menu-btn{display:inline-flex}   /* drawer visible only on mobile */
       .cards, .contact-grid, .quotes{grid-template-columns:1fr}
       .logos-grid{grid-template-columns:repeat(2,1fr)}
       h1{font-size:36px}
@@ -242,6 +248,7 @@
         <span class="subtag">IT Solutions Integrator</span>
       </div>
 
+      <!-- Desktop/tablet top menu -->
       <nav aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
@@ -252,17 +259,21 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- Mobile-only -->
+      <!-- Mobile-only slider menu trigger -->
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         Menu
       </button>
+
+      <!-- Theme toggle -->
       <div class="toggle" aria-label="Theme toggle">
         <svg class="icon" id="sunIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.6 5.6 4.2 4.2m15.6 15.6-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
         <div class="switch" id="switch" role="switch" aria-checked="false" tabindex="0"><div class="knob"></div></div>
         <svg class="icon" id="moonIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
       </div>
     </div>
+
+    <!-- Mobile drawer -->
     <div class="backdrop" id="backdrop" tabindex="-1" aria-hidden="true"></div>
     <div class="drawer" id="drawer">
       <a href="#about">About Us</a>
@@ -291,62 +302,40 @@
       <div class="wrap">
         <h2 class="reveal">About Us</h2>
 
-        <!-- Bismillah block -->
+        <!-- Bismillah (Arabic only) -->
         <div class="bismillah reveal" aria-label="Bismillah">
-          <div class="bismillah-title">Bismillāh</div>
           <div class="bismillah-ar">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
         </div>
 
         <div class="cards">
-          <div class="flip reveal" tabindex="0">
-            <div class="flip-inner">
-              <div class="face">
-                <div class="row">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h2v6h-2z" fill="currentColor"/></svg>
-                  <h3>Who we are</h3>
-                </div>
-                <p>Arfhacom is an IT consulting company led by engineers with around 15 years of experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.</p>
-              </div>
-              <div class="face back" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l4 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-              </div>
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h2v6h-2z" fill="currentColor"/></svg>
+              <h3>Who we are</h3>
             </div>
+            <p>Arfhacom is an IT consulting company led by engineers with around 15 years of experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.</p>
           </div>
 
-          <div class="flip reveal" tabindex="0">
-            <div class="flip-inner">
-              <div class="face">
-                <div class="row">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6V4h6v2M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                  <h3>What we do</h3>
-                </div>
-                <p>We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism.</p>
-              </div>
-              <div class="face back" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16" stroke="currentColor" stroke-width="2"/></svg>
-              </div>
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6V4h6v2M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <h3>What we do</h3>
             </div>
+            <p>We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care, trust and professionalism.</p>
           </div>
 
-          <div class="flip reveal" tabindex="0">
-            <div class="flip-inner">
-              <div class="face">
-                <div class="row">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17s-3-1.9-3-4a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 2.1-3 4-3 4z" fill="currentColor"/></svg>
-                  <h3>How we work</h3>
-                </div>
-                <p>We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility.</p>
-              </div>
-              <div class="face back" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="2"/></svg>
-              </div>
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17s-3-1.9-3-4a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 2.1-3 4-3 4z" fill="currentColor"/></svg>
+              <h3>How we work</h3>
             </div>
+            <p>We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES (flip cards) -->
     <section class="section" id="services">
       <div class="wrap">
         <h2 class="reveal">Services</h2>
@@ -423,7 +412,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v7" stroke="currentColor" stroke-width="2"/></svg>
                   <h3>IT Training</h3>
                 </div>
-                <p>Helpdesk & support training from basic to advanced—hands-on sessions tailored to your team’s needs.</p>
+                <p>Helpdesk & support training from basic to advanced—hands-on sessions tailored to your team.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M6 19h12M8 15h8M10 7h4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -439,7 +428,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
                   <h3>IT Consultation</h3>
                 </div>
-                <p>Advisory on assessments and improvements—share your goals, and we’ll propose practical options.</p>
+                <p>Advisory on assessments and improvements—share your goals and we’ll propose practical options.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M4 12h8l4 4V8l-4 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -484,7 +473,7 @@
       </div>
     </section>
 
-    <!-- PAST WORK (centered logos, hover only) -->
+    <!-- PAST WORK -->
     <section class="section" id="pastwork">
       <div class="wrap">
         <h2 class="reveal">Past Work</h2>
@@ -499,7 +488,7 @@
       </div>
     </section>
 
-    <!-- GET QUOTE (JS mailto, no insecure form submit) -->
+    <!-- GET QUOTE -->
     <section class="section" id="quote">
       <div class="wrap">
         <h2 class="reveal">Get a Quote</h2>
@@ -529,51 +518,29 @@
       <div class="wrap">
         <h2 class="reveal">Contact</h2>
         <div class="cards">
-          <div class="flip reveal" tabindex="0">
-            <div class="flip-inner">
-              <div class="face">
-                <div class="row">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                  <h3>Office</h3>
-                </div>
-                <p>Kota Bogor, West Java<br/>Indonesia 16112</p>
-              </div>
-              <div class="face back" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 7-7 7-7-7 7-7z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              </div>
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <h3>Office</h3>
             </div>
+            <p>Kota Bogor, West Java<br/>Indonesia 16112</p>
           </div>
 
-          <div class="flip reveal" tabindex="0">
-            <div class="flip-inner">
-              <div class="face">
-                <div class="row">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7h16" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="5.5" r=".8" fill="currentColor"/><circle cx="11" cy="5.5" r=".8" fill="currentColor"/><circle cx="14" cy="5.5" r=".8" fill="currentColor"/></svg>
-                  <h3>Email</h3>
-                </div>
-                <p><a href="mailto:hello&#64;arfhacorp&#46;com" rel="noopener">hello<span aria-hidden="true">&#64;</span>arfhacorp.com</a></p>
-              </div>
-              <div class="face back" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-              </div>
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7h16" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="5.5" r=".8" fill="currentColor"/><circle cx="11" cy="5.5" r=".8" fill="currentColor"/><circle cx="14" cy="5.5" r=".8" fill="currentColor"/></svg>
+              <h3>Email</h3>
             </div>
+            <p><a href="mailto:hello&#64;arfhacorp&#46;com" rel="noopener">hello<span aria-hidden="true">&#64;</span>arfhacorp.com</a></p>
           </div>
 
-          <div class="flip reveal" tabindex="0">
-            <div class="flip-inner">
-              <div class="face">
-                <div class="row">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 17h10M7 13h10M7 9h10" stroke="currentColor" stroke-width="2"/></svg>
-                  <h3>WhatsApp</h3>
-                </div>
-                <p>Please use the floating button to chat instantly.</p>
-              </div>
-              <div class="face back" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M5 19l14 0M6 5h12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-              </div>
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 17h10M7 13h10M7 9h10" stroke="currentColor" stroke-width="2"/></svg>
+              <h3>WhatsApp</h3>
             </div>
+            <p>Please use the floating button to chat instantly.</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -615,7 +582,7 @@
     // theme
     (function(){const w=document.getElementById('switch');const v=localStorage.getItem('theme')||'dark';if(v==='light'){document.body.classList.add('light');w.classList.add('on');w.setAttribute('aria-checked','true')}function z(l){document.body.classList.toggle('light',l);w.classList.toggle('on',l);w.setAttribute('aria-checked',l?'true':'false');localStorage.setItem('theme',l?'light':'dark')}w.addEventListener('click',()=>z(!document.body.classList.contains('light')));w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();z(!document.body.classList.contains('light'))}})})();
 
-    // type
+    // type (with glow on final line)
     (function(){const el=document.getElementById('typewrite');const P=["We bring you a reliable IT solutions","We ensure your security protections","We keep your systems steady","We simplify your daily IT","We Guiding Technology with Care"];const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}x()})();
 
     // reveal
@@ -627,7 +594,7 @@
     // fab nudge
     (function(){const f=document.querySelector('.fab');if(!f)return;const m=window.matchMedia('(prefers-reduced-motion: reduce)');function n(){if(m.matches)return;f.classList.add('nudging');setTimeout(()=>f.classList.remove('nudging'),1200)}const T=5*60*1000;setTimeout(n,T);setInterval(n,T)})();
 
-    // safe mailto (no insecure form submit)
+    // mailto composer (no insecure form post)
     (function(){
       const form=document.getElementById('quoteForm');
       form.addEventListener('submit',function(e){
@@ -636,13 +603,13 @@
         const name=fd.get('name')||'', email=fd.get('email')||'', company=fd.get('company')||'', project=fd.get('project')||'', timeline=fd.get('timeline')||'';
         const subject=`Quote request from ${name}`;
         const body=`Name: ${name}%0D%0AEmail: ${email}%0D%0ACompany: ${company}%0D%0ATimeline: ${timeline}%0D%0A%0D%0AProject Summary:%0D%0A${encodeURIComponent(project)}`;
-        const mail=`mailto:hello@arfhacorp.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        window.location.href=mail;
+        window.location.href=`mailto:hello@arfhacorp.com?subject=${encodeURIComponent(subject)}&body=${body}`;
       });
     })();
 
-    // disable right click
+    // no right-click
     (function(){document.addEventListener('contextmenu',e=>e.preventDefault())})();
   </script>
 </body>
 </html>
+
