@@ -4,11 +4,13 @@
   <meta charset="utf-8" />
   <title>Arfhacom — IT Consulting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0e0c" />
 
-  <!-- neat & tidy -->
+  <!-- favicon: small green "a" -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='central' font-family='Inter, Arial, sans-serif' font-size='48' font-weight='700' fill='%2310b981'%3Ea%3C/text%3E%3C/svg%3E" />
 
   <!-- SEO -->
-  <meta name="description" content="Arfhacom provides dependable IT consulting in support, infrastructure, systems, administration, security, training, and consultation." />
+  <meta name="description" content="Arfhacom provides dependable IT consulting in support, infrastructure, systems, security, training, and consultation." />
   <meta name="keywords" content="IT consulting, IT support, helpdesk, network, infrastructure, system administration, cloud administration, cybersecurity, IT training, IT consultation, Bogor, Indonesia" />
   <link rel="canonical" href="https://arfha.com/" />
   <meta name="robots" content="index,follow" />
@@ -58,7 +60,7 @@
     @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
     *{box-sizing:border-box}
 
-    /* Dark */
+    /* Dark (default) */
     body{
       margin:0; color:var(--ink);
       background:
@@ -94,7 +96,7 @@
     .drawer a{display:block; padding:14px 20px; border-top:1px solid rgba(255,255,255,.06); color:#fff}
     .drawer.show{display:block}
 
-    /* Theme */
+    /* Theme toggle */
     .toggle{display:flex; align-items:center; gap:8px}
     .icon{width:18px; height:18px; display:inline-block}
     .switch{--track:#22322b; --thumb:#eaf2ef; position:relative; width:42px; height:24px; border-radius:999px;
@@ -321,7 +323,7 @@
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6V4h6v2M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
               <h3>What we do</h3>
             </div>
-            <p>We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care, trust and professionalism.</p>
+            <p>We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism.</p>
           </div>
 
           <div class="card reveal">
@@ -348,7 +350,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 16 0v6a2 2 0 0 1-2 2h-3v-3h3v-5a6 6 0 1 0-12 0v5h3v3H6a2 2 0 0 1-2-2v-6z" fill="currentColor"/></svg>
                   <h3>IT Helpdesk & Support</h3>
                 </div>
-                <p>End-user support (remote/on-site), incident triage, ticketing setup, device onboarding, software rollout, hygiene, and SLA-based response.</p>
+                <p>We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -364,7 +366,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><circle cx="5" cy="12" r="3" fill="currentColor"/><circle cx="19" cy="5" r="3" fill="currentColor"/><circle cx="19" cy="19" r="3" fill="currentColor"/><path d="M8 12h7M17 7l-2 5m2 5l-2-5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
                   <h3>Networks & Infrastructure</h3>
                 </div>
-                <p>Structured cabling, rack/topology planning, device configuration, Wi-Fi design, VPN, addressing, monitoring, and documentation.</p>
+                <p>We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M7 7l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -380,7 +382,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="7" r="1.2" fill="currentColor"/><circle cx="8" cy="17" r="1.2" fill="currentColor"/></svg>
                   <h3>System & Cloud Administration</h3>
                 </div>
-                <p>Server management, identity management, backups and restore testing, patching, virtualization, accounts/policies, and tuning.</p>
+                <p>We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M4 15h16M7 11h10M9 7h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -396,7 +398,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 5-4 9-8 9s-8-4-8-9V7l8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
                   <h3>Cybersecurity</h3>
                 </div>
-                <p>Security hardening, monitoring, vulnerability reviews, endpoint/email protection, assessments, policies/processes, and cyber hygiene.</p>
+                <p>We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6a9 9 0 0 1-14 7 9 9 0 0 1-3-7V6l10-4z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
@@ -412,7 +414,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v7" stroke="currentColor" stroke-width="2"/></svg>
                   <h3>IT Training</h3>
                 </div>
-                <p>Helpdesk & support training from basic to advanced—hands-on sessions tailored to your team.</p>
+                <p>We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are designed to be practical and easy to follow, helping participants build skills step by step. With our teaching experience, we make sure every program delivers value and prepares teams to handle real IT challenges with confidence.</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M6 19h12M8 15h8M10 7h4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -428,7 +430,7 @@
                   <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
                   <h3>IT Consultation</h3>
                 </div>
-                <p>Advisory on assessments and improvements—share your goals and we’ll propose practical options.</p>
+                <p>We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!</p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M4 12h8l4 4V8l-4 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -448,26 +450,27 @@
           <div class="quote-card reveal">
             <div class="quote-top">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zm8 0h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
-              <strong>John Doe</strong>
+              <strong>Motobayashi San</strong>
             </div>
-            <blockquote><p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.”</p></blockquote>
-            <div class="quote-foot">Operations Manager</div>
+            <blockquote><p>“We’re very satisfied—the network and infrastructure refresh went smoothly, and now our accounting software is centrally managed and easy to monitor.”</p></blockquote>
+            <div class="quote-foot">Managing Director, Tokyo Consulting</div>
           </div>
           <div class="quote-card reveal">
             <div class="quote-top">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zM15 11h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
-              <strong>Jean Doe</strong>
+              <strong>Suproni</strong>
             </div>
-            <blockquote><p>“Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”</p></blockquote>
-            <div class="quote-foot">Head of Technology</div>
+            <blockquote><p>“Thank you for helping Mignon, from handling security fraud in our office to refreshing our network infrastructure. Everything went smoothly, and we’ve felt secure up to now.
+”</p></blockquote>
+            <div class="quote-foot">Section Head Warehouse, Mignon Sista International</div>
           </div>
           <div class="quote-card reveal">
             <div class="quote-top">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zM15 11h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
-              <strong>John Doe</strong>
+              <strong>Yuliantama</strong>
             </div>
-            <blockquote><p>“Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”</p></blockquote>
-            <div class="quote-foot">Business Owner</div>
+            <blockquote><p>“Thank you, Kang, for your help with migrating and managing our office hosting and email.”</p></blockquote>
+            <div class="quote-foot">IT, Wilsor Group</div>
           </div>
         </div>
       </div>
@@ -506,7 +509,7 @@
             <h3>Notes</h3>
             <ul class="list">
               <li>You can also reach us on WhatsApp using the green button.</li>
-              <li>If you need additional services, mention them here and we’ll follow up.</li>
+              <li>If you need additional services, mention them here and we’ll follow up. Insya Allah.</li>
             </ul>
           </div>
         </div>
@@ -579,8 +582,15 @@
     // menu (mobile-only drawer)
     (function(){const b=document.getElementById('menuBtn'),d=document.getElementById('drawer'),k=document.getElementById('backdrop');if(!b||!d||!k)return;function s(o){d.classList.toggle('show',o);k.classList.toggle('show',o);b.setAttribute('aria-expanded',o?'true':'false');document.body.style.overflow=o?'hidden':''}const t=()=>s(!d.classList.contains('show'));b.addEventListener('click',t);k.addEventListener('click',()=>s(false));d.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>s(false)));window.addEventListener('keydown',e=>{if(e.key==='Escape')s(false)})})();
 
-    // theme
-    (function(){const w=document.getElementById('switch');const v=localStorage.getItem('theme')||'dark';if(v==='light'){document.body.classList.add('light');w.classList.add('on');w.setAttribute('aria-checked','true')}function z(l){document.body.classList.toggle('light',l);w.classList.toggle('on',l);w.setAttribute('aria-checked',l?'true':'false');localStorage.setItem('theme',l?'light':'dark')}w.addEventListener('click',()=>z(!document.body.classList.contains('light')));w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();z(!document.body.classList.contains('light'))}})})();
+    // theme: default dark; respect saved choice
+    (function(){
+      const w=document.getElementById('switch');
+      const saved=localStorage.getItem('theme'); // null => dark by default
+      if(saved==='light'){document.body.classList.add('light');w.classList.add('on');w.setAttribute('aria-checked','true')}
+      function set(l){document.body.classList.toggle('light',l);w.classList.toggle('on',l);w.setAttribute('aria-checked',l?'true':'false');localStorage.setItem('theme',l?'light':'dark')}
+      w.addEventListener('click',()=>set(!document.body.classList.contains('light')));
+      w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set(!document.body.classList.contains('light'))}})
+    })();
 
     // type (with glow on final line)
     (function(){const el=document.getElementById('typewrite');const P=["We bring you a reliable IT solutions","We ensure your security protections","We keep your systems steady","We simplify your daily IT","We Guiding Technology with Care"];const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}x()})();
@@ -612,4 +622,3 @@
   </script>
 </body>
 </html>
-
