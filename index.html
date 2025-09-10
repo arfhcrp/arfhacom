@@ -777,76 +777,104 @@
   </script>
 
   <!-- LANG: Language switching (text + placeholders + hrefs) -->
-  <script nonce="ARF123">
-    (function(){
-      const html=document.documentElement;
-      const langBtn=document.getElementById('langBtn');
-      const langMenu=document.getElementById('langMenu');
-      const waFab=document.getElementById('waFab');
-      const typeEN=document.getElementById('typewrite');
-      const typeID=document.getElementById('typewrite-id');
-      const texts=[...document.querySelectorAll('[data-en]')];
-      const attrNodes=[...document.querySelectorAll('[data-i18n-attr]')];
+<script nonce="ARF123">
+  (function(){
+    const html=document.documentElement;
+    const langBtn=document.getElementById('langBtn');
+    const langMenu=document.getElementById('langMenu');
+    const typeEN=document.getElementById('typewrite');
+    const typeID=document.getElementById('typewrite-id');
 
-      // initial language
-      const saved=localStorage.getItem('lang')||'en';
-      applyLang(saved);
+    // EXCLUDE form controls + nodes that use data-i18n-attr (we only swap attributes for those)
+    const texts=[...document.querySelectorAll('[data-en]:not([data-i18n-attr]):not(input):not(textarea):not(select)')];
+    const attrNodes=[...document.querySelectorAll('[data-i18n-attr]')];
 
-      // toggle menu open/close
-      langBtn.addEventListener('click',()=> {
-        const open = langMenu.style.display==='block';
-        langMenu.style.display = open ? 'none' : 'block';
-        langBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    // initial language
+    const saved=localStorage.getItem('lang')||'en';
+    applyLang(saved);
+
+    // toggle menu open/close
+    langBtn.addEventListener('click',()=> {
+      const open = langMenu.style.display==='block';
+      langMenu.style.display = open ? 'none' : 'block';
+      langBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+    document.addEventListener('click',(e)=>{
+      if(!e.target.closest('#langDropdown')){ langMenu.style.display='none'; langBtn.setAttribute('aria-expanded','false'); }
+    });
+
+    // choose language
+    langMenu.querySelectorAll('li').forEach(li=>{
+      li.addEventListener('click',()=>{
+        const lang=li.getAttribute('data-lang');
+        applyLang(lang);
+        localStorage.setItem('lang',lang);
+        langMenu.style.display='none';
+        langBtn.setAttribute('aria-expanded','false');
       });
-      document.addEventListener('click',(e)=>{
-        if(!e.target.closest('#langDropdown')){ langMenu.style.display='none'; langBtn.setAttribute('aria-expanded','false'); }
+    });
+
+    function applyLang(lang){
+      // swap textContent for non-form nodes
+      texts.forEach(el=>{
+        const v=el.getAttribute('data-'+lang);
+        if(v!=null) el.textContent=v;
       });
 
-      // choose language
-      langMenu.querySelectorAll('li').forEach(li=>{
-        li.addEventListener('click',()=>{
-          const lang=li.getAttribute('data-lang');
-          applyLang(lang);
-          localStorage.setItem('lang',lang);
-          langMenu.style.display='none';
-          langBtn.setAttribute('aria-expanded','false');
-        });
-      });
-
-      function applyLang(lang){
-        // swap textContent
-        texts.forEach(el=>{
+      // swap attributes (placeholder, href, etc.)
+      attrNodes.forEach(el=>{
+        const attr=el.getAttribute('data-i18n-attr');
+        if(attr==='placeholder'){
           const v=el.getAttribute('data-'+lang);
-          if(v!=null) el.textContent=v;
-        });
+          if(v!=null) el.setAttribute('placeholder', v);
 
-        // swap attributes (placeholder, href, etc.)
-        attrNodes.forEach(el=>{
-          const attr=el.getAttribute('data-i18n-attr');
-          if(attr==='placeholder'){
-            const v=el.getAttribute('data-'+lang);
-            if(v!=null) el.setAttribute('placeholder', v);
-          }else if(attr==='href'){
-            const v=el.getAttribute('data-'+lang+'-href');
-            if(v!=null) el.setAttribute('href', v);
+          // Special: ensure the project textarea stays EMPTY as a field for typing
+          if(el.name==='project'){
+            const en=el.getAttribute('data-en')||'Project summary';
+            const id=el.getAttribute('data-id')||'Ringkasan proyek';
+            if(!el.value || el.value.trim()===en || el.value.trim()===id){
+              el.value='';
+            }
           }
-        });
-
-        // tooltip text
-        const tip=document.querySelector('.tooltip');
-        if(tip && tip.hasAttribute('data-'+lang)){ tip.textContent=tip.getAttribute('data-'+lang); }
-
-        // typewriter visibility
-        if(typeEN && typeID){
-          if(lang==='id'){ typeEN.classList.add('hidden'); typeID.classList.remove('hidden'); }
-          else { typeID.classList.add('hidden'); typeEN.classList.remove('hidden'); }
+        }else if(attr==='href'){
+          const v=el.getAttribute('data-'+lang+'-href');
+          if(v!=null) el.setAttribute('href', v);
         }
+      });
 
-        // button label and <html lang>
-        langBtn.textContent = lang==='id' ? '🇮🇩 ID' : '🇬🇧 EN';
-        html.setAttribute('lang', lang);
+      // typewriter visibility
+      if(typeEN && typeID){
+        if(lang==='id'){ typeEN.classList.add('hidden'); typeID.classList.remove('hidden'); }
+        else { typeID.classList.add('hidden'); typeEN.classList.remove('hidden'); }
       }
-    })();
-  </script>
+
+      // button label and <html lang>
+      langBtn.textContent = lang==='id' ? '🇮🇩 ID' : '🇬🇧 EN';
+      html.setAttribute('lang', lang);
+    }
+  })();
+</script>
+<script nonce="ARF123">
+  (function(){
+    const form=document.getElementById('quoteForm');
+    if(!form) return;
+    const ta=form.querySelector('textarea[name="project"]');
+    if(!ta) return;
+
+    // When user focuses, clear helper text if it somehow became value
+    function clearIfHelper(){
+      const en=ta.getAttribute('data-en')||'Project summary';
+      const id=ta.getAttribute('data-id')||'Ringkasan proyek';
+      if(ta.value.trim()===en || ta.value.trim()===id){ ta.value=''; }
+    }
+    ta.addEventListener('focus', clearIfHelper);
+
+    // When pressing Clear, force the textarea back to truly empty
+    form.addEventListener('reset', ()=>{
+      // let native reset run first, then hard-clear
+      setTimeout(()=>{ ta.value=''; }, 0);
+    });
+  })();
+</script>
 </body>
 </html>
