@@ -19,7 +19,7 @@
     "title": "Tentang Kami",
     "who": {
       "title": "Siapa kami",
-      "text": "Arfhacom adalah perusahaan Teknologi Informasi yang dipimpin oleh engineer dengan pengalaman di lingkungan lokal dan internasional. Kami fokus pada delivery yang andal, solusi praktis, dan keandalan jangka panjang."
+      "text": "Arfhacom adalah perusahaan Teknologi Informasi yang di inisiasi sejak 2011 oleh engineer dengan pengalaman di lingkungan lokal dan internasional. Kami fokus pada delivery yang andal, solusi praktis, dan keandalan jangka panjang."
     },
     "what": {
       "title": "Apa yang kami lakukan",
