@@ -61,19 +61,25 @@ CADDY:
   <meta name="twitter:description" content="Reliable IT services in support, infrastructure, systems, security, and training." />
   <meta name="twitter:image" content="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'&gt;&lt;/svg&gt;" />
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
+  <!-- JSON-LD (now allowed by CSP via nonce) -->
+  <script type="application/ld+json" nonce="ARF123">
   {"@context":"https://schema.org","@type":"Organization","name":"Arfhacom","url":"https://arfha.com/","email":"hello@arfhacorp.com","address":{"@type":"PostalAddress","addressLocality":"Kota Bogor","addressRegion":"West Java","addressCountry":"Indonesia","postalCode":"16112"}}
   </script>
+
+  <!-- Best-effort fallbacks for scanners on GitHub Pages (real enforcement needs response headers) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
 
   <!-- CSP (tight, externalized assets only) -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self';
+    script-src 'self' 'nonce-ARF123';
     style-src 'self';
     img-src 'self' data:;
     font-src 'self';
     connect-src 'self';
+    frame-src 'none';
     frame-ancestors 'none';
     base-uri 'self';
     form-action 'self' mailto:;
