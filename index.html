@@ -28,41 +28,259 @@
   <meta name="twitter:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'></svg>" />
 
   <!-- JSON-LD -->
-  <script type="application/ld+json">
+  <script type="application/ld+json" nonce="ARF123">
   {"@context":"https://schema.org","@type":"Organization","name":"Arfhacom","url":"https://arfha.com/","email":"hello@arfhacorp.com","address":{"@type":"PostalAddress","addressLocality":"Kota Bogor","addressRegion":"West Java","addressCountry":"Indonesia","postalCode":"16112"}}
   </script>
 
-  <!-- Security headers as meta (best-effort for scanners; enforce via server/edge headers) -->
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-
-  <!-- Strong CSP -->
+  <!-- CSP -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self';
-    style-src 'self';
-    img-src 'self' data:;
+    script-src 'self' 'nonce-ARF123';
+    style-src 'self' 'nonce-ARF123';
+    img-src 'self' data: https:;
     connect-src 'self';
     font-src 'self';
     frame-ancestors 'none';
-    frame-src 'none';
     base-uri 'self';
-    form-action 'self' mailto:;
     object-src 'none';
     upgrade-insecure-requests
   ">
 
-  <link rel="preload" href="/assets/styles.css" as="style">
-  <link rel="stylesheet" href="/assets/styles.css">
-</head>
+  <!-- Styles -->
+  <style nonce="ARF123">
+    :root{
+      --bg:#0b0e0c; --ink:#eaf2ef; --muted:#a6b3ad;
+      --pine:#0e3b2e; --emerald:#10b981; --card:#0f1412;
+      --shadow:0 10px 30px rgba(0,0,0,.35); --radius:16px;
+      --maxw:1180px; --black:#0b0e0c; --white:#ffffff;
+      --font:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, Arial, sans-serif;
+      --logoH:56px; --logoGap:24px;
+    }
+    @font-face{font-family:'Inter';src:url('fonts/Inter-Variable.woff2') format('woff2-variations');font-weight:100 900;font-style:normal;font-display:swap}
+    @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+    *{box-sizing:border-box}
 
+    /* Dark (background used when toggled) */
+    body{
+      margin:0; color:var(--ink);
+      background:
+        radial-gradient(1000px 600px at 12% -10%, rgba(20,184,166,.14), transparent 60%),
+        radial-gradient(900px 600px at 88% 0%, rgba(16,185,129,.10), transparent 60%),
+        radial-gradient(900px 600px at 50% 110%, rgba(20,184,166,.10), transparent 60%),
+        linear-gradient(180deg,#0b0e0c 0%, #0f1613 45%, #0a0f0d 100%);
+      font-family:var(--font); line-height:1.55; overflow-x:hidden; position:relative;
+    }
+    body::after{content:""; position:fixed; inset:0; z-index:-1;
+      background:radial-gradient(60% 50% at 50% 40%, rgba(0,0,0,0) 0%, rgba(0,0,0,.22) 70%, rgba(0,0,0,.45) 100%)}
+    a{color:inherit; text-decoration:none} img{max-width:100%; display:block}
+
+    /* Header */
+    header{position:fixed; inset:0 0 auto 0; height:72px; z-index:1000; display:flex; align-items:center;
+      background:linear-gradient(to bottom, rgba(14,59,46,.9), rgba(14,59,46,0)); backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 18px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; flex-direction:column; line-height:1}
+    .logo{display:inline-flex; gap:0; font-weight:800; letter-spacing:.2px; font-size:20px; align-items:baseline}
+    .logo .arfha{color:#fff} .logo .com{color:var(--emerald)}
+    /* underscore element: hidden at top, green in all modes */
+    .logo .underscore{display:none; color:var(--emerald); margin-left:1px; line-height:1}
+    /* when scrolled, show underscore with blinking caret animation */
+    body.scrolled .logo .underscore{display:inline-block; animation:blink 1s steps(1,end) infinite}
+
+    .subtag{font-style:italic; font-size:12px; color:var(--muted); margin-top:4px}
+    header nav a{margin:0 10px; color:#fff; font-weight:600; font-size:14px}
+
+    /* Menu (mobile-only drawer) */
+    .menu-btn{display:none; gap:8px; align-items:center; border:1px solid rgba(255,255,255,.16);
+      padding:8px 12px; border-radius:12px; background:#0f1412; color:#fff; cursor:pointer}
+    .menu-btn .icon{width:18px; height:18px}
+    .backdrop{position:fixed; inset:0; background:rgba(0,0,0,.35); display:none; z-index:1001}
+    .backdrop.show{display:block}
+    .drawer{position:fixed; inset:72px 0 auto 0; background:rgba(9,17,14,.96);
+      border-bottom:1px solid rgba(255,255,255,.08); display:none; z-index:1002}
+    .drawer a{display:block; padding:14px 20px; border-top:1px solid rgba(255,255,255,.06); color:#fff}
+    .drawer.show{display:block}
+
+    /* Theme toggle */
+    .toggle{display:flex; align-items:center; gap:8px}
+    .icon{width:18px; height:18px; display:inline-block}
+    .switch{--track:#22322b; --thumb:#eaf2ef; position:relative; width:42px; height:24px; border-radius:999px;
+      background:var(--track); cursor:pointer; border:1px solid rgba(255,255,255,.15); box-shadow:inset 0 0 0 2px rgba(0,0,0,.05)}
+    .switch .knob{position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%; background:var(--thumb);
+      transition:transform .25s ease; box-shadow:0 2px 6px rgba(0,0,0,.25)}
+    .switch.on .knob{transform:translateX(18px)}
+
+    /* Sections (tighter) */
+    .section{padding:80px 18px 70px}
+    .hero{padding-top:120px; padding-bottom:60px}
+    .wrap{max-width:var(--maxw); margin:0 auto; transition:border-color .2s ease, box-shadow .2s ease; border-radius:16px}
+    @media(hover:hover){ .section:hover .wrap{ box-shadow:0 0 0 2px rgba(16,185,129,.18) } }
+
+    h1,h2,h3{margin:0 0 10px} h1{font-size:44px; line-height:1.1} h2{font-size:32px} h3{font-size:20px}
+    .sub{color:var(--muted); margin-bottom:16px}
+
+    /* Hero typing */
+    .type{font-size:42px; line-height:1.15; font-weight:800; letter-spacing:.2px; min-height:2.6em; position:relative}
+    .type .caret{display:inline-block; width:8px; height:1.1em; background:var(--emerald); vertical-align:-.15em; margin-left:2px; animation:blink 1s steps(1,end) infinite}
+    @keyframes blink{50%{opacity:0}}
+    .glow{ text-shadow:0 0 6px rgba(16,185,129,.55), 0 0 14px rgba(16,185,129,.45), 0 0 28px rgba(20,184,166,.35) }
+
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; font-weight:800;
+      border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(135deg,var(--pine),var(--emerald)); color:#0b0e0c; border:none}
+
+    /* Generic cards (About/Contact) */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{padding:18px; min-height:150px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(160deg,var(--card), rgba(15,21,18,.6)); transition:transform .3s ease, border-color .3s ease;
+      display:flex; flex-direction:column}
+    .card:hover{transform:translateY(-3px); border-color:rgba(16,185,129,.35)}
+    .card .row{display:flex; align-items:center; gap:12px}
+    .card .icon{width:22px; height:22px; color:var(--emerald)}
+    /* justify text (About & Services) */
+    .card p, .face p{ text-align:justify; text-justify:inter-word; hyphens:auto }
+
+    /* About equal heights only */
+    .about-cards{align-items:stretch}
+    .about-cards > .card{height:100%}
+
+    /* Flip cards (Services only) */
+    .flip{perspective:1000px}
+    .flip-inner{position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s}
+    .flip:hover .flip-inner,.flip:focus-within .flip-inner{transform:rotateY(180deg)}
+    .face{padding:18px; min-height:150px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(160deg,var(--card), rgba(15,21,18,.6)); backface-visibility:hidden; display:flex; flex-direction:column}
+    .back{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transform:rotateY(180deg)}
+    .face .row{display:flex; align-items:center; gap:12px}
+    .face .icon{width:22px; height:22px; color:var(--emerald)}
+    .back .icon{width:56px; height:56px; color:var(--emerald); opacity:.9}
+
+    /* Bismillah */
+    .bismillah{margin:10px 0 16px; text-align:center}
+    .bismillah-ar{font-size:28px; line-height:1.7; margin-top:4px; font-family:'Amiri','Scheherazade New','Times New Roman',serif}
+
+    /* Testimonials */
+    .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .quote-card{position:relative; padding:26px 24px 32px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:var(--card); box-shadow:var(--shadow)}
+    .quote-card::after{content:""; position:absolute; bottom:-10px; left:46px; width:18px; height:18px; transform:rotate(45deg); background:var(--card); border-bottom:1px solid rgba(255,255,255,.10); border-right:1px solid rgba(255,255,255,.10)}
+    .quote-top{display:flex; align-items:center; gap:10px; margin-bottom:10px}
+    .quote-top svg{width:20px; height:20px; color:var(--emerald)}
+    blockquote{margin:0; color:var(--ink)} .quote-foot{margin-top:12px; color:var(--muted); font-size:14px}
+
+    /* Past Work grid */
+    .logos-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:var(--logoGap); place-items:center}
+    .logo-wrap{height:calc(var(--logoH) + 24px); display:flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:12px; transition:transform .25s ease, box-shadow .25s ease}
+    .logo-wrap img{height:var(--logoH); width:auto; object-fit:contain; filter:grayscale(100%) opacity(.85); transition:filter .25s ease, opacity .25s ease}
+    .logo-wrap:hover img{filter:none; opacity:1}
+    .logo-wrap:hover{box-shadow:0 0 0 2px rgba(16,185,129,.55), 0 0 18px rgba(16,185,129,.25); transform:translateY(-2px)}
+
+    /* Contact / form */
+    .contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
+    form{display:grid; gap:10px; padding:16px; border:1px solid rgba(255,255,255,.08); border-radius:14px; background:var(--card)}
+    input,textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0c110f; color:var(--ink); font:inherit; outline:none}
+    input:focus,textarea:focus{border-color:rgba(16,185,129,.6)} textarea{min-height:120px; resize:vertical}
+    .info{padding:16px; border:1px solid rgba(255,255,255,.08); border-radius:14px; background:var(--card)}
+    .list{margin:0; padding-left:18px} .list li{margin:6px 0; color:var(--muted)}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(16px); transition:all .7s cubic-bezier(.2,.8,.2,1)} .reveal.show{opacity:1; transform:none}
+
+    /* WhatsApp FAB (solid) */
+    .fab{position:fixed; right:18px; bottom:18px; z-index:998; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 20px rgba(0,0,0,.35); cursor:pointer; transition:transform .2s ease}
+    .fab:hover{transform:scale(1.06)}
+    .tooltip{position:fixed; right:88px; bottom:28px; background:#0a0f0d; color:#fff; padding:6px 10px; border-radius:8px; font-size:12px; border:1px solid rgba(255,255,255,.12); opacity:0; transform:translateY(4px); pointer-events:none; transition:.2s ease; white-space:nowrap}
+    .fab:hover ~ .tooltip{opacity:1; transform:none}
+    @keyframes fabNudge{0%{transform:translate(0,0)}12%{transform:translate(-2px,-2px)}24%{transform:translate(2px,0)}36%{transform:translate(0,2px)}48%{transform:translate(-1px,0)}60%{transform:translate(0,-1px)}72%{transform:translate(1px,1px)}100%{transform:translate(0,0)}}
+    .fab.nudging{animation:fabNudge 1200ms ease-in-out}
+
+    /* Top */
+    .to-top{position:fixed; right:18px; bottom:88px; z-index:997; width:46px; height:46px; border-radius:50%; display:none; align-items:center; justify-content:center; background:#0f1412; border:1px solid rgba(255,255,255,.16); box-shadow:var(--shadow); cursor:pointer}
+    .to-top svg{width:20px; height:20px; color:var(--ink)}
+    .to-top.show{display:flex}
+
+    /* Footer */
+    footer{padding:24px 18px; border-top:1px solid rgba(255,255,255,.08); background:#09110e; color:var(--muted)}
+    .foot{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    footer a{color:var(--muted) !important}
+
+    /* Preloader */
+    #preloader{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px; z-index:2000; background:#0b0e0c; color:#eaf2ef}
+    .light #preloader{background:#fff; color:#0b0e0c}
+    .loader{display:flex; gap:6px}
+    .loader .bar{width:6px; height:26px; border-radius:6px; background:currentColor; opacity:.3; animation:bars 1s ease-in-out infinite}
+    .loader .bar:nth-child(2){animation-delay:.15s}
+    .loader .bar:nth-child(3){animation-delay:.3s}
+    @keyframes bars{0%,80%,100%{transform:scaleY(.5); opacity:.3}40%{transform:scaleY(1.2); opacity:1}}
+    .txt{font-weight:700; letter-spacing:.4px}
+
+    /* Light (default; no gradient bg) */
+    body.light{color:var(--black); background:#fff}
+    body.light::after{background:none}
+    body.light header{background:#fff; border-bottom:1px solid rgba(0,0,0,.08); backdrop-filter:none}
+    body.light header nav a{color:var(--black)}
+    body.light .logo .arfha{color:var(--black)}
+    body.light .menu-btn{color:var(--black); border-color:rgba(0,0,0,.16); background:#fff}
+    body.light .backdrop{background:rgba(0,0,0,.25)}
+    body.light .drawer{background:#fff; border-bottom:1px solid rgba(0,0,0,.10)}
+    body.light .drawer a{color:var(--black)}
+    #sunIcon{color:var(--ink)} body.light #sunIcon{color:#facc15}
+
+    body.light .wrap{background:#fff; border:1px solid var(--pine); padding:18px}
+    body.light .card, body.light .info, body.light form{background:#fff; border-color:rgba(0,0,0,.10)}
+    body.light .quote-card{background:#fff; border-color:transparent; box-shadow:none}
+    body.light .quote-card::after{background:#fff; border-color:transparent}
+    body.light .face{background:#fff; border-color:rgba(0,0,0,.10)}
+    body.light .list li, body.light .sub, body.light h1, body.light h2, body.light h3, body.light p, body.light a{color:var(--black)}
+    body.light input, body.light textarea{background:#fff; color:#000; border:1px solid rgba(0,0,0,.18)}
+    body.light input::placeholder, body.light textarea::placeholder{color:#333}
+    body.light input:focus, body.light textarea:focus{border-color:var(--pine); box-shadow:0 0 0 3px rgba(16,185,129,.18)}
+    body.light .btn{background:#fff; border:1px solid rgba(0,0,0,.12); color:var(--black); box-shadow:none}
+    body.light .btn.primary{background:var(--emerald); color:var(--black); border:1px solid var(--pine)}
+    body.light .tooltip{background:#2b2f2d}
+
+    /* Menu hover (all modes) */
+    header nav a, .drawer a, footer a{transition:color .18s ease}
+    header nav a:hover, header nav a:focus-visible, .drawer a:hover, .drawer a:focus-visible, footer a:hover, footer a:focus-visible{color:var(--emerald) !important}
+
+    /* RWD + mobile-only drawer */
+    @media (max-width:980px){
+      header nav{display:none}         /* top menu hidden on mobile */
+      .menu-btn{display:inline-flex}   /* drawer visible only on mobile */
+      .cards, .contact-grid, .quotes{grid-template-columns:1fr}
+      .logos-grid{grid-template-columns:repeat(2,1fr)}
+      h1{font-size:36px}
+      :root{--logoH:48px; --logoGap:18px}
+    }
+    @media (max-width:560px){
+      .type{font-size:30px}
+      :root{--logoH:42px; --logoGap:16px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .fab:hover{transform:none} .fab.nudging{animation:none}
+      body.scrolled .logo .underscore{animation:none}
+      .type .caret{animation:none}
+    }
+
+    /* LANG: dropdown styles */
+    .lang-dropdown{position:relative}
+    .lang-btn{background:#0f1412;border:1px solid rgba(255,255,255,.16);padding:6px 10px;border-radius:10px;color:#fff;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px}
+    .lang-menu{display:none;position:absolute;top:100%;right:0;background:#0f1412;border:1px solid rgba(255,255,255,.16);border-radius:8px;margin-top:6px;list-style:none;padding:6px 0;min-width:150px;z-index:1200}
+    .lang-menu li{padding:8px 12px;cursor:pointer;color:#fff;white-space:nowrap}
+    .lang-menu li:hover{background:rgba(16,185,129,.3)}
+    body.light .lang-btn{background:#fff;border-color:rgba(0,0,0,.16);color:#000}
+    body.light .lang-menu{background:#fff;border-color:rgba(0,0,0,.16)}
+    body.light .lang-menu li{color:#000}
+    /* LANG: helper to hide/show bilingual typewriters */
+    .hidden{display:none !important}
+  </style>
+</head>
 <!-- default LIGHT theme -->
 <body class="light">
   <!-- Preloader -->
   <div id="preloader" aria-live="polite" aria-busy="true">
     <div class="loader" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-    <div class="txt" data-i18n="preloader_loading">Loading…</div>
+    <div class="txt" data-en="Loading…" data-id="Memuat…">Loading…</div>
   </div>
 
   <header>
@@ -71,58 +289,53 @@
         <a href="#home" class="logo" aria-label="Arfhacom Home">
           <span class="arfha">Arfha</span><span class="com">com</span><span class="underscore" aria-hidden="true">_</span>
         </a>
-        <span class="subtag" data-i18n="brand_subtag">IT Solutions Integrator</span>
+        <span class="subtag" data-en="IT Solutions Integrator" data-id="Integrator Solusi IT">IT Solutions Integrator</span>
       </div>
 
       <!-- Desktop/tablet top menu -->
       <nav aria-label="Primary">
-        <a href="#home" data-i18n="nav_home">Home</a>
-        <a href="#about" data-i18n="nav_about">About Us</a>
-        <a href="#services" data-i18n="nav_services">Services</a>
-        <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
-        <a href="#pastwork" data-i18n="nav_pastwork">Past Work</a>
-        <a href="#quote" data-i18n="nav_quote">Get Quote</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="#home" data-en="Home" data-id="Beranda">Home</a>
+        <a href="#about" data-en="About Us" data-id="Tentang Kami">About Us</a>
+        <a href="#services" data-en="Services" data-id="Layanan">Services</a>
+        <a href="#testimonials" data-en="Testimonials" data-id="Testimoni">Testimonials</a>
+        <a href="#pastwork" data-en="Past Work" data-id="Portofolio">Past Work</a>
+        <a href="#quote" data-en="Get Quote" data-id="Dapatkan Penawaran">Get Quote</a>
+        <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
       </nav>
 
       <!-- Mobile-only slider menu trigger -->
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <span data-i18n="menu">Menu</span>
+        <span data-en="Menu" data-id="Menu">Menu</span>
       </button>
 
-      <!-- Theme toggle + Language dropdown -->
-      <div class="toggles">
-        <div class="toggle" aria-label="Theme toggle">
-          <svg class="icon" id="sunIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.6 5.6 4.2 4.2m15.6 15.6-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
-          <div class="switch" id="switch" role="switch" aria-checked="true" tabindex="0"><div class="knob"></div></div>
-          <svg class="icon" id="moonIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
-        </div>
+      <!-- Theme toggle -->
+      <div class="toggle" aria-label="Theme toggle">
+        <svg class="icon" id="sunIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.6 5.6 4.2 4.2m15.6 15.6-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+        <div class="switch" id="switch" role="switch" aria-checked="true" tabindex="0"><div class="knob"></div></div>
+        <svg class="icon" id="moonIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
 
-        <!-- Language dropdown (flags via emoji to avoid external images) -->
-        <div class="lang" id="langControl">
-          <button id="langBtn" class="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
-            <span class="flag" id="langFlag">🇬🇧</span>
-            <span id="langCode">EN</span>
-            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="currentColor"/></svg>
-          </button>
-          <ul id="langList" class="lang-list" role="listbox" aria-label="Choose language">
-            <li role="option" data-lang="en">🇬🇧 EN — English</li>
-            <li role="option" data-lang="id">🇮🇩 ID — Indonesia</li>
+        <!-- LANG: Language dropdown -->
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">🇬🇧 EN</button>
+          <ul id="langMenu" class="lang-menu" role="listbox" aria-label="Select language">
+            <li data-lang="en" role="option" aria-selected="true">🇬🇧 English</li>
+            <li data-lang="id" role="option">🇮🇩 Indonesia</li>
           </ul>
         </div>
+        <!-- /LANG -->
       </div>
     </div>
 
     <!-- Mobile drawer -->
     <div class="backdrop" id="backdrop" tabindex="-1" aria-hidden="true"></div>
     <div class="drawer" id="drawer">
-      <a href="#about" data-i18n="nav_about">About Us</a>
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
-      <a href="#pastwork" data-i18n="nav_pastwork">Past Work</a>
-      <a href="#quote" data-i18n="nav_quote">Get Quote</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <a href="#about" data-en="About Us" data-id="Tentang Kami">About Us</a>
+      <a href="#services" data-en="Services" data-id="Layanan">Services</a>
+      <a href="#testimonials" data-en="Testimonials" data-id="Testimoni">Testimonials</a>
+      <a href="#pastwork" data-en="Past Work" data-id="Portofolio">Past Work</a>
+      <a href="#quote" data-en="Get Quote" data-id="Dapatkan Penawaran">Get Quote</a>
+      <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
     </div>
   </header>
 
@@ -130,10 +343,14 @@
     <!-- HERO -->
     <section class="hero section">
       <div class="wrap">
+        <!-- Original typewriter (EN) kept as-is -->
         <div id="typewrite" class="type reveal"><span class="caret" aria-hidden="true"></span></div>
+        <!-- LANG: Indonesian typewriter (hidden by default, shown when lang=id) -->
+        <div id="typewrite-id" class="type reveal hidden"><span class="caret" aria-hidden="true"></span></div>
+        <!-- /LANG -->
         <div class="cta-row reveal">
-          <a class="btn primary" href="#quote" rel="noopener" data-i18n="hero_cta_quote">Get a Quote</a>
-          <a class="btn" href="#services" rel="noopener" data-i18n="hero_cta_services">Explore Services</a>
+          <a class="btn primary" href="#quote" rel="noopener" data-en="Get a Quote" data-id="Dapatkan Penawaran">Get a Quote</a>
+          <a class="btn" href="#services" rel="noopener" data-en="Explore Services" data-id="Lihat Layanan">Explore Services</a>
         </div>
       </div>
     </section>
@@ -141,7 +358,7 @@
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="wrap">
-        <h2 class="reveal" data-i18n="about_heading">About Us</h2>
+        <h2 class="reveal" data-en="About Us" data-id="Tentang Kami">About Us</h2>
 
         <!-- Bismillah (Arabic only) -->
         <div class="bismillah reveal" aria-label="Bismillah">
@@ -152,25 +369,34 @@
           <div class="card reveal">
             <div class="row">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h2v6h-2z" fill="currentColor"/></svg>
-              <h3 data-i18n="about_who_title">Who we are</h3>
+              <h3 data-en="Who we are" data-id="Siapa kami">Who we are</h3>
             </div>
-            <p data-i18n="about_who_body">Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.</p>
+            <p data-en="Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability."
+               data-id="Arfhacom adalah perusahaan Teknologi Informasi yang dipimpin oleh engineer berpengalaman di lingkungan lokal dan internasional. Kami berfokus pada delivery yang andal, solusi praktis, dan keandalan jangka panjang.">
+              Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.
+            </p>
           </div>
 
           <div class="card reveal">
             <div class="row">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6V4h6v2M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              <h3 data-i18n="about_what_title">What we do</h3>
+              <h3 data-en="What we do" data-id="Apa yang kami lakukan">What we do</h3>
             </div>
-            <p data-i18n="about_what_body">We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism. Our focus is on UMKM and mid-market organizations, and we’re also open to supporting upper-level/enterprise needs.</p>
+            <p data-en="We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism. Our focus is on UMKM and mid-market organizations, and we’re also open to supporting upper-level/enterprise needs."
+               data-id="Kami menangani helpdesk IT, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT—ditangani dengan cermat dan profesional. Fokus kami UMKM dan organisasi menengah, namun kami juga siap mendukung kebutuhan level enterprise.">
+              We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism. Our focus is on UMKM and mid-market organizations, and we’re also open to supporting upper-level/enterprise needs.
+            </p>
           </div>
 
           <div class="card reveal">
             <div class="row">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17s-3-1.9-3-4a2 2 0 0 1 4 0 2 2 0  0 1 4 0c0 2.1-3 4-3 4z" fill="currentColor"/></svg>
-              <h3 data-i18n="about_how_title">How we work</h3>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17s-3-1.9-3-4a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 2.1-3 4-3 4z" fill="currentColor"/></svg>
+              <h3 data-en="How we work" data-id="Cara kami bekerja">How we work</h3>
             </div>
-            <p data-i18n="about_how_body">We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility. We prioritize open-source solutions first and remain flexible with recommendations to match business and customer needs.</p>
+            <p data-en="We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility. We prioritize open-source solutions first and remain flexible with recommendations to match business and customer needs."
+               data-id="Kami bekerja dengan integritas dan rasa hormat, memilih proyek yang selaras dengan nilai kami sambil melayani klien dengan jelas dan bertanggung jawab. Kami memprioritaskan solusi open-source terlebih dahulu dan tetap fleksibel untuk menyesuaikan rekomendasi dengan kebutuhan bisnis dan pelanggan.">
+              We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility. We prioritize open-source solutions first and remain flexible with recommendations to match business and customer needs.
+            </p>
           </div>
         </div>
       </div>
@@ -179,7 +405,7 @@
     <!-- SERVICES (flip cards) -->
     <section class="section" id="services">
       <div class="wrap">
-        <h2 class="reveal" data-i18n="services_heading">Services</h2>
+        <h2 class="reveal" data-en="Services" data-id="Layanan">Services</h2>
         <div class="cards">
           <!-- Helpdesk -->
           <div class="flip reveal" tabindex="0">
@@ -187,9 +413,12 @@
               <div class="face">
                 <div class="row">
                   <svg class="icon" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 16 0v6a2 2 0 0 1-2 2h-3v-3h3v-5a6 6 0 1 0-12 0v5h3v3H6a2 2 0 0 1-2-2v-6z" fill="currentColor"/></svg>
-                  <h3 data-i18n="services_helpdesk_title">IT Helpdesk & Support</h3>
+                  <h3 data-en="IT Helpdesk & Support" data-id="Helpdesk & Dukungan IT">IT Helpdesk & Support</h3>
                 </div>
-                <p data-i18n="services_helpdesk_body">We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business.</p>
+                <p data-en="We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business."
+                   data-id="Kami merancang dan menerapkan solusi helpdesk berdasarkan praktik terbaik ITIL. Layanan mencakup sistem tiket, dukungan jarak jauh, alur onboarding/offboarding, penyusunan knowledge base, dan manajemen SLA. Hasilnya respons lebih cepat, proses terstruktur, dan fondasi support yang andal untuk bisnis Anda.">
+                  We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business.
+                </p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -203,9 +432,12 @@
               <div class="face">
                 <div class="row">
                   <svg class="icon" viewBox="0 0 24 24"><circle cx="5" cy="12" r="3" fill="currentColor"/><circle cx="19" cy="5" r="3" fill="currentColor"/><circle cx="19" cy="19" r="3" fill="currentColor"/><path d="M8 12h7M17 7l-2 5m2 5l-2-5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                  <h3 data-i18n="services_network_title">Networks & Infrastructure</h3>
+                  <h3 data-en="Networks & Infrastructure" data-id="Jaringan & Infrastruktur">Networks & Infrastructure</h3>
                 </div>
-                <p data-i18n="services_network_body">We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth.</p>
+                <p data-en="We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth."
+                   data-id="Kami merancang dan membangun jaringan yang aman, skalabel, dan andal dari nol. Layanan mencakup penarikan kabel terstruktur, perencanaan rack dan topologi, konfigurasi switch/router/firewall, hingga solusi jaringan lengkap dari konektivitas lokal sampai integrasi antar-site. Dengan monitoring dan dokumentasi yang tepat, kami menghadirkan infrastruktur yang siap mendukung pertumbuhan bisnis jangka panjang.">
+                  We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth.
+                </p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M7 7l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -219,9 +451,12 @@
               <div class="face">
                 <div class="row">
                   <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="7" r="1.2" fill="currentColor"/><circle cx="8" cy="17" r="1.2" fill="currentColor"/></svg>
-                  <h3 data-i18n="services_syscloud_title">System & Cloud Administration</h3>
+                  <h3 data-en="System & Cloud Administration" data-id="Administrasi Sistem & Cloud">System & Cloud Administration</h3>
                 </div>
-                <p data-i18n="services_syscloud_body">We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs.</p>
+                <p data-en="We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs."
+                   data-id="Kami mengelola server, aplikasi, dan platform cloud Anda agar tetap stabil dan aman. Mulai dari manajemen user, update, dan backup hingga deployment, monitoring, dan automasi—kami memastikan lingkungan IT berjalan mulus dan adaptif dengan kebutuhan bisnis.">
+                  We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs.
+                </p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M4 15h16M7 11h10M9 7h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -235,9 +470,12 @@
               <div class="face">
                 <div class="row">
                   <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 5-4 9-8 9s-8-4-8-9V7l8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                  <h3 data-i18n="services_cyber_title">Cybersecurity</h3>
+                  <h3 data-en="Cybersecurity" data-id="Keamanan Siber">Cybersecurity</h3>
                 </div>
-                <p data-i18n="services_cyber_body">We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience.</p>
+                <p data-en="We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience."
+                   data-id="Kami fokus memperkuat pertahanan dan memastikan bisnis Anda siap menghadapi ancaman modern. Layanan meliputi hardening sistem, penilaian kerentanan, proteksi endpoint, dan monitoring. Kami membantu organisasi membangun fungsi CSIRT dan rencana Incident Response berbasis kerangka NIST, dilengkapi skenario tabletop exercise (TTX). Kami juga dapat membantu membangun Security Operations Center (SOC) untuk meningkatkan deteksi, respons, dan ketahanan keamanan jangka panjang.">
+                  We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience.
+                </p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6a9 9 0 0 1-14 7 9 9 0 0 1-3-7V6l10-4z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
@@ -251,9 +489,12 @@
               <div class="face">
                 <div class="row">
                   <svg class="icon" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v7" stroke="currentColor" stroke-width="2"/></svg>
-                  <h3 data-i18n="services_training_title">IT Training</h3>
+                  <h3 data-en="IT Training" data-id="Pelatihan IT">IT Training</h3>
                 </div>
-                <p data-i18n="services_training_body">We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are practical and easy to follow—built from teaching experience to prepare teams for real IT challenges.</p>
+                <p data-en="We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are practical and easy to follow—built from teaching experience to prepare teams for real IT challenges."
+                   data-id="Kami menyediakan program pelatihan terstruktur mencakup dasar-dasar IT, helpdesk dan dukungan IT, serta praktik keamanan defensif termasuk security awareness bagi semua karyawan. Sesi bersifat praktis dan mudah diikuti—berangkat dari pengalaman mengajar untuk menyiapkan tim menghadapi tantangan IT nyata.">
+                  We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are practical and easy to follow—built from teaching experience to prepare teams for real IT challenges.
+                </p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M6 19h12M8 15h8M10 7h4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -267,9 +508,12 @@
               <div class="face">
                 <div class="row">
                   <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
-                  <h3 data-i18n="services_consult_title">IT Consultation</h3>
+                  <h3 data-en="IT Consultation" data-id="Konsultasi IT">IT Consultation</h3>
                 </div>
-                <p data-i18n="services_consult_body">We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!</p>
+                <p data-en="We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!"
+                   data-id="Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda dengan solusi yang selaras dengan tujuan. Ingin mengeksplorasi lebih jauh? Hubungi kami atau kirim pesan — mari diskusikan kebutuhan Anda!">
+                  We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!
+                </p>
               </div>
               <div class="face back" aria-hidden="true">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M4 12h8l4 4V8l-4 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -284,11 +528,325 @@
     <!-- TESTIMONIALS -->
     <section class="section" id="testimonials">
       <div class="wrap">
-        <h2 class="reveal" data-i18n="testimonials_heading">Testimonials</h2>
+        <h2 class="reveal" data-en="Testimonials" data-id="Testimoni">Testimonials</h2>
         <div class="quotes">
           <div class="quote-card reveal">
             <div class="quote-top">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zm8 0h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
-              <strong data-i18n="test1_name">Motobayashi</strong>
+              <strong>Motobayashi</strong>
             </div>
-            <blockquote><p data-i18n="test1_quote">“We are very pleased that our network and
+            <blockquote>
+              <p data-en="“We are very pleased that our network and infrastructure migration went smoothly without any issues. Our accounting software is now managed centrally and can be monitored regularly.”"
+                 data-id="“Kami sangat senang migrasi jaringan dan infrastruktur berjalan lancar tanpa kendala. Software akuntansi kami kini dikelola terpusat dan dapat dimonitor secara berkala.”">
+                “We are very pleased that our network and infrastructure migration went smoothly without any issues. Our accounting software is now managed centrally and can be monitored regularly.”
+              </p>
+            </blockquote>
+            <div class="quote-foot" data-en="Managing Director, Tokyo Consulting" data-id="Managing Director, Tokyo Consulting">Managing Director, Tokyo Consulting</div>
+          </div>
+          <div class="quote-card reveal">
+            <div class="quote-top">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zM15 11h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
+              <strong>Mr. Suproni</strong>
+            </div>
+            <blockquote>
+              <p data-en="“Thank you for helping Mignon—from handling the security incident in our office to refreshing and strengthening our network infrastructure. Everything went smoothly, and we’ve felt secure ever since.”"
+                 data-id="“Terima kasih atas bantuannya untuk Mignon—mulai dari penanganan insiden keamanan di kantor hingga pembaruan dan penguatan infrastruktur jaringan kami. Semuanya berjalan lancar, dan sejak itu kami merasa lebih aman.”">
+                “Thank you for helping Mignon—from handling the security incident in our office to refreshing and strengthening our network infrastructure. Everything went smoothly, and we’ve felt secure ever since.”
+              </p>
+            </blockquote>
+            <div class="quote-foot" data-en="Section Head Warehouse, Mignon Sista International" data-id="Section Head Warehouse, Mignon Sista International">Section Head Warehouse, Mignon Sista International</div>
+          </div>
+          <div class="quote-card reveal">
+            <div class="quote-top">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zM15 11h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
+              <strong>Yuliantama</strong>
+            </div>
+            <blockquote>
+              <p data-en="“Thank you Kang, for your help with migrating and managing our office hosting and email.”"
+                 data-id="“Terima kasih Kang atas bantuan migrasi dan pengelolaan hosting serta email kantor kami.”">
+                “Thank you Kang, for your help with migrating and managing our office hosting and email.”
+              </p>
+            </blockquote>
+            <div class="quote-foot" data-en="IT, Wilsor Group" data-id="IT, Wilsor Group">IT, Wilsor Group</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAST WORK -->
+    <section class="section" id="pastwork">
+      <div class="wrap">
+        <h2 class="reveal" data-en="Past Work" data-id="Portofolio">Past Work</h2>
+        <p class="sub reveal" data-en="A few brands our team has worked with previously." data-id="Beberapa brand yang pernah dikerjakan tim kami.">A few brands our team has worked with previously.</p>
+        <div class="logos-grid reveal">
+          <div class="logo-wrap"><img src="https://www.tokyoconsultingfirm.com/indonesia/wp-content/uploads/2020/08/5cb8a5f4a39bfbaaaa0aed0b66b7414b.png" alt="Client 1" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://i.imgur.com/JRfNAmp.png" alt="Client 2" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://www.rukamen.com/uploads/logo_developer/1456470462_6211200.png" alt="Client 3" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Daihatsu_motor_co_logo.png" alt="Client 4" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://eccafamily.foundation/wp-content/uploads/2024/06/SecondMuse-PNG-logo.png" alt="Client 6" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrzYOhstzmmIb_rEMgAPileN4tZWUfan3JcHgGBnzjqw&s=10" alt="" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://id.joblum.com/uploads/80/79920.png" alt="Client 7" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://i.imgur.com/rXAt6pE.png" alt="Client 8" loading="lazy"></div>
+          <div class="logo-wrap"><img src="https://i.imgur.com/tl2zDCk.png" alt="Client 9" loading="lazy"></div>
+          <div class="logo-wrap"><img src="" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+   <!-- GET QUOTE -->
+<section class="section" id="quote">
+  <div class="wrap">
+    <h2 class="reveal" data-en="Get a Quote" data-id="Dapatkan Penawaran">Get a Quote</h2>
+    <p class="sub reveal" data-en="Share your needs, timeline, and constraints. We’re happy to start with a short conversation." data-id="Ceritakan kebutuhan, timeline, dan batasan Anda. Kami senang memulai dari percakapan singkat.">Share your needs, timeline, and constraints. We’re happy to start with a short conversation.</p>
+    <div class="contact-grid">
+      <form class="reveal" id="quoteForm" autocomplete="on">
+        <input name="name" placeholder="Your name" required data-i18n-attr="placeholder" data-en="Your name" data-id="Nama Anda" />
+        <input name="email" type="email" placeholder="Your email" required data-i18n-attr="placeholder" data-en="Your email" data-id="Email Anda" />
+        <input name="company" placeholder="Company (optional)" data-i18n-attr="placeholder" data-en="Company (optional)" data-id="Perusahaan (opsional)" />
+        <textarea name="project" placeholder="Project summary" required data-i18n-attr="placeholder" data-en="Project summary" data-id="Ringkasan proyek"></textarea>
+        <input name="timeline" placeholder="Timeline (optional)" data-i18n-attr="placeholder" data-en="Timeline (optional)" data-id="Timeline (opsional)" />
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn primary" type="submit" data-en="Send via Email" data-id="Kirim via Email">Send via Email</button>
+          <button class="btn" type="reset" style="padding:10px 14px; font-weight:600;" data-en="Clear" data-id="Bersihkan">Clear</button>
+        </div>
+      </form>
+      <div class="info reveal">
+        <h3 data-en="Notes" data-id="Catatan">Notes</h3>
+        <ul class="list">
+          <li data-en="Thank you for your visit!" data-id="Terima kasih atas kunjungannya!">Thank you for your visit!</li>
+          <li data-en="You can also reach us on WhatsApp using the green button." data-id="Anda juga bisa menghubungi kami melalui WhatsApp dengan tombol hijau.">You can also reach us on WhatsApp using the green button.</li>
+          <li data-en="If you need additional services, want to collaborate, or have any questions, mention them here and we’ll follow up. Insya Allah, we’ll reply 24/7 as quickly as possible when online."
+              data-id="Jika butuh layanan tambahan, ingin kolaborasi, atau ada pertanyaan, tulis di sini dan kami akan menindaklanjuti. Insya Allah, kami akan membalas 24/7 secepatnya saat online.">
+              If you need additional services, want to collaborate, or have any questions, mention them here and we’ll follow up. Insya Allah, we’ll reply 24/7 as quickly as possible when online.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2 class="reveal" data-en="Contact" data-id="Kontak">Contact</h2>
+        <div class="cards">
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <h3 data-en="Office" data-id="Kantor">Office</h3>
+            </div>
+            <p data-en="Kota Bogor, West Java<br/>Indonesia 16112" data-id="Kota Bogor, Jawa Barat<br/>Indonesia 16112">Kota Bogor, West Java<br/>Indonesia 16112</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7h16" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="5.5" r=".8" fill="currentColor"/><circle cx="11" cy="5.5" r=".8" fill="currentColor"/><circle cx="14" cy="5.5" r=".8" fill="currentColor"/></svg>
+              <h3 data-en="Email" data-id="Email">Email</h3>
+            </div>
+            <p><a href="mailto:hello&#64;arfhacorp&#46;com" rel="noopener">hello<span aria-hidden="true">&#64;</span>arfhacorp.com</a></p>
+          </div>
+
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 17h10M7 13h10M7 9h10" stroke="currentColor" stroke-width="2"/></svg>
+              <h3 data-en="WhatsApp" data-id="WhatsApp">WhatsApp</h3>
+            </div>
+            <p data-en="Please use the floating button to chat instantly." data-id="Silakan gunakan tombol mengambang untuk chat langsung.">Please use the floating button to chat instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div data-en="© 2025 Arfhacom from Arfha Corporation. All rights reserved." data-id="© 2025 Arfhacom dari Arfha Corporation. Semua hak dilindungi.">© 2025 Arfhacom from Arfha Corporation. All rights reserved.</div>
+      <div>
+        <a href="#about" data-en="About" data-id="Tentang">About</a> •
+        <a href="#services" data-en="Services" data-id="Layanan">Services</a> •
+        <a href="#testimonials" data-en="Testimonials" data-id="Testimoni">Testimonials</a> •
+        <a href="#pastwork" data-en="Past Work" data-id="Portofolio">Past Work</a> •
+        <a href="#quote" data-en="Get Quote" data-id="Dapatkan Penawaran">Get Quote</a> •
+        <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB (direct number) -->
+  <a class="fab" id="waFab"
+     href="https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F"
+     data-i18n-attr="href"
+     data-en-href="https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F"
+     data-id-href="https://wa.me/6289661689424?text=Halo%2C%20saya%20datang%20dari%20kontak%20arfha.com.%20Boleh%20diskusi%20tentang%20layanan%20Anda%3F"
+     target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+      <path fill="#fff" d="M19.11 17.26c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.64.07-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.45-1.72-1.62-2-.17-.3-.02-.46.13-.61.13-.12.3-.32.45-.47.15-.15.2-.25.3-.42.1-.2.05-.36-.02-.51-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.51.07-.77.36s-1.01.98-1.01 2.38 1.03 2.77 1.17 2.96c.15.2 2.03 3.1 4.9 4.35.69.3 1.23.48 1.65.62.69.22 1.31.19 1.8.12.55-.08 1.75-.72 2-1.42.24-.7.24-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+      <path fill="#fff" d="M27.1 4.9C24.2 2 20.3.5 16.2.5 7.7.5.8 7.4.8 16c0 2.7.7 5.4 2.1 7.7L.5 31.5l8-2.3c2.2 1.2 4.8 1.9 7.6 1.9 8.5 0 15.4-6.9 15.4-15.4 0-4.1-1.6-8-4.5-10.9z"/>
+    </svg>
+  </a>
+  <div class="tooltip" data-en="Chat on WhatsApp" data-id="Chat di WhatsApp">Chat on WhatsApp</div>
+
+  <!-- Top btn -->
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7H5l7-7z" fill="currentColor"/></svg>
+  </button>
+
+  <!-- JS -->
+  <script nonce="ARF123">
+    // menu (mobile-only drawer)
+    (function(){const b=document.getElementById('menuBtn'),d=document.getElementById('drawer'),k=document.getElementById('backdrop');if(!b||!d||!k)return;function s(o){d.classList.toggle('show',o);k.classList.toggle('show',o);b.setAttribute('aria-expanded',o?'true':'false');document.body.style.overflow=o?'hidden':''}const t=()=>s(!d.classList.contains('show'));b.addEventListener('click',t);k.addEventListener('click',()=>s(false));d.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>s(false)));window.addEventListener('keydown',e=>{if(e.key==='Escape')s(false)})})();
+
+    // theme: default LIGHT; respect saved choice
+    (function(){
+      const w=document.getElementById('switch');
+      const saved=localStorage.getItem('theme'); // null => default light
+      if(saved==='dark'){
+        document.body.classList.remove('light');
+        w.classList.remove('on');
+        w.setAttribute('aria-checked','false');
+      }else{
+        document.body.classList.add('light');
+        w.classList.add('on');
+        w.setAttribute('aria-checked','true');
+      }
+      function set(l){document.body.classList.toggle('light',l);w.classList.toggle('on',l);w.setAttribute('aria-checked',l?'true':'false');localStorage.setItem('theme',l?'light':'dark')}
+      w.addEventListener('click',()=>set(!document.body.classList.contains('light')));
+      w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set(!document.body.classList.contains('light'))}})
+    })();
+
+    // type (with glow on final line + delays) [EN - original, kept]
+    (function(){const el=document.getElementById('typewrite');const P=["We bring you a reliable IT solutions","We ensure your security protections","We keep your systems steady","We simplify your daily IT","We Guiding Technology with Care"];const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}x()})();
+
+    // reveal
+    (function(){const E=[...document.querySelectorAll('.reveal')];if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.12});E.forEach(el=>io.observe(el))}else{E.forEach(el=>el.classList.add('show'))}})();
+
+    // top
+    (function(){const b=document.getElementById('toTop');const y=420;function f(){if(window.scrollY>y){b.classList.add('show')}else{b.classList.remove('show')}}window.addEventListener('scroll',f,{passive:true});b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));f()})();
+
+    // fab nudge
+    (function(){const f=document.querySelector('.fab');if(!f)return;const m=window.matchMedia('(prefers-reduced-motion: reduce)');function n(){if(m.matches)return;f.classList.add('nudging');setTimeout(()=>f.classList.remove('nudging'),1200)}const T=5*60*1000;setTimeout(n,T);setInterval(n,T)})();
+
+    // mailto composer (no insecure form post)
+    (function(){
+      const form=document.getElementById('quoteForm');
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        const fd=new FormData(form);
+        const name=fd.get('name')||'', email=fd.get('email')||'', company=fd.get('company')||'', project=fd.get('project')||'', timeline=fd.get('timeline')||'';
+        const subject=`Quote request from ${name}`;
+        const body=`Name: ${name}%0D%0AEmail: ${email}%0D%0ACompany: ${company}%0D%0ATimeline: ${timeline}%0D%0A%0D%0AProject Summary:%0D%0A${encodeURIComponent(project)}`;
+        window.location.href=`mailto:hello@arfhacorp.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      });
+    })();
+
+    // no right-click
+    (function(){document.addEventListener('contextmenu',e=>e.preventDefault())})();
+
+    // preloader hide on load (with small delay for low connections)
+    (function(){
+      const pl=document.getElementById('preloader');
+      function hide(){ if(!pl) return; pl.style.opacity='0'; pl.style.transition='opacity .35s ease'; setTimeout(()=>pl.style.display='none',380); }
+      window.addEventListener('load', ()=> setTimeout(hide, 450));
+    })();
+
+    // header logo underscore: show when scrolled, hide at top
+    (function(){
+      const THRESHOLD = 8; // small scroll before toggling
+      function apply(){
+        if(window.scrollY > THRESHOLD){
+          document.body.classList.add('scrolled');
+        }else{
+          document.body.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', apply, {passive:true});
+      window.addEventListener('load', apply); // handle deep links
+    })();
+  </script>
+
+  <!-- LANG: Indonesian typewriter (separate, non-intrusive) -->
+  <script nonce="ARF123">
+    (function(){
+      const el=document.getElementById('typewrite-id'); if(!el) return;
+      const P=["Kami menghadirkan solusi IT yang andal","Kami memastikan perlindungan keamanan Anda","Kami menjaga sistem Anda tetap stabil","Kami menyederhanakan IT harian Anda","Kami membimbing teknologi dengan penuh perhatian"];
+      const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;
+      function render(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}
+      function loop(){const L=P.length-1,tx=P[pi];if(w){ci++;render(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{loop()},post)},glow)},pre);return}else{w=false;setTimeout(loop,hd);return}}setTimeout(loop,td)}else{ci--;render(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(loop,450);return}setTimeout(loop,ed)}}
+      loop();
+    })();
+  </script>
+
+  <!-- LANG: Language switching (text + placeholders + hrefs) -->
+  <script nonce="ARF123">
+    (function(){
+      const html=document.documentElement;
+      const langBtn=document.getElementById('langBtn');
+      const langMenu=document.getElementById('langMenu');
+      const waFab=document.getElementById('waFab');
+      const typeEN=document.getElementById('typewrite');
+      const typeID=document.getElementById('typewrite-id');
+      const texts=[...document.querySelectorAll('[data-en]')];
+      const attrNodes=[...document.querySelectorAll('[data-i18n-attr]')];
+
+      // initial language
+      const saved=localStorage.getItem('lang')||'en';
+      applyLang(saved);
+
+      // toggle menu open/close
+      langBtn.addEventListener('click',()=> {
+        const open = langMenu.style.display==='block';
+        langMenu.style.display = open ? 'none' : 'block';
+        langBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+      document.addEventListener('click',(e)=>{
+        if(!e.target.closest('#langDropdown')){ langMenu.style.display='none'; langBtn.setAttribute('aria-expanded','false'); }
+      });
+
+      // choose language
+      langMenu.querySelectorAll('li').forEach(li=>{
+        li.addEventListener('click',()=>{
+          const lang=li.getAttribute('data-lang');
+          applyLang(lang);
+          localStorage.setItem('lang',lang);
+          langMenu.style.display='none';
+          langBtn.setAttribute('aria-expanded','false');
+        });
+      });
+
+      function applyLang(lang){
+        // swap textContent
+        texts.forEach(el=>{
+          const v=el.getAttribute('data-'+lang);
+          if(v!=null) el.textContent=v;
+        });
+
+        // swap attributes (placeholder, href, etc.)
+        attrNodes.forEach(el=>{
+          const attr=el.getAttribute('data-i18n-attr');
+          if(attr==='placeholder'){
+            const v=el.getAttribute('data-'+lang);
+            if(v!=null) el.setAttribute('placeholder', v);
+          }else if(attr==='href'){
+            const v=el.getAttribute('data-'+lang+'-href');
+            if(v!=null) el.setAttribute('href', v);
+          }
+        });
+
+        // tooltip text
+        const tip=document.querySelector('.tooltip');
+        if(tip && tip.hasAttribute('data-'+lang)){ tip.textContent=tip.getAttribute('data-'+lang); }
+
+        // typewriter visibility
+        if(typeEN && typeID){
+          if(lang==='id'){ typeEN.classList.add('hidden'); typeID.classList.remove('hidden'); }
+          else { typeID.classList.add('hidden'); typeEN.classList.remove('hidden'); }
+        }
+
+        // button label and <html lang>
+        langBtn.textContent = lang==='id' ? '🇮🇩 ID' : '🇬🇧 EN';
+        html.setAttribute('lang', lang);
+      }
+    })();
+  </script>
+</body>
+</html>
