@@ -1,45 +1,98 @@
-Loading…
-IT Solutions Integrator
-Home
-About Us
-Services
-Testimonials
-Past Work
-Get Quote
-Contact
-We bring you a reliable IT solutions
-We ensure your security protections
-We keep your systems steady
-We simplify your daily IT
-We Guiding Technology with Care
-Who we are
-What we do
-How we work
-Arfhacom is an Information Technology company led by engineer...
-We cover IT helpdesk, networks and infrastructure...
-We operate with integrity and respect...
-IT Helpdesk & Support
-Networks & Infrastructure
-System & Cloud Administration
-Cybersecurity
-IT Training
-IT Consultation
-Testimonials
-“We are very pleased that our network and infrastructure migration...”
-“Thank you for helping Mignon—from handling the security incident...”
-“Thank you Kang, for your help with migrating and managing our office hosting...”
-Past Work
-A few brands our team has worked with previously.
-Get a Quote
-Share your needs, timeline, and constraints...
-Notes
-Thank you for your visit!
-You can also reach us on WhatsApp using the green button.
-If you need additional services, want to collaborate, or have any questions...
-Contact
-Office
-Kota Bogor, West Java Indonesia 16112
-Email
-WhatsApp
-Please use the floating button to chat instantly.
-© 2025 Arfhacom from Arfha Corporation. All rights reserved.
+# General / UI
+preloader.loading = Loading…
+brand.subtag = IT Solutions Integrator
+menu.label = Menu
+tooltip.whatsapp = Chat on WhatsApp
+
+# Nav (top + footer + drawer)
+nav.home = Home
+nav.about = About Us
+nav.services = Services
+nav.testimonials = Testimonials
+nav.pastwork = Past Work
+nav.quote = Get Quote
+nav.contact = Contact
+
+# Hero typewriter lines (English)
+hero.line1 = We bring you a reliable IT solutions
+hero.line2 = We ensure your security protections
+hero.line3 = We keep your systems steady
+hero.line4 = We simplify your daily IT
+hero.line5 = We Guiding Technology with Care
+cta.get_quote = Get a Quote
+cta.explore_services = Explore Services
+
+# About
+about.title = About Us
+about.card1.title = Who we are
+about.card1.body = Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.
+about.card2.title = What we do
+about.card2.body = We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism. Our focus is on UMKM and mid-market organizations, and we’re also open to supporting upper-level/enterprise needs.
+about.card3.title = How we work
+about.card3.body = We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility. We prioritize open-source solutions first and remain flexible with recommendations to match business and customer needs.
+
+# Services
+services.title = Services
+services.helpdesk.title = IT Helpdesk & Support
+services.helpdesk.body = We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business.
+services.networks.title = Networks & Infrastructure
+services.networks.body = We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth.
+services.syscloud.title = System & Cloud Administration
+services.syscloud.body = We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs.
+services.security.title = Cybersecurity
+services.security.body = We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience.
+services.training.title = IT Training
+services.training.body = We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are practical and easy to follow—built from teaching experience to prepare teams for real IT challenges.
+services.consult.title = IT Consultation
+services.consult.body = We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!
+
+# Testimonials
+testimonials.title = Testimonials
+testimonial1.name = Motobayashi
+testimonial1.quote = “We are very pleased that our network and infrastructure migration went smoothly without any issues. Our accounting software is now managed centrally and can be monitored regularly.”
+testimonial1.role = Managing Director, Tokyo Consulting
+testimonial2.name = Mr. Suproni
+testimonial2.quote = “Thank you for helping Mignon—from handling the security incident in our office to refreshing and strengthening our network infrastructure. Everything went smoothly, and we’ve felt secure ever since.”
+testimonial2.role = Section Head Warehouse, Mignon Sista International
+testimonial3.name = Yuliantama
+testimonial3.quote = “Thank you Kang, for your help with migrating and managing our office hosting and email.”
+testimonial3.role = IT, Wilsor Group
+
+# Past Work
+pastwork.title = Past Work
+pastwork.subtitle = A few brands our team has worked with previously.
+
+# Get Quote
+quote.title = Get a Quote
+quote.subtitle = Share your needs, timeline, and constraints. We’re happy to start with a short conversation.
+quote.form.name.placeholder = Your name
+quote.form.email.placeholder = Your email
+quote.form.company.placeholder = Company (optional)
+quote.form.project.placeholder = Project summary
+quote.form.timeline.placeholder = Timeline (optional)
+quote.form.submit = Send via Email
+quote.form.clear = Clear
+quote.notes.title = Notes
+quote.notes.1 = Thank you for your visit!
+quote.notes.2 = You can also reach us on WhatsApp using the green button.
+quote.notes.3 = If you need additional services, want to collaborate, or have any questions, mention them here and we’ll follow up. Insya Allah, we’ll reply 24/7 as quickly as possible when online.
+
+# Contact
+contact.title = Contact
+contact.office.title = Office
+contact.office.body = Kota Bogor, West Java\nIndonesia 16112
+contact.email.title = Email
+contact.whatsapp.title = WhatsApp
+contact.whatsapp.body = Please use the floating button to chat instantly.
+
+# Footer
+footer.copyright = © 2025 Arfhacom from Arfha Corporation. All rights reserved.
+footer.link.about = About
+footer.link.services = Services
+footer.link.testimonials = Testimonials
+footer.link.pastwork = Past Work
+footer.link.quote = Get Quote
+footer.link.contact = Contact
+
+# WhatsApp deeplink (already URL-encoded)
+wa.href = https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
