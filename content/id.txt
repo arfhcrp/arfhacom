@@ -1,114 +1,45 @@
-{
-  "preloader": { "loading": "Memuat…" },
-  "brand": { "subtag": "Integrator Solusi TI" },
-  "menu": { "label": "Menu" },
-  "nav": {
-    "home": "Beranda",
-    "about": "Tentang Kami",
-    "services": "Layanan",
-    "testimonials": "Testimoni",
-    "pastwork": "Portofolio",
-    "quote": "Ajukan Penawaran",
-    "contact": "Kontak"
-  },
-  "cta": {
-    "get_quote": "Ajukan Penawaran",
-    "explore_services": "Lihat Layanan"
-  },
-  "about": {
-    "title": "Tentang Kami",
-    "who": {
-      "title": "Siapa kami",
-      "text": "Arfhacom adalah perusahaan Teknologi Informasi yang di inisiasi sejak 2011 oleh engineer dengan pengalaman di lingkungan lokal dan internasional. Kami fokus pada delivery yang andal, solusi praktis, dan keandalan jangka panjang."
-    },
-    "what": {
-      "title": "Apa yang kami lakukan",
-      "text": "Kami mencakup helpdesk TI, jaringan & infrastruktur, administrasi sistem & cloud, keamanan siber, pelatihan TI, dan konsultasi TI—ditangani dengan profesional. Fokus kami pada UMKM dan organisasi mid-market, dan kami juga siap mendukung kebutuhan enterprise."
-    },
-    "how": {
-      "title": "Bagaimana kami bekerja",
-      "text": "Kami bekerja dengan integritas dan rasa hormat, memilih proyek yang selaras dengan nilai kami sambil melayani klien dengan jelas dan bertanggung jawab. Kami memprioritaskan solusi open-source terlebih dahulu dan tetap fleksibel untuk menyesuaikan rekomendasi dengan kebutuhan bisnis dan pelanggan."
-    }
-  },
-  "services": {
-    "title": "Layanan",
-    "helpdesk": {
-      "title": "Helpdesk & Dukungan TI",
-      "text": "Kami merancang dan menerapkan solusi helpdesk berdasarkan praktik terbaik ITIL. Layanan kami mencakup sistem tiket, dukungan jarak jauh, alur kerja onboarding/offboarding, pembuatan knowledge base, dan manajemen SLA. Ini memastikan respons lebih cepat, proses terstruktur, dan fondasi dukungan yang andal."
-    },
-    "network": {
-      "title": "Jaringan & Infrastruktur",
-      "text": "Kami membangun jaringan yang aman, skalabel, dan andal dari awal. Layanan mencakup instalasi kabel terstruktur, perencanaan rak & topologi, konfigurasi switch/router/firewall, dan solusi jaringan menyeluruh dari konektivitas lokal hingga integrasi site-to-site. Dengan monitoring dan dokumentasi yang tepat, kami menghadirkan infrastruktur yang mendukung pertumbuhan bisnis jangka panjang."
-    },
-    "syscloud": {
-      "title": "Administrasi Sistem & Cloud",
-      "text": "Kami mengelola server, aplikasi, dan platform cloud agar tetap stabil dan aman. Mulai dari manajemen pengguna, pembaruan, dan backup hingga deployment, monitoring, dan automasi, kami memastikan lingkungan TI Anda berjalan lancar dan adaptif."
-    },
-    "security": {
-      "title": "Keamanan Siber",
-      "text": "Kami fokus memperkuat pertahanan dan memastikan bisnis Anda siap menghadapi ancaman modern. Layanan mencakup hardening sistem, penilaian kerentanan, proteksi endpoint, dan monitoring. Kami membantu membangun CSIRT dan rencana Incident Response berbasis NIST yang dilengkapi skenario TTX. Kami juga dapat membantu mendirikan SOC untuk meningkatkan deteksi, respons, dan ketahanan keamanan jangka panjang."
-    },
-    "training": {
-      "title": "Pelatihan TI",
-      "text": "Kami menyediakan program pelatihan terstruktur mencakup dasar-dasar TI, helpdesk & dukungan TI, dan praktik keamanan defensif, termasuk awareness untuk seluruh karyawan. Sesi bersifat praktis dan mudah diikuti—dibangun dari pengalaman mengajar untuk mempersiapkan tim menghadapi tantangan nyata."
-    },
-    "consult": {
-      "title": "Konsultasi TI",
-      "text": "Kami membantu merencanakan, menilai, dan meningkatkan lingkungan TI Anda dengan solusi yang disesuaikan dengan tujuan. Ingin eksplor lebih lanjut? Hubungi kami atau kirim pesan—mari diskusikan kebutuhan Anda!"
-    }
-  },
-  "testimonials": { "title": "Testimoni" },
-  "pastwork": {
-    "title": "Portofolio",
-    "subtitle": "Beberapa brand yang pernah tim kami tangani."
-  },
-  "quote": {
-    "title": "Ajukan Penawaran",
-    "subtitle": "Sampaikan kebutuhan, timeline, dan batasan Anda. Kami siap mulai dengan percakapan singkat."
-  },
-  "form": {
-    "name": { "placeholder": "Nama Anda" },
-    "email": { "placeholder": "Email Anda" },
-    "company": { "placeholder": "Perusahaan (opsional)" },
-    "project": { "placeholder": "Ringkasan proyek" },
-    "timeline": { "placeholder": "Timeline (opsional)" },
-    "submit": "Kirim via Email",
-    "clear": "Bersihkan"
-  },
-  "notes": {
-    "title": "Catatan",
-    "li1": "Terima kasih telah berkunjung!",
-    "li2": "Anda juga bisa menghubungi kami via WhatsApp dengan tombol hijau.",
-    "li3": "Jika butuh layanan tambahan, ingin kolaborasi, atau ada pertanyaan, tuliskan di sini dan kami akan menindaklanjuti. Insya Allah, kami merespons 24/7 secepatnya saat online."
-  },
-  "contact": {
-    "title": "Kontak",
-    "office": {
-      "title": "Kantor",
-      "addr": "Kota Bogor, Jawa Barat<br/>Indonesia 16112"
-    },
-    "email": {
-      "title": "Email",
-      "link": "hello<span aria-hidden=\"true\">&#64;</span>arfhacorp.com"
-    },
-    "whatsapp": {
-      "title": "WhatsApp",
-      "text": "Silakan gunakan tombol mengambang untuk chat langsung."
-    }
-  },
-  "footer": { "copy": "© 2025 Arfhacom dari Arfha Corporation. Seluruh hak cipta dilindungi." },
-  "tooltip": { "whatsapp": "Chat via WhatsApp" },
-  "mail": {
-    "subject_prefix": "Permintaan penawaran dari",
-    "project_label": "Ringkasan Proyek"
-  },
-  "typewriter": {
-    "lines": [
-      "Kami menghadirkan solusi TI andal",
-      "Kami memastikan perlindungan keamanan Anda",
-      "Kami menjaga sistem Anda tetap stabil",
-      "Kami menyederhanakan TI harian Anda",
-      "Kami membimbing teknologi dengan kepedulian"
-    ]
-  }
-}
+Memuat…
+Integrator Solusi IT
+Beranda
+Tentang Kami
+Layanan
+Testimoni
+Portofolio
+Dapatkan Penawaran
+Kontak
+Kami menghadirkan solusi IT yang andal
+Kami memastikan perlindungan keamanan Anda
+Kami menjaga sistem Anda tetap stabil
+Kami menyederhanakan IT harian Anda
+Kami membimbing teknologi dengan penuh perhatian
+Siapa kami
+Apa yang kami lakukan
+Cara kami bekerja
+Arfhacom adalah perusahaan Teknologi Informasi...
+Kami menangani helpdesk IT, jaringan dan infrastruktur...
+Kami bekerja dengan integritas dan rasa hormat...
+Helpdesk & Dukungan IT
+Jaringan & Infrastruktur
+Administrasi Sistem & Cloud
+Keamanan Siber
+Pelatihan IT
+Konsultasi IT
+Testimoni
+“Kami sangat senang migrasi jaringan dan infrastruktur berjalan lancar...”
+“Terima kasih atas bantuannya untuk Mignon—mulai dari penanganan...”
+“Terima kasih Kang atas bantuan migrasi dan pengelolaan hosting...”
+Portofolio
+Beberapa brand yang pernah dikerjakan tim kami.
+Dapatkan Penawaran
+Ceritakan kebutuhan, timeline, dan batasan Anda...
+Catatan
+Terima kasih atas kunjungannya!
+Anda juga bisa menghubungi kami melalui WhatsApp...
+Jika butuh layanan tambahan, ingin kolaborasi, atau ada pertanyaan...
+Kontak
+Kantor
+Kota Bogor, Jawa Barat Indonesia 16112
+Email
+WhatsApp
+Silakan gunakan tombol mengambang untuk chat langsung.
+© 2025 Arfhacom dari Arfha Corporation. Semua hak dilindungi.
