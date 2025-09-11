@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- favicon -->
+  <!-- favicon: small green "a" -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='central' font-family='Inter, Arial, sans-serif' font-size='50' font-weight='800' fill='%2310b981'%3Ea%3C/text%3E%3C/svg%3E" />
 
   <!-- SEO -->
@@ -21,45 +21,48 @@
   <meta property="og:description" content="Reliable IT services in support, infrastructure, systems, security, and training." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://arfha.com/" />
-  <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'&gt;&lt;/svg&gt;" />
+  <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'></svg>" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Arfhacom — IT Consulting" />
   <meta name="twitter:description" content="Reliable IT services in support, infrastructure, systems, security, and training." />
-  <meta name="twitter:image" content="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'&gt;&lt;/svg&gt;" />
+  <meta name="twitter:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'></svg>" />
 
   <!-- JSON-LD -->
-  <script type="application/ld+json" nonce="ARF123">
+  <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Organization","name":"Arfhacom","url":"https://arfha.com/","email":"hello@arfhacorp.com","address":{"@type":"PostalAddress","addressLocality":"Kota Bogor","addressRegion":"West Java","addressCountry":"Indonesia","postalCode":"16112"}}
   </script>
 
-  <!-- CSP -->
+  <!-- Security headers as meta (best-effort for scanners; enforce via server/edge headers) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+
+  <!-- Strong CSP -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'nonce-ARF123';
+    script-src 'self';
     style-src 'self';
     img-src 'self' data:;
-    font-src 'self';
     connect-src 'self';
-    frame-src 'none';
+    font-src 'self';
     frame-ancestors 'none';
+    frame-src 'none';
     base-uri 'self';
     form-action 'self' mailto:;
     object-src 'none';
-    block-all-mixed-content;
-    upgrade-insecure-requests;
-    script-src-attr 'none';
-    style-src-attr 'none'
+    upgrade-insecure-requests
   ">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="preload" href="/assets/styles.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.css">
 </head>
 
+<!-- default LIGHT theme -->
 <body class="light">
   <!-- Preloader -->
   <div id="preloader" aria-live="polite" aria-busy="true">
     <div class="loader" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-    <div class="txt" data-i18n="preloader.loading">Loading…</div>
+    <div class="txt" data-i18n="preloader_loading">Loading…</div>
   </div>
 
   <header>
@@ -68,38 +71,44 @@
         <a href="#home" class="logo" aria-label="Arfhacom Home">
           <span class="arfha">Arfha</span><span class="com">com</span><span class="underscore" aria-hidden="true">_</span>
         </a>
-        <span class="subtag" data-i18n="brand.subtag">IT Solutions Integrator</span>
+        <span class="subtag" data-i18n="brand_subtag">IT Solutions Integrator</span>
       </div>
 
       <!-- Desktop/tablet top menu -->
       <nav aria-label="Primary">
-        <a href="#home" data-i18n="nav.home">Home</a>
-        <a href="#about" data-i18n="nav.about">About Us</a>
-        <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
-        <a href="#pastwork" data-i18n="nav.pastwork">Past Work</a>
-        <a href="#quote" data-i18n="nav.quote">Get Quote</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#about" data-i18n="nav_about">About Us</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="#pastwork" data-i18n="nav_pastwork">Past Work</a>
+        <a href="#quote" data-i18n="nav_quote">Get Quote</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <!-- Mobile-only slider menu trigger -->
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <span data-i18n="menu.label">Menu</span>
+        <span data-i18n="menu">Menu</span>
       </button>
 
       <!-- Theme toggle + Language dropdown -->
-      <div class="toggle" aria-label="Theme toggle">
-        <svg class="icon" id="sunIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.6 5.6 4.2 4.2m15.6 15.6-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
-        <div class="switch" id="switch" role="switch" aria-checked="true" tabindex="0"><div class="knob"></div></div>
-        <svg class="icon" id="moonIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
+      <div class="toggles">
+        <div class="toggle" aria-label="Theme toggle">
+          <svg class="icon" id="sunIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.6 5.6 4.2 4.2m15.6 15.6-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+          <div class="switch" id="switch" role="switch" aria-checked="true" tabindex="0"><div class="knob"></div></div>
+          <svg class="icon" id="moonIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
+        </div>
 
-        <!-- Language dropdown -->
-        <div class="lang" id="langDropdown">
-          <button id="langBtn" aria-haspopup="listbox" aria-expanded="false" title="Language">🇬🇧 EN</button>
-          <ul id="langMenu" class="lang-menu" role="listbox" aria-label="Language menu">
-            <li data-lang="en" role="option" aria-selected="true">🇬🇧 English</li>
-            <li data-lang="id" role="option" aria-selected="false">🇮🇩 Indonesia</li>
+        <!-- Language dropdown (flags via emoji to avoid external images) -->
+        <div class="lang" id="langControl">
+          <button id="langBtn" class="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+            <span class="flag" id="langFlag">🇬🇧</span>
+            <span id="langCode">EN</span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="currentColor"/></svg>
+          </button>
+          <ul id="langList" class="lang-list" role="listbox" aria-label="Choose language">
+            <li role="option" data-lang="en">🇬🇧 EN — English</li>
+            <li role="option" data-lang="id">🇮🇩 ID — Indonesia</li>
           </ul>
         </div>
       </div>
@@ -108,19 +117,14 @@
     <!-- Mobile drawer -->
     <div class="backdrop" id="backdrop" tabindex="-1" aria-hidden="true"></div>
     <div class="drawer" id="drawer">
-      <a href="#about" data-i18n="nav.about">About Us</a>
-      <a href="#services" data-i18n="nav.services">Services</a>
-      <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
-      <a href="#pastwork" data-i18n="nav.pastwork">Past Work</a>
-      <a href="#quote" data-i18n="nav.quote">Get Quote</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="#about" data-i18n="nav_about">About Us</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+      <a href="#pastwork" data-i18n="nav_pastwork">Past Work</a>
+      <a href="#quote" data-i18n="nav_quote">Get Quote</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </div>
   </header>
-
-  <!-- Trustline -->
-  <div class="trustline">
-    <small>Arfhacom — Independent IT consulting from Bogor, Indonesia</small>
-  </div>
 
   <main id="home">
     <!-- HERO -->
@@ -128,43 +132,163 @@
       <div class="wrap">
         <div id="typewrite" class="type reveal"><span class="caret" aria-hidden="true"></span></div>
         <div class="cta-row reveal">
-          <a class="btn primary" href="#quote" rel="noopener" data-i18n="cta.get_quote">Get a Quote</a>
-          <a class="btn" href="#services" rel="noopener" data-i18n="cta.explore_services">Explore Services</a>
+          <a class="btn primary" href="#quote" rel="noopener" data-i18n="hero_cta_quote">Get a Quote</a>
+          <a class="btn" href="#services" rel="noopener" data-i18n="hero_cta_services">Explore Services</a>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <!-- ... (rest of your sections unchanged) ... -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="about_heading">About Us</h2>
 
-  </main>
+        <!-- Bismillah (Arabic only) -->
+        <div class="bismillah reveal" aria-label="Bismillah">
+          <div class="bismillah-ar">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+        </div>
 
-  <footer>
-    <div class="foot">
-      <div data-i18n="footer.copy">© 2025 Arfhacom from Arfha Corporation. All rights reserved.</div>
-      <div>
-        <a href="#about" data-i18n="nav.about">About</a> •
-        <a href="#services" data-i18n="nav.services">Services</a> •
-        <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a> •
-        <a href="#pastwork" data-i18n="nav.pastwork">Past Work</a> •
-        <a href="#quote" data-i18n="nav.quote">Get Quote</a> •
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <div class="cards about-cards">
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h2v6h-2z" fill="currentColor"/></svg>
+              <h3 data-i18n="about_who_title">Who we are</h3>
+            </div>
+            <p data-i18n="about_who_body">Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6V4h6v2M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <h3 data-i18n="about_what_title">What we do</h3>
+            </div>
+            <p data-i18n="about_what_body">We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism. Our focus is on UMKM and mid-market organizations, and we’re also open to supporting upper-level/enterprise needs.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17s-3-1.9-3-4a2 2 0 0 1 4 0 2 2 0  0 1 4 0c0 2.1-3 4-3 4z" fill="currentColor"/></svg>
+              <h3 data-i18n="about_how_title">How we work</h3>
+            </div>
+            <p data-i18n="about_how_body">We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility. We prioritize open-source solutions first and remain flexible with recommendations to match business and customer needs.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- WhatsApp FAB -->
-  <a class="fab" id="waFab" href="https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <!-- svg omitted for brevity -->
-  </a>
-  <div class="tooltip" data-i18n="tooltip.whatsapp">Chat on WhatsApp</div>
+    <!-- SERVICES (flip cards) -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="services_heading">Services</h2>
+        <div class="cards">
+          <!-- Helpdesk -->
+          <div class="flip reveal" tabindex="0">
+            <div class="flip-inner">
+              <div class="face">
+                <div class="row">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 16 0v6a2 2 0 0 1-2 2h-3v-3h3v-5a6 6 0 1 0-12 0v5h3v3H6a2 2 0 0 1-2-2v-6z" fill="currentColor"/></svg>
+                  <h3 data-i18n="services_helpdesk_title">IT Helpdesk & Support</h3>
+                </div>
+                <p data-i18n="services_helpdesk_body">We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business.</p>
+              </div>
+              <div class="face back" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              </div>
+            </div>
+          </div>
 
-  <!-- Top btn -->
-  <button id="toTop" class="to-top" aria-label="Back to top">
-    <!-- svg omitted -->
-  </button>
+          <!-- Network -->
+          <div class="flip reveal" tabindex="0">
+            <div class="flip-inner">
+              <div class="face">
+                <div class="row">
+                  <svg class="icon" viewBox="0 0 24 24"><circle cx="5" cy="12" r="3" fill="currentColor"/><circle cx="19" cy="5" r="3" fill="currentColor"/><circle cx="19" cy="19" r="3" fill="currentColor"/><path d="M8 12h7M17 7l-2 5m2 5l-2-5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                  <h3 data-i18n="services_network_title">Networks & Infrastructure</h3>
+                </div>
+                <p data-i18n="services_network_body">We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth.</p>
+              </div>
+              <div class="face back" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M7 7l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              </div>
+            </div>
+          </div>
 
-  <!-- JS -->
-  <script src="assets/app.js" defer></script>
-</body>
-</html>
+          <!-- System & Cloud -->
+          <div class="flip reveal" tabindex="0">
+            <div class="flip-inner">
+              <div class="face">
+                <div class="row">
+                  <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="7" r="1.2" fill="currentColor"/><circle cx="8" cy="17" r="1.2" fill="currentColor"/></svg>
+                  <h3 data-i18n="services_syscloud_title">System & Cloud Administration</h3>
+                </div>
+                <p data-i18n="services_syscloud_body">We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs.</p>
+              </div>
+              <div class="face back" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 15h16M7 11h10M9 7h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security -->
+          <div class="flip reveal" tabindex="0">
+            <div class="flip-inner">
+              <div class="face">
+                <div class="row">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 5-4 9-8 9s-8-4-8-9V7l8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                  <h3 data-i18n="services_cyber_title">Cybersecurity</h3>
+                </div>
+                <p data-i18n="services_cyber_body">We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience.</p>
+              </div>
+              <div class="face back" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6a9 9 0 0 1-14 7 9 9 0 0 1-3-7V6l10-4z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- IT Training -->
+          <div class="flip reveal" tabindex="0">
+            <div class="flip-inner">
+              <div class="face">
+                <div class="row">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v7" stroke="currentColor" stroke-width="2"/></svg>
+                  <h3 data-i18n="services_training_title">IT Training</h3>
+                </div>
+                <p data-i18n="services_training_body">We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are practical and easy to follow—built from teaching experience to prepare teams for real IT challenges.</p>
+              </div>
+              <div class="face back" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M6 19h12M8 15h8M10 7h4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- IT Consultation -->
+          <div class="flip reveal" tabindex="0">
+            <div class="flip-inner">
+              <div class="face">
+                <div class="row">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+                  <h3 data-i18n="services_consult_title">IT Consultation</h3>
+                </div>
+                <p data-i18n="services_consult_body">We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!</p>
+              </div>
+              <div class="face back" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 12h8l4 4V8l-4 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="testimonials_heading">Testimonials</h2>
+        <div class="quotes">
+          <div class="quote-card reveal">
+            <div class="quote-top">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h3V6H6v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11zm8 0h3V6h-4v6c0 3 2 5 4 5v-2c-1 0-3-1-3-3V11z" fill="currentColor"/></svg>
+              <strong data-i18n="test1_name">Motobayashi</strong>
+            </div>
+            <blockquote><p data-i18n="test1_quote">“We are very pleased that our network and
