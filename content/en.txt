@@ -19,7 +19,7 @@
     "title": "About Us",
     "who": {
       "title": "Who we are",
-      "text": "Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability."
+      "text": "Arfhacom is an Information Technology company established since 2011 and led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability."
     },
     "what": {
       "title": "What we do",
