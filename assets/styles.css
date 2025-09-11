@@ -220,3 +220,10 @@ header nav a:hover, header nav a:focus-visible, .drawer a:hover, .drawer a:focus
   body.scrolled .logo .underscore{animation:none}
   .type .caret{animation:none}
 }
+
+.trustline {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 0;
+}
