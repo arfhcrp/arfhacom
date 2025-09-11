@@ -1,0 +1,4 @@
+Contact: mailto:hello@arfhacorp.com
+Expires: 2026-12-31T23:59:59Z
+Preferred-Languages: en, id
+Policy: https://arfha.com/
