@@ -25,15 +25,15 @@
 })();
 
 // typewriter EN
-/*
+
 (function(){
   const el=document.getElementById('typewrite'); if(!el) return;
-  const P=["We bring you reliable IT solutions","We ensure your security protections","We keep your systems steady","We simplify your daily IT","We guide technology with care"];
+  const P=["We provide end-to-end IT solutions","We ensure your security protections","We keep your systems steady","We simplify your everyday IT","We are your trusted digital transformation partner"];
   const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;
   function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}
   function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}
   x();
-})();*/
+})();
 
 // reveal
 (function(){
