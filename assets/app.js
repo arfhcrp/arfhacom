@@ -20,20 +20,20 @@
 })();
 
 // type (with glow on final line + delays) [EN - original, kept]
-(function(){const el=document.getElementById('typewrite');const P=["We bring you a reliable IT solutions","We ensure your security protections","We keep your systems steady","We simplify your daily IT","We Guiding Technology with Care"];const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}x()})();
+(function(){const el=document.getElementById('typewrite');if(!el)return;const P=["We bring you a reliable IT solutions","We ensure your security protections","We keep your systems steady","We simplify your daily IT","We Guiding Technology with Care"];const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}x()})();
 
 // reveal
 (function(){const E=[...document.querySelectorAll('.reveal')];if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.12});E.forEach(el=>io.observe(el))}else{E.forEach(el=>el.classList.add('show'))}})();
 
 // top
-(function(){const b=document.getElementById('toTop');const y=420;function f(){if(window.scrollY>y){b.classList.add('show')}else{b.classList.remove('show')}}window.addEventListener('scroll',f,{passive:true});b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));f()})();
+(function(){const b=document.getElementById('toTop');if(!b)return;const y=420;function f(){if(window.scrollY>y){b.classList.add('show')}else{b.classList.remove('show')}}window.addEventListener('scroll',f,{passive:true});b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));f()})();
 
 // fab nudge
 (function(){const f=document.querySelector('.fab');if(!f)return;const m=window.matchMedia('(prefers-reduced-motion: reduce)');function n(){if(m.matches)return;f.classList.add('nudging');setTimeout(()=>f.classList.remove('nudging'),1200)}const T=5*60*1000;setTimeout(n,T);setInterval(n,T)})();
 
 // mailto composer (no insecure form post)
 (function(){
-  const form=document.getElementById('quoteForm');
+  const form=document.getElementById('quoteForm');if(!form)return;
   form.addEventListener('submit',function(e){
     e.preventDefault();
     const fd=new FormData(form);
@@ -78,73 +78,96 @@
   loop();
 })();
 
-// LANG: Language switching (text + placeholders + hrefs)
+// LANG: Language switching (text + placeholders + hrefs) + symbols + RTL for Arabic
 (function(){
   const html=document.documentElement;
   const langBtn=document.getElementById('langBtn');
   const langMenu=document.getElementById('langMenu');
-  const waFab=document.getElementById('waFab');
   const typeEN=document.getElementById('typewrite');
   const typeID=document.getElementById('typewrite-id');
   const texts=[...document.querySelectorAll('[data-en]')];
   const attrNodes=[...document.querySelectorAll('[data-i18n-attr]')];
 
+  // Label peta untuk tombol (ikon bendera + kode)
+  const LABELS = {
+    en: '🇬🇧 EN',
+    id: '🇮🇩 ID',
+    ar: '🇸🇦 AR',
+    fr: '🇫🇷 FR',
+    es: '🇪🇸 ES',
+    ru: '🇷🇺 RU'
+  };
+
+  // bahasa tersedia (fallback ke 'en' bila tidak dikenali)
+  const AVAILABLE = Object.keys(LABELS);
+
   // initial language
-  const saved=localStorage.getItem('lang')||'en';
+  let saved = localStorage.getItem('lang') || 'en';
+  if(!AVAILABLE.includes(saved)) saved = 'en';
   applyLang(saved);
 
   // toggle menu open/close
-  langBtn.addEventListener('click',()=> {
-    const open = langMenu.style.display==='block';
-    langMenu.style.display = open ? 'none' : 'block';
-    langBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
-  });
-  document.addEventListener('click',(e)=>{
-    if(!e.target.closest('#langDropdown')){ langMenu.style.display='none'; langBtn.setAttribute('aria-expanded','false'); }
-  });
-
-  // choose language
-  langMenu.querySelectorAll('li').forEach(li=>{
-    li.addEventListener('click',()=>{
-      const lang=li.getAttribute('data-lang');
-      applyLang(lang);
-      localStorage.setItem('lang',lang);
-      langMenu.style.display='none';
-      langBtn.setAttribute('aria-expanded','false');
+  if(langBtn && langMenu){
+    langBtn.addEventListener('click',()=> {
+      const open = langMenu.style.display==='block';
+      langMenu.style.display = open ? 'none' : 'block';
+      langBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
     });
-  });
+    document.addEventListener('click',(e)=>{
+      if(!e.target.closest('#langDropdown')){ langMenu.style.display='none'; langBtn.setAttribute('aria-expanded','false'); }
+    });
+
+    // choose language (delegasi ke setiap li[data-lang])
+    langMenu.querySelectorAll('li[data-lang]').forEach(li=>{
+      li.addEventListener('click',()=>{
+        const lang=li.getAttribute('data-lang');
+        applyLang(lang);
+        localStorage.setItem('lang',lang);
+        // update aria-selected pada daftar
+        langMenu.querySelectorAll('li[data-lang]').forEach(x=>x.setAttribute('aria-selected','false'));
+        li.setAttribute('aria-selected','true');
+        langMenu.style.display='none';
+        langBtn.setAttribute('aria-expanded','false');
+      });
+    });
+  }
 
   function applyLang(lang){
-    // swap textContent
+    const L = AVAILABLE.includes(lang) ? lang : 'en';
+
+    // swap textContent berdasarkan data-{lang}
     texts.forEach(el=>{
-      const v=el.getAttribute('data-'+lang);
+      const v=el.getAttribute('data-'+L);
       if(v!=null) el.textContent=v;
     });
 
-    // swap attributes (placeholder, href, etc.)
+    // swap attributes (placeholder, href, dll.)
     attrNodes.forEach(el=>{
       const attr=el.getAttribute('data-i18n-attr');
       if(attr==='placeholder'){
-        const v=el.getAttribute('data-'+lang);
+        const v=el.getAttribute('data-'+L);
         if(v!=null) el.setAttribute('placeholder', v);
       }else if(attr==='href'){
-        const v=el.getAttribute('data-'+lang+'-href');
+        const v=el.getAttribute('data-'+L+'-href');
         if(v!=null) el.setAttribute('href', v);
       }
     });
 
     // tooltip text
     const tip=document.querySelector('.tooltip');
-    if(tip && tip.hasAttribute('data-'+lang)){ tip.textContent=tip.getAttribute('data-'+lang); }
+    if(tip){ const v=tip.getAttribute('data-'+L); if(v!=null) tip.textContent=v; }
 
-    // typewriter visibility
+    // typewriter visibility: ID khusus; selain itu pakai EN
     if(typeEN && typeID){
-      if(lang==='id'){ typeEN.classList.add('hidden'); typeID.classList.remove('hidden'); }
+      if(L==='id'){ typeEN.classList.add('hidden'); typeID.classList.remove('hidden'); }
       else { typeID.classList.add('hidden'); typeEN.classList.remove('hidden'); }
     }
 
-    // button label and <html lang>
-    langBtn.textContent = lang==='id' ? '🇮🇩 ID' : '🇬🇧 EN';
-    html.setAttribute('lang', lang);
+    // html lang & direction (RTL untuk Arab)
+    html.setAttribute('lang', L);
+    html.dir = (L === 'ar') ? 'rtl' : 'ltr';
+
+    // label tombol
+    if(langBtn) langBtn.textContent = LABELS[L] || '🌐';
   }
 })();
