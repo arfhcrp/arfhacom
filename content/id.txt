@@ -1,6 +1,6 @@
 # General / UI
 preloader.loading = Memuat…
-brand.subtag = Integrator Solusi IT
+brand.subtag = IT Solusi Integrator
 menu.label = Menu
 tooltip.whatsapp = Chat di WhatsApp
 
@@ -14,37 +14,37 @@ nav.quote = Dapatkan Penawaran
 nav.contact = Kontak
 
 # Hero typewriter lines (Indonesian)
-hero.line1 = Kami menghadirkan solusi IT yang andal
+hero.line1 = Kami menyediakan solusi IT end-to-end
 hero.line2 = Kami memastikan perlindungan keamanan Anda
 hero.line3 = Kami menjaga sistem Anda tetap stabil
 hero.line4 = Kami menyederhanakan IT harian Anda
-hero.line5 = Kami membimbing teknologi dengan penuh perhatian
+hero.line5 = Kami mitra transofmasi digital Anda
 cta.get_quote = Dapatkan Penawaran
 cta.explore_services = Lihat Layanan
 
 # About
 about.title = Tentang Kami
 about.card1.title = Siapa kami
-about.card1.body = Arfhacom adalah perusahaan Teknologi Informasi yang dipimpin oleh engineer berpengalaman di lingkungan lokal dan internasional. Kami berfokus pada delivery yang andal, solusi praktis, dan keandalan jangka panjang.
+about.card1.body = Arfhacom adalah perusahaan Teknologi Informasi yang diinisiasi oleh engineer berpengalaman lintas lokal dan global. Kami mengutamakan kinerja stabil, tata kelola yang rapi, serta manfaat yang berkesinambungan.
 about.card2.title = Apa yang kami lakukan
-about.card2.body = Kami menangani helpdesk IT, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT—ditangani dengan cermat dan profesional. Fokus kami UMKM dan organisasi menengah, namun kami juga siap mendukung kebutuhan level enterprise.
+about.card2.body = Kami menangani IT helpdesk dan support, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT. Fokus kami ke arah UMKM dan organisasi menengah ke bawah, namun kami juga terbuka dan mendukung kebutuhan level enterprise.
 about.card3.title = Cara kami bekerja
-about.card3.body = Kami bekerja dengan integritas dan rasa hormat, memilih proyek yang selaras dengan nilai kami sambil melayani klien dengan jelas dan bertanggung jawab. Kami memprioritaskan solusi open-source terlebih dahulu dan tetap fleksibel untuk menyesuaikan rekomendasi dengan kebutuhan bisnis dan pelanggan.
+about.card3.body = Kami bekerja dengan integritas dan memilih proyek yang selaras dengan nilai dan prinsip yang kami yakini dengan terus bertanggungjawb melayani kebutuhan klien. Kami memprioritaskan solusi open-source terlebih dahulu untuk setiap kebutuhan dan tetap fleksibel dalam menyesuaikan rekomendasi dengan kebutuhan bisnis dan pelanggan.
 
 # Services
 services.title = Layanan
 services.helpdesk.title = Helpdesk & Dukungan IT
-services.helpdesk.body = Kami merancang dan menerapkan solusi helpdesk berdasarkan praktik terbaik ITIL. Layanan mencakup sistem tiket, dukungan jarak jauh, alur onboarding/offboarding, penyusunan knowledge base, dan manajemen SLA. Hasilnya respons lebih cepat, proses terstruktur, dan fondasi support yang andal untuk bisnis Anda.
+services.helpdesk.body = Kami merancang dan menerapkan solusi helpdesk berdasarkan ITIL best practices. Layanan mencakup sistem tiketing, remote support, perbantuan framework untuk alur onboarding/offboarding, penyusunan knowledge base, manajemen SLA, workstation management, dan lainnya dari kebutuhan IT support Anda.
 services.networks.title = Jaringan & Infrastruktur
-services.networks.body = Kami merancang dan membangun jaringan yang aman, skalabel, dan andal dari nol. Layanan mencakup penarikan kabel terstruktur, perencanaan rack dan topologi, konfigurasi switch/router/firewall, hingga solusi jaringan lengkap dari konektivitas lokal sampai integrasi antar-site. Dengan monitoring dan dokumentasi yang tepat, kami menghadirkan infrastruktur yang siap mendukung pertumbuhan bisnis jangka panjang.
+services.networks.body = Kami merancang dan membangun jaringan yang aman, skalabel, dan andal dari nol sesuai permintaan Anda. Layanan mulai dari penarikan kabel terstruktur, perencanaan rack dan topologi, konfigurasi switch/router/firewall/appliance, hingga solusi jaringan lengkap dari konektivitas lokal sampai integrasi antar-site. Dengan monitoring dan dokumentasi yang tepat, kami menghadirkan infrastruktur yang siap mendukung pertumbuhan bisnis jangka panjang Anda.
 services.syscloud.title = Administrasi Sistem & Cloud
-services.syscloud.body = Kami mengelola server, aplikasi, dan platform cloud Anda agar tetap stabil dan aman. Mulai dari manajemen user, update, dan backup hingga deployment, monitoring, dan automasi—kami memastikan lingkungan IT berjalan mulus dan adaptif dengan kebutuhan bisnis.
+services.syscloud.body = Kami siap 24/7 mengelola server, aplikasi, dan platform cloud Anda agar tetap stabil dan aman. Mulai dari manajemen user, update, dan backup hingga deployment, monitoring, hingga menggunakan automasi dalam memastikan lingkungan IT berjalan mulus dan adaptif dengan kebutuhan bisnis Anda.
 services.security.title = Keamanan Siber
-services.security.body = Kami fokus memperkuat pertahanan dan memastikan bisnis Anda siap menghadapi ancaman modern. Layanan meliputi hardening sistem, penilaian kerentanan, proteksi endpoint, dan monitoring. Kami membantu organisasi membangun fungsi CSIRT dan rencana Incident Response berbasis kerangka NIST, dilengkapi skenario tabletop exercise (TTX). Kami juga dapat membantu membangun Security Operations Center (SOC) untuk meningkatkan deteksi, respons, dan ketahanan keamanan jangka panjang.
+services.security.body = Fokus kami adalah memperkuat pertahanan dan memastikan bisnis Anda siap menghadapi ancaman modern. Layanan meliputi hardening sistem, penilaian kerentanan, proteksi endpoint, patch management dan monitoring terpusat. Kami membantu organisasi Anda membangun fungsi CSIRT dan SOC berbasis NIST framework, untuk meningkatkan deteksi, respons, dan ketahanan keamanan jangka panjang bagi bisnis Anda. Keamanan adalah prioritas nomor satu kami.
 services.training.title = Pelatihan IT
-services.training.body = Kami menyediakan program pelatihan terstruktur mencakup dasar-dasar IT, helpdesk dan dukungan IT, serta praktik keamanan defensif termasuk security awareness bagi semua karyawan. Sesi bersifat praktis dan mudah diikuti—berangkat dari pengalaman mengajar untuk menyiapkan tim menghadapi tantangan IT nyata.
+services.training.body = Kami menyediakan program pelatihan terstruktur mencakup dasar-dasar IT, helpdesk dan dukungan IT, serta praktik keamanan defensif termasuk security awareness bagi semua karyawan. Sesi bersifat praktis dan mudah diikuti. Kami sadar human awareness adalah perangkat yang tidak dapat dipisahkan bagi keberlangsungan dan kestablian bisnis Anda agar sejalan dengan teknologi.
 services.consult.title = Konsultasi IT
-services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda dengan solusi yang selaras dengan tujuan. Ingin mengeksplorasi lebih jauh? Hubungi kami atau kirim pesan — mari diskusikan kebutuhan Anda!
+services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda dengan solusi yang selaras dengan tujuan. Tertarik dan ingin mengeksplorasi lebih jauh? Segera hubungi kami. Jangan ragu untuk bertanya apapun, mari diskusikan kebutuhan Anda!
 
 # Testimonials
 testimonials.title = Testimoni
@@ -52,10 +52,10 @@ testimonial1.name = Motobayashi
 testimonial1.quote = “Kami sangat senang migrasi jaringan dan infrastruktur berjalan lancar tanpa kendala. Software akuntansi kami kini dikelola terpusat dan dapat dimonitor secara berkala.”
 testimonial1.role = Managing Director, Tokyo Consulting
 testimonial2.name = Mr. Suproni
-testimonial2.quote = “Terima kasih atas bantuannya untuk Mignon—mulai dari penanganan insiden keamanan di kantor hingga pembaruan dan penguatan infrastruktur jaringan kami. Semuanya berjalan lancar, dan sejak itu kami merasa lebih aman.”
+testimonial2.quote = “Kami mengalami insiden yang lumayan kritikal dan tidak terselesaikan sebelumnya, namun sejak dibantu Arfhacom, kami jadi tahu apa saja yang perlu di evaluasi termasuk bantuannya dalam migrasi network dan infrastruktur kami, meningkatkan keamanan di pabrik kami dan memberikan pelatihan security awareness. Terima kasih bantuannya”
 testimonial2.role = Section Head Warehouse, Mignon Sista International
 testimonial3.name = Yuliantama
-testimonial3.quote = “Terima kasih Kang atas bantuan migrasi dan pengelolaan hosting serta email kantor kami.”
+testimonial3.quote = “Terima kasih Kang atas bantuan migrasi dan pengelolaan web hosting serta email kantor kami.”
 testimonial3.role = IT, Wilsor Group
 
 # Past Work
@@ -64,7 +64,7 @@ pastwork.subtitle = Beberapa brand yang pernah dikerjakan tim kami.
 
 # Get Quote
 quote.title = Dapatkan Penawaran
-quote.subtitle = Ceritakan kebutuhan, timeline, dan batasan Anda. Kami senang memulai dari percakapan singkat.
+quote.subtitle = Ceritakan kebutuhan, timeline, dan batasan Anda. Kami sangat senang memulai dari percakapan singkat, bahkan hanya sekedar bertanya saja.
 quote.form.name.placeholder = Nama Anda
 quote.form.email.placeholder = Email Anda
 quote.form.company.placeholder = Perusahaan (opsional)
@@ -86,7 +86,7 @@ contact.whatsapp.title = WhatsApp
 contact.whatsapp.body = Silakan gunakan tombol mengambang untuk chat langsung.
 
 # Footer
-footer.copyright = © 2025 Arfhacom dari Arfha Corporation. Semua hak dilindungi.
+footer.copyright = © 2025 Arfhacom dari Arfhacorp. Semua hak dilindungi.
 footer.link.about = Tentang
 footer.link.services = Layanan
 footer.link.testimonials = Testimoni
