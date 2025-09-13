@@ -25,11 +25,11 @@ cta.explore_services = Lihat Layanan
 # About
 about.title = Tentang Kami
 about.card1.title = Siapa kami
-about.card1.body = Arfhacom adalah perusahaan Teknologi Informasi yang diinisiasi oleh engineer berpengalaman lintas lokal dan global. Kami mengutamakan kinerja stabil, tata kelola yang rapi, serta manfaat yang berkesinambungan.
+about.card1.body = Arfhacom adalah perusahaan Teknologi Informasi yang diinisiasi oleh engineer berpengalaman lintas lokal dan global sejak 2010. Kami mengutamakan kinerja stabil, tata kelola yang rapi, serta manfaat yang berkesinambungan.
 about.card2.title = Apa yang kami lakukan
 about.card2.body = Kami menangani IT helpdesk dan support, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT. Fokus kami ke arah UMKM dan organisasi menengah ke bawah, namun kami juga terbuka dan mendukung kebutuhan level enterprise.
 about.card3.title = Cara kami bekerja
-about.card3.body = Kami bekerja dengan integritas dan memilih proyek yang selaras dengan nilai dan prinsip yang kami yakini dengan terus bertanggungjawb melayani kebutuhan klien. Kami memprioritaskan solusi open-source terlebih dahulu untuk setiap kebutuhan dan tetap fleksibel dalam menyesuaikan rekomendasi dengan kebutuhan bisnis dan pelanggan.
+about.card3.body = Kami bekerja dengan integritas dan memilih proyek yang selaras dengan nilai dan prinsip yang kami yakini dengan terus bertanggungjawab melayani kebutuhan klien. Kami memprioritaskan solusi open-source terlebih dahulu untuk setiap kebutuhan dan tetap fleksibel dalam menyesuaikan rekomendasi dengan kebutuhan bisnis dan pelanggan.
 
 # Services
 services.title = Layanan
@@ -40,7 +40,7 @@ services.networks.body = Kami merancang dan membangun jaringan yang aman, skalab
 services.syscloud.title = Administrasi Sistem & Cloud
 services.syscloud.body = Kami siap 24/7 mengelola server, aplikasi, dan platform cloud Anda agar tetap stabil dan aman. Mulai dari manajemen user, update, dan backup hingga deployment, monitoring, hingga menggunakan automasi dalam memastikan lingkungan IT berjalan mulus dan adaptif dengan kebutuhan bisnis Anda.
 services.security.title = Keamanan Siber
-services.security.body = Fokus kami adalah memperkuat pertahanan dan memastikan bisnis Anda siap menghadapi ancaman modern. Layanan meliputi hardening sistem, penilaian kerentanan, proteksi endpoint, patch management dan monitoring terpusat. Kami membantu organisasi Anda membangun fungsi CSIRT dan SOC berbasis NIST framework, untuk meningkatkan deteksi, respons, dan ketahanan keamanan jangka panjang bagi bisnis Anda. Keamanan adalah prioritas nomor satu kami.
+services.security.body = Fokus kami adalah memperkuat pertahanan dan memastikan bisnis Anda siap menghadapi ancaman modern. Layanan meliputi hardening sistem, penilaian kerentanan, proteksi endpoint, patch management dan monitoring terpusat. Kami membantu organisasi Anda membangun fungsi CSIRT dan SOC berbasis NIST framework dan best practices di industri, untuk meningkatkan deteksi, respons, dan ketahanan keamanan jangka panjang bagi bisnis Anda. Keamanan adalah prioritas nomor satu kami.
 services.training.title = Pelatihan IT
 services.training.body = Kami menyediakan program pelatihan terstruktur mencakup dasar-dasar IT, helpdesk dan dukungan IT, serta praktik keamanan defensif termasuk security awareness bagi semua karyawan. Sesi bersifat praktis dan mudah diikuti. Kami sadar human awareness adalah perangkat yang tidak dapat dipisahkan bagi keberlangsungan dan kestablian bisnis Anda agar sejalan dengan teknologi.
 services.consult.title = Konsultasi IT
