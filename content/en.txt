@@ -25,7 +25,7 @@ cta.explore_services = Explore Services
 # About
 about.title = About Us
 about.card1.title = Who we are
-about.card1.body = Arfhacom is an information technology company founded by a seasoned engineer with experience in both local and international environments. We focus on reliable performance, robust governance, and sustainable outcomes.
+about.card1.body = Arfhacom is an information technology company initiated by a seasoned engineer with experience in both local and international environments since 2010. We focus on reliable performance, robust governance, and sustainable outcomes.
 about.card2.title = What we do
 about.card2.body = We handle IT helpdesk and support, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consulting. Our focus is on SMEs and mid-market organizations, while remaining open to supporting enterprise-level needs.
 about.card3.title = How we work
