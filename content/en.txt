@@ -9,62 +9,62 @@ nav.home = Home
 nav.about = About Us
 nav.services = Services
 nav.testimonials = Testimonials
-nav.pastwork = Past Work
+nav.pastwork = Portfolio
 nav.quote = Get Quote
 nav.contact = Contact
 
 # Hero typewriter lines (English)
-hero.line1 = We bring you a reliable IT solutions
-hero.line2 = We ensure your security protections
-hero.line3 = We keep your systems steady
-hero.line4 = We simplify your daily IT
-hero.line5 = We Guiding Technology with Care
+hero.line1 = We provide end-to-end IT solutions
+hero.line2 = We safeguard your security
+hero.line3 = We keep your systems stable
+hero.line4 = We simplify your everyday IT
+hero.line5 = We are your trusted digital transformation partner
 cta.get_quote = Get a Quote
 cta.explore_services = Explore Services
 
 # About
 about.title = About Us
 about.card1.title = Who we are
-about.card1.body = Arfhacom is an Information Technology company led by engineer with experience across local and international environments. We focus on dependable delivery, practical solutions, and long-term reliability.
+about.card1.body = Arfhacom is an information technology company founded by a seasoned engineer with experience in both local and international environments. We focus on reliable performance, robust governance, and sustainable outcomes.
 about.card2.title = What we do
-about.card2.body = We cover IT helpdesk, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consultation—handled with care and professionalism. Our focus is on UMKM and mid-market organizations, and we’re also open to supporting upper-level/enterprise needs.
+about.card2.body = We handle IT helpdesk and support, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consulting. Our focus is on SMEs and mid-market organizations, while remaining open to supporting enterprise-level needs.
 about.card3.title = How we work
-about.card3.body = We operate with integrity and respect, choosing projects that align with our values while serving clients with clarity and responsibility. We prioritize open-source solutions first and remain flexible with recommendations to match business and customer needs.
+about.card3.body = We operate with integrity and choose projects aligned with our values by serving clients responsibly. We prioritize open-source solutions first and stay flexible to tailor recommendations to each business and customer need.
 
 # Services
 services.title = Services
 services.helpdesk.title = IT Helpdesk & Support
-services.helpdesk.body = We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding and offboarding workflows, knowledge base setup, and SLA management. This ensures faster response, structured processes, and a reliable support backbone for your business.
+services.helpdesk.body = We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding/offboarding frameworks, knowledge base setup, SLA management, workstation management, and more—everything your IT support function needs.
 services.networks.title = Networks & Infrastructure
-services.networks.body = We design and implement secure, scalable, and reliable networks from the ground up. Our services include structured cabling, rack and topology planning, switch/router/firewall configuration, and full network solutions from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver an infrastructure that supports long-term business growth.
+services.networks.body = We design and build secure, scalable, and reliable networks from the ground up to your requirements. Services include structured cabling, rack and topology planning, switch/router/firewall/appliance configuration, and complete networking—from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver infrastructure that supports your long-term growth.
 services.syscloud.title = System & Cloud Administration
-services.syscloud.body = We take care of your servers, applications, and cloud platforms to keep everything stable and secure. From managing users, updates, and backups to handling deployments, monitoring, and automation, we ensure your IT environment runs smoothly and adapts to your business needs.
+services.syscloud.body = We are available 24/7 to manage your servers, applications, and cloud platforms so they remain stable and secure. From user management, updates, and backups to deployments, monitoring, and automation — we keep your IT environment running smoothly and aligned to your business needs.
 services.security.title = Cybersecurity
-services.security.body = We focus on strengthening defenses and ensuring your business is ready for modern threats. Our services include system hardening, vulnerability assessments, endpoint protection, and monitoring. We help organizations build CSIRT functions and Incident Response plans using the NIST framework, supported with tabletop exercise (TTX) scenarios. We can also help you establish a Security Operations Center (SOC) to improve detection, response, and long-term security resilience.
+services.security.body = Our focus is strengthening defenses and ensuring your business is ready for modern threats. Services include system hardening, vulnerability assessment, endpoint protection, patch management, and centralized monitoring. We help you build CSIRT and SOC capabilities using the NIST framework and industry best practices to improve detection, response, and long-term resilience. Security is our top priority.
 services.training.title = IT Training
-services.training.body = We provide structured training programs covering IT fundamentals, IT helpdesk and support, and defensive security practices, including security awareness for all employees. Our sessions are practical and easy to follow—built from teaching experience to prepare teams for real IT challenges.
-services.consult.title = IT Consultation
-services.consult.body = We help you plan, assess, and improve your IT environment with solutions tailored to your goals. Want to explore more? Contact us or drop us a message — let’s discuss what you need!
+services.training.body = We provide structured programs covering IT fundamentals, helpdesk and support, and defensive security practices—including security awareness for all employees. Sessions are practical and easy to follow. We recognize that human awareness is essential to business continuity and stability alongside technology.
+services.consult.title = IT Consulting
+services.consult.body = We help you plan, assess, and improve your IT environment with solutions aligned to your goals. Interested and want to explore more? Contact us—ask anything, and let’s discuss what you need!
 
 # Testimonials
 testimonials.title = Testimonials
 testimonial1.name = Motobayashi
-testimonial1.quote = “We are very pleased that our network and infrastructure migration went smoothly without any issues. Our accounting software is now managed centrally and can be monitored regularly.”
+testimonial1.quote = “We’re very pleased that our network and infrastructure migration went smoothly without issues. Our accounting software is now centrally managed and can be monitored regularly.”
 testimonial1.role = Managing Director, Tokyo Consulting
 testimonial2.name = Mr. Suproni
-testimonial2.quote = “Thank you for helping Mignon—from handling the security incident in our office to refreshing and strengthening our network infrastructure. Everything went smoothly, and we’ve felt secure ever since.”
+testimonial2.quote = “We faced a fairly critical incident that previously went unresolved, but since Arfhacom assisted us, we’ve understood what needed to be evaluated—including help with migrating our network and infrastructure, improving security at our plant, and delivering security awareness training. Thank you for the support.”
 testimonial2.role = Section Head Warehouse, Mignon Sista International
 testimonial3.name = Yuliantama
-testimonial3.quote = “Thank you Kang, for your help with migrating and managing our office hosting and email.”
+testimonial3.quote = “Thank you for your help migrating and managing our web hosting and company email.”
 testimonial3.role = IT, Wilsor Group
 
 # Past Work
-pastwork.title = Past Work
-pastwork.subtitle = A few brands our team has worked with previously.
+pastwork.title = Portfolio
+pastwork.subtitle = A few brands our team has worked with.
 
 # Get Quote
 quote.title = Get a Quote
-quote.subtitle = Share your needs, timeline, and constraints. We’re happy to start with a short conversation.
+quote.subtitle = Tell us your needs, timeline, and constraints. We’re happy to start with a short conversation—even if it’s just a question.
 quote.form.name.placeholder = Your name
 quote.form.email.placeholder = Your email
 quote.form.company.placeholder = Company (optional)
@@ -75,22 +75,22 @@ quote.form.clear = Clear
 quote.notes.title = Notes
 quote.notes.1 = Thank you for your visit!
 quote.notes.2 = You can also reach us on WhatsApp using the green button.
-quote.notes.3 = If you need additional services, want to collaborate, or have any questions, mention them here and we’ll follow up. Insya Allah, we’ll reply 24/7 as quickly as possible when online.
+quote.notes.3 = If you need additional services, want to collaborate, or have any questions, write them here and we’ll follow up. God willing, we’ll reply 24/7 as quickly as possible when we’re online.
 
 # Contact
 contact.title = Contact
 contact.office.title = Office
-contact.office.body = Kota Bogor, West Java\nIndonesia 16112
+contact.office.body = Bogor City, West Java\nIndonesia 16112
 contact.email.title = Email
 contact.whatsapp.title = WhatsApp
 contact.whatsapp.body = Please use the floating button to chat instantly.
 
 # Footer
-footer.copyright = © 2025 Arfhacom from Arfha Corporation. All rights reserved.
+footer.copyright = © 2025 Arfhacom from Arfhacorp. All rights reserved.
 footer.link.about = About
 footer.link.services = Services
 footer.link.testimonials = Testimonials
-footer.link.pastwork = Past Work
+footer.link.pastwork = Portfolio
 footer.link.quote = Get Quote
 footer.link.contact = Contact
 
