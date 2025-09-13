@@ -15,8 +15,8 @@ nav.contact = Contact
 
 # Hero typewriter lines (English)
 hero.line1 = We provide end-to-end IT solutions
-hero.line2 = We safeguard your security
-hero.line3 = We keep your systems stable
+hero.line2 = We ensure your security protections
+hero.line3 = We keep your systems steady
 hero.line4 = We simplify your everyday IT
 hero.line5 = We are your trusted digital transformation partner
 cta.get_quote = Get a Quote
