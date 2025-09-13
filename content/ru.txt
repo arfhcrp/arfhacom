@@ -1,0 +1,98 @@
+# General / UI
+preloader.loading = Загрузка…
+brand.subtag = Интегратор IT-решений
+menu.label = Меню
+tooltip.whatsapp = Чат в WhatsApp
+
+# Nav
+nav.home = Главная
+nav.about = О нас
+nav.services = Услуги
+nav.testimonials = Отзывы
+nav.pastwork = Портфолио
+nav.quote = Запросить смету
+nav.contact = Контакты
+
+# Hero
+hero.line1 = Мы предоставляем комплексные IT-решения
+hero.line2 = Мы защищаем вашу безопасность
+hero.line3 = Мы поддерживаем стабильность ваших систем
+hero.line4 = Мы упрощаем вашу повседневную ИТ
+hero.line5 = Ваш надежный партнер по цифровой трансформации
+cta.get_quote = Запросить предложение
+cta.explore_services = Смотреть услуги
+
+# About
+about.title = О нас
+about.card1.title = Кто мы
+about.card1.body = Arfhacom — компания в сфере информационных технологий, основанная опытным инженером с практикой в локальных и международных средах. Мы уделяем приоритет стабильной работе, надежному управлению и долгосрочной ценности.
+about.card2.title = Чем мы занимаемся
+about.card2.body = Служба поддержки и хелпдеск, сети и инфраструктура, администрирование систем и облака, кибербезопасность, обучение в сфере ИТ и консалтинг. Мы работаем с МСП и средним бизнесом, а также поддерживаем потребности корпоративного уровня.
+about.card3.title = Как мы работаем
+about.card3.body = Мы действуем добросовестно, выбираем проекты, соответствующие нашим ценностям, и обслуживаем клиентов ответственно и прозрачно. Мы предпочитаем open-source-решения и гибко адаптируем рекомендации под задачи бизнеса и клиентов.
+
+# Services
+services.title = Услуги
+services.helpdesk.title = Хелпдеск и поддержка ИТ
+services.helpdesk.body = Проектируем и внедряем хелпдеск по лучшим практикам ITIL: тикеты, удаленная поддержка, онбординг/оффбординг, база знаний, управление SLA и рабочими станциями—для быстрой реакции и выстроенных процессов.
+services.networks.title = Сети и инфраструктура
+services.networks.body = Строим безопасные, масштабируемые и надежные сети с нуля: структурированная разводка, планирование стоек и топологии, настройка свитчей/маршрутизаторов/фаерволов, решения от локальной связности до межсайтовой интеграции, с мониторингом и документацией.
+services.syscloud.title = Администрирование систем и облака
+services.syscloud.body = Управляем серверами, приложениями и облачными платформами для стабильной и безопасной работы: пользователи, обновления и бэкапы; деплой, мониторинг и автоматизация—чтобы ваша ИТ-среда работала плавно и в интересах бизнеса.
+services.security.title = Кибербезопасность
+services.security.body = Усиливаем защиту и готовим бизнес к современным угрозам: hardening систем, анализ уязвимостей, защита конечных точек и мониторинг. Помогаем выстраивать CSIRT/SOC по методологии NIST для лучшего обнаружения, реагирования и долгосрочной устойчивости.
+services.training.title = Обучение ИТ
+services.training.body = Структурированные программы: основы ИТ, хелпдеск и поддержка, практики защитной безопасности, в том числе awareness для сотрудников. Практично и понятно, чтобы команда была готова к реальным вызовам.
+services.consult.title = ИТ-консалтинг
+services.consult.body = Помогаем планировать, оценивать и улучшать вашу ИТ-среду решениями, соответствующими вашим целям. Хотите обсудить? Свяжитесь с нами — обсудим ваши задачи.
+
+# Testimonials
+testimonials.title = Отзывы
+testimonial1.name = Motobayashi
+testimonial1.quote = «Мы очень довольны: миграция сети и инфраструктуры прошла гладко и без проблем. Наше бухгалтерское ПО теперь централизовано и регулярно мониторится».
+testimonial1.role = Генеральный директор, Tokyo Consulting
+testimonial2.name = Mr. Suproni
+testimonial2.quote = «У нас был критичный инцидент, который раньше не удавалось решить. С Arfhacom мы поняли, что оценить, включая миграцию сети/инфраструктуры, усиление безопасности на заводе и обучение по безопасности. Спасибо за поддержку!»
+testimonial2.role = Руководитель секции склада, Mignon Sista International
+testimonial3.name = Yuliantama
+testimonial3.quote = «Спасибо за помощь с миграцией и управлением веб-хостингом и корпоративной почтой».
+testimonial3.role = ИТ-специалист, Wilsor Group
+
+# Past Work
+pastwork.title = Портфолио
+pastwork.subtitle = Несколько брендов, с которыми работала наша команда.
+
+# Get Quote
+quote.title = Запросить смету
+quote.subtitle = Расскажите о потребностях, сроках и ограничениях. Мы рады начать с короткого разговора — даже если это просто вопрос.
+quote.form.name.placeholder = Ваше имя
+quote.form.email.placeholder = Ваш e-mail
+quote.form.company.placeholder = Компания (необязательно)
+quote.form.project.placeholder = Краткое описание проекта
+quote.form.timeline.placeholder = Сроки (необязательно)
+quote.form.submit = Отправить по e-mail
+quote.form.clear = Очистить
+quote.notes.title = Примечания
+quote.notes.1 = Спасибо за визит!
+quote.notes.2 = Свяжитесь с нами и через WhatsApp, используя зеленую кнопку.
+quote.notes.3 = Нужны дополнительные услуги, сотрудничество или есть вопросы? Напишите здесь — мы свяжемся с вами. Отвечаем как можно быстрее, когда онлайн.
+
+# Contact
+contact.title = Контакты
+contact.office.title = Офис
+contact.office.body = Город Богор, Западная Ява\nИндонезия 16112
+contact.email.title = E-mail
+contact.whatsapp.title = WhatsApp
+contact.whatsapp.body = Используйте плавающую кнопку для мгновенного чата.
+
+# Footer
+footer.copyright = © 2025 Arfhacom от Arfhacorp. Все права защищены.
+footer.link.about = О нас
+footer.link.services = Услуги
+footer.link.testimonials = Отзывы
+footer.link.pastwork = Портфолио
+footer.link.quote = Смета
+footer.link.contact = Контакты
+
+# WhatsApp deeplink (URL-encoded; using EN text by default)
+wa.href = https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
