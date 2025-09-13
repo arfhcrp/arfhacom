@@ -95,4 +95,4 @@ footer.link.quote = Dapatkan Penawaran
 footer.link.contact = Kontak
 
 # WhatsApp deeplink (already URL-encoded)
-wa.href = https://wa.me/6289661689424?text=Halo%2C%20saya%20datang%20dari%20kontak%20arfha.com.%20Boleh%20diskusi%20tentang%20layanan%20Anda%3F
+wa.href = https://wa.me/6289661689424?text=Halo%2C%20Assalamu'alaikum%20saya%20dialihkan%20dari%20arfha.com.%20Boleh%20diskusi%20tentang%20layanan%20Anda%3F
