@@ -1,1 +1,99 @@
+# General / UI
+preloader.loading = Chargement…
+brand.subtag = Intégrateur de solutions IT
+menu.label = Menu
+tooltip.whatsapp = Discuter sur WhatsApp
+
+# Nav
+nav.home = Accueil
+nav.about = À propos
+nav.services = Services
+nav.testimonials = Témoignages
+nav.pastwork = Réalisations
+nav.quote = Demander un devis
+nav.contact = Contact
+
+# Hero
+hero.line1 = Nous fournissons des solutions IT de bout en bout
+hero.line2 = Nous protégeons votre sécurité
+hero.line3 = Nous maintenons la stabilité de vos systèmes
+hero.line4 = Nous simplifions votre informatique au quotidien
+hero.line5 = Votre partenaire de confiance en transformation numérique
+cta.get_quote = Obtenir un devis
+cta.explore_services = Découvrir les services
+
+# About
+about.title = À propos
+about.card1.title = Qui sommes-nous
+about.card1.body = Arfhacom est une société de technologies de l’information initiée par un ingénieur expérimenté, actif dans des environnements locaux et internationaux. Nous privilégions la performance stable, une gouvernance solide et une valeur durable.
+about.card2.title = Ce que nous faisons
+about.card2.body = Nous couvrons le helpdesk et le support IT, les réseaux et l’infrastructure, l’administration systèmes et cloud, la cybersécurité, la formation IT, ainsi que le conseil. Nous servons principalement les PME et le mid-market, tout en accompagnant les besoins de niveau entreprise.
+about.card3.title = Notre façon de travailler
+about.card3.body = Nous agissons avec intégrité et choisissons des projets alignés sur nos valeurs, en servant nos clients avec clarté et responsabilité. Nous privilégions l’open-source en premier et restons flexibles pour adapter nos recommandations aux besoins métier et clients.
+
+# Services
+services.title = Services
+services.helpdesk.title = Helpdesk & Support IT
+services.helpdesk.body = Nous concevons et déployons des solutions helpdesk basées sur les bonnes pratiques ITIL : tickets, support à distance, parcours d’onboarding/offboarding, base de connaissances, gestion des SLA et des postes—pour des réponses plus rapides et des processus structurés.
+services.networks.title = Réseaux & Infrastructure
+services.networks.body = Nous bâtissons des réseaux sûrs, évolutifs et fiables, de bout en bout : câblage structuré, planification racks/topologie, configuration switches/routeurs/firewalls, jusqu’à l’interconnexion de sites, avec supervision et documentation adaptées pour soutenir votre croissance.
+services.syscloud.title = Administration Systèmes & Cloud
+services.syscloud.body = Nous prenons en charge serveurs, applications et plateformes cloud pour garantir stabilité et sécurité : gestion des utilisateurs, mises à jour, sauvegardes, déploiements, supervision et automatisation—pour une IT fluide et alignée à vos objectifs.
+services.security.title = Cybersécurité
+services.security.body = Nous renforçons vos défenses et préparons votre entreprise aux menaces modernes : hardening, évaluation des vulnérabilités, protection des endpoints et supervision. Nous aidons à bâtir CSIRT/SOC selon le cadre NIST pour améliorer détection, réponse et résilience.
+services.training.title = Formation IT
+services.training.body = Programmes structurés : fondamentaux IT, helpdesk & support, pratiques de sécurité défensive, sensibilisation sécurité pour tous les employés—sessions pratiques et faciles à suivre.
+services.consult.title = Conseil IT
+services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT avec des solutions alignées sur vos objectifs. Intéressé ? Contactez-nous et discutons de vos besoins.
+
+# Testimonials
+testimonials.title = Témoignages
+testimonial1.name = Motobayashi
+testimonial1.quote = « La migration réseau et infrastructure s’est déroulée sans problème. Notre logiciel de comptabilité est désormais géré de manière centralisée et peut être supervisé régulièrement. »
+testimonial1.role = Directeur général, Tokyo Consulting
+testimonial2.name = Mr. Suproni
+testimonial2.quote = « Nous avons connu un incident critique resté non résolu. Avec Arfhacom, nous avons su quoi évaluer, y compris la migration réseau/infrastructure, le renforcement de la sécurité de notre usine et la sensibilisation sécurité. Merci pour votre aide. »
+testimonial2.role = Chef de section entrepôt, Mignon Sista International
+testimonial3.name = Yuliantama
+testimonial3.quote = « Merci pour l’aide à la migration et à la gestion de notre hébergement web et de nos e-mails. »
+testimonial3.role = IT, Wilsor Group
+
+# Past Work
+pastwork.title = Réalisations
+pastwork.subtitle = Quelques marques avec lesquelles notre équipe a travaillé.
+
+# Get Quote
+quote.title = Demander un devis
+quote.subtitle = Partagez vos besoins, délais et contraintes. Nous sommes ravis de commencer par une courte conversation—même pour une simple question.
+quote.form.name.placeholder = Votre nom
+quote.form.email.placeholder = Votre e-mail
+quote.form.company.placeholder = Société (optionnel)
+quote.form.project.placeholder = Résumé du projet
+quote.form.timeline.placeholder = Échéance (optionnel)
+quote.form.submit = Envoyer par e-mail
+quote.form.clear = Effacer
+quote.notes.title = Notes
+quote.notes.1 = Merci de votre visite !
+quote.notes.2 = Vous pouvez aussi nous écrire sur WhatsApp via le bouton vert.
+quote.notes.3 = Besoin d’un service supplémentaire, d’une collaboration ou d’une question ? Écrivez-le ici et nous ferons le suivi. Nous répondons aussi vite que possible lorsque nous sommes en ligne.
+
+# Contact
+contact.title = Contact
+contact.office.title = Bureau
+contact.office.body = Kota Bogor, Java occidental\nIndonésie 16112
+contact.email.title = E-mail
+contact.whatsapp.title = WhatsApp
+contact.whatsapp.body = Utilisez le bouton flottant pour discuter instantanément.
+
+# Footer
+footer.copyright = © 2025 Arfhacom de Arfhacorp. Tous droits réservés.
+footer.link.about = À propos
+footer.link.services = Services
+footer.link.testimonials = Témoignages
+footer.link.pastwork = Réalisations
+footer.link.quote = Devis
+footer.link.contact = Contact
+
+# WhatsApp deeplink (URL-encoded; using EN text by default)
+wa.href = https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
 
