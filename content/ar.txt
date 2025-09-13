@@ -1,0 +1,98 @@
+# General / UI
+preloader.loading = جارٍ التحميل…
+brand.subtag = مدمِج حلول تقنية المعلومات
+menu.label = القائمة
+tooltip.whatsapp = الدردشة عبر واتساب
+
+# Nav (top + footer + drawer)
+nav.home = الرئيسية
+nav.about = من نحن
+nav.services = الخدمات
+nav.testimonials = التوصيات
+nav.pastwork = الأعمال السابقة
+nav.quote = اطلب عرض سعر
+nav.contact = اتصل بنا
+
+# Hero typewriter lines (Arabic)
+hero.line1 = نقدّم حلول تقنية معلومات متكاملة
+hero.line2 = نحمي أمنك وبياناتك
+hero.line3 = نحافظ على استقرار أنظمتك
+hero.line4 = نُبسّط أعمال تقنية المعلومات اليومية
+hero.line5 = نحن شريككم الموثوق للتحول الرقمي
+cta.get_quote = احصل على عرض سعر
+cta.explore_services = استعرض الخدمات
+
+# About
+about.title = من نحن
+about.card1.title = من نكون
+about.card1.body = Arfhacom شركة تقنية معلومات أطلقها مهندس ذو خبرة عملية في بيئات محلية وعالمية. نُعطي الأولوية للأداء المستقر، والحَوْكمة الرشيدة، والقيمة المستدامة على المدى الطويل.
+about.card2.title = ماذا نفعل
+about.card2.body = نقدّم خدمة مركز الدعم والدعم الفني، الشبكات والبنية التحتية، إدارة الأنظمة والسحابة، الأمن السيبراني، التدريب التقني، والاستشارات. نركّز على الشركات الصغيرة والمتوسطة، كما ندعم احتياجات المؤسسات الكبرى.
+about.card3.title = كيف نعمل
+about.card3.body = نعمل بنزاهة ونختار المشاريع المتوافقة مع قيمنا، ونخدم عملاءنا بمسؤولية ووضوح. نُفضّل حلول المصادر المفتوحة أولًا ونبقى مرنين لملاءمة التوصيات مع أهداف العمل واحتياجات العملاء.
+
+# Services
+services.title = الخدمات
+services.helpdesk.title = مركز الدعم والدعم الفني
+services.helpdesk.body = نصمّم ونطبّق حلول مركز الدعم وفق أفضل ممارسات ITIL: نظم التذاكر، الدعم عن بُعد، عمليات الانضمام والمغادرة، إعداد قاعدة المعرفة، إدارة اتفاقيات مستوى الخدمة، وإدارة محطات العمل—للاستجابة الأسرع والعمليات المنظّمة.
+services.networks.title = الشبكات والبنية التحتية
+services.networks.body = نُنشئ شبكات آمنة وقابلة للتوسّع وموثوقة من الصفر: تمديد الكوابل المنظّم، تخطيط الرفوف والطوبولوجيا، إعداد المحوّلات والموجّهات والجدران النارية، وحلول من اتصال محلي حتى ربط المواقع، مع مراقبة وتوثيق ملائمين لدعم النمو طويل الأمد.
+services.syscloud.title = إدارة الأنظمة والسحابة
+services.syscloud.body = ندير الخوادم والتطبيقات والمنصّات السحابية للحفاظ على الاستقرار والأمان: إدارة المستخدمين والتحديثات والنسخ الاحتياطية، النشر والمراقبة والأتمتة—ليعمل بيئتك التقنية بسلاسة وبما يلائم احتياج العمل.
+services.security.title = الأمن السيبراني
+services.security.body = نُعزّز الدفاعات ونُهيّئ عملك للتهديدات الحديثة: تقسية الأنظمة، تقييم الثغرات، حماية الأجهزة الطرفية، والمراقبة. نساعد في بناء قدرات CSIRT وخطط الاستجابة للحوادث وفق إطار NIST، ويمكننا دعم إنشاء مركز عمليات أمنية (SOC) لتحسين الكشف والاستجابة والمرونة طويلة المدى.
+services.training.title = التدريب التقني
+services.training.body = نقدّم برامج تدريبية منظّمة تشمل أساسيات تقنية المعلومات، مركز الدعم والدعم الفني، وممارسات الأمن الدفاعي بما فيها توعية الأمن لجميع الموظفين—جلسات عملية وسهلة المتابعة تُجهّز الفرق لتحديات الواقع.
+services.consult.title = الاستشارات التقنية
+services.consult.body = نساعدك في التخطيط والتقييم وتحسين بيئة تقنية المعلومات بحلول متوافقة مع أهدافك. مهتم بالمزيد؟ تواصل معنا ولنناقش احتياجاتك!
+
+# Testimonials
+testimonials.title = التوصيات
+testimonial1.name = Motobayashi
+testimonial1.quote = "سعداء جدًا بانتهاء ترحيل الشبكة والبنية التحتية بسلاسة ومن دون مشكلات. باتت برمجية المحاسبة مُدارة مركزيًا ويمكن مراقبتها بانتظام."
+testimonial1.role = المدير العام، Tokyo Consulting
+testimonial2.name = Mr. Suproni
+testimonial2.quote = "واجهنا حادثًا حرجًا لم يُحلّ سابقًا، ومع دعم Arfhacom عرفنا ما ينبغي تقييمه، بما في ذلك ترحيل الشبكة والبنية التحتية، وتعزيز الأمان في المصنع، وتقديم توعية أمنية. شكرًا للدعم."
+testimonial2.role = رئيس قسم المستودع، Mignon Sista International
+testimonial3.name = Yuliantama
+testimonial3.quote = "شكرًا على المساعدة في ترحيل واستدارة استضافة الويب وبريد الشركة."
+testimonial3.role = تقنية المعلومات، Wilsor Group
+
+# Past Work
+pastwork.title = الأعمال السابقة
+pastwork.subtitle = بعض العلامات التي عمل فريقنا معها.
+
+# Get Quote
+quote.title = اطلب عرض سعر
+quote.subtitle = شاركنا احتياجك والجدول والقيود. يسعدنا البدء بمحادثة قصيرة—حتى لو كانت مجرد سؤال.
+quote.form.name.placeholder = اسمك
+quote.form.email.placeholder = بريدك الإلكتروني
+quote.form.company.placeholder = الشركة (اختياري)
+quote.form.project.placeholder = ملخص المشروع
+quote.form.timeline.placeholder = الجدول الزمني (اختياري)
+quote.form.submit = أرسل عبر البريد
+quote.form.clear = مسح
+quote.notes.title = ملاحظات
+quote.notes.1 = شكرًا على زيارتك!
+quote.notes.2 = يمكنك مراسلتنا عبر واتساب باستخدام الزر الأخضر.
+quote.notes.3 = إن احتجت خدمات إضافية أو تعاونًا أو لديك أسئلة، اكتبها هنا وسنتابع معك. بإذن الله سنردّ بأسرع وقت متى كنا متصلين.
+
+# Contact
+contact.title = اتصل بنا
+contact.office.title = المكتب
+contact.office.body = مدينة بوجور، جاوة الغربية\nإندونيسيا 16112
+contact.email.title = البريد الإلكتروني
+contact.whatsapp.title = واتساب
+contact.whatsapp.body = استخدم الزر العائم للدردشة فورًا.
+
+# Footer
+footer.copyright = © 2025 Arfhacom من Arfhacorp. جميع الحقوق محفوظة.
+footer.link.about = نبذة
+footer.link.services = الخدمات
+footer.link.testimonials = التوصيات
+footer.link.pastwork = الأعمال السابقة
+footer.link.quote = اطلب عرض
+footer.link.contact = اتصل
+
+# WhatsApp deeplink (URL-encoded; using EN text by default)
+wa.href = https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
