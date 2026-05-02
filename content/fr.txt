@@ -86,7 +86,7 @@ contact.whatsapp.title = WhatsApp
 contact.whatsapp.body = Utilisez le bouton flottant pour discuter instantanément.
 
 # Footer
-footer.copyright = © 2025 Arfhacom de Arfhacorp. Tous droits réservés.
+footer.copyright = © 2026 Arfhacom de Arfhacorp. Tous droits réservés.
 footer.link.about = À propos
 footer.link.services = Services
 footer.link.testimonials = Témoignages
@@ -95,5 +95,5 @@ footer.link.quote = Devis
 footer.link.contact = Contact
 
 # WhatsApp deeplink (URL-encoded; using EN text by default)
-wa.href = https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
+wa.href = https://wa.me/62818101990?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
 
