@@ -86,7 +86,7 @@ contact.whatsapp.title = واتساب
 contact.whatsapp.body = استخدم الزر العائم للدردشة فورًا.
 
 # Footer
-footer.copyright = © 2025 Arfhacom من Arfhacorp. جميع الحقوق محفوظة.
+footer.copyright = © 2026 Arfhacom من Arfhacorp. جميع الحقوق محفوظة.
 footer.link.about = نبذة
 footer.link.services = الخدمات
 footer.link.testimonials = التوصيات
@@ -95,4 +95,4 @@ footer.link.quote = اطلب عرض
 footer.link.contact = اتصل
 
 # WhatsApp deeplink (URL-encoded; using EN text by default)
-wa.href = https://wa.me/6289661689424?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
+wa.href = https://wa.me/62818101990?text=Hi%2C%20I%20came%20from%20arfha.com%20contact%2C%20can%20we%20discuss%20about%20your%20services%3F
