@@ -10,20 +10,6 @@
   window.addEventListener('keydown',e=>{if(e.key==='Escape')show(false)});
 })();
 
-// theme: default LIGHT; respect saved choice
-(function(){
-  const w=document.getElementById('switch');
-  const saved=localStorage.getItem('theme');
-  if(saved==='dark'){
-    document.body.classList.remove('light'); w.classList.remove('on'); w.setAttribute('aria-checked','false');
-  }else{
-    document.body.classList.add('light'); w.classList.add('on'); w.setAttribute('aria-checked','true');
-  }
-  function set(l){document.body.classList.toggle('light',l);w.classList.toggle('on',l);w.setAttribute('aria-checked',l?'true':'false');localStorage.setItem('theme',l?'light':'dark')}
-  w.addEventListener('click',()=>set(!document.body.classList.contains('light')));
-  w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set(!document.body.classList.contains('light'))}});
-})();
-
 // typewriter EN
 
 (function(){
