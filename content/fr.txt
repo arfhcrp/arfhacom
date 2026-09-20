@@ -34,17 +34,17 @@ about.card3.body = Nous agissons avec intégrité et choisissons des projets ali
 # Services
 services.title = Services
 services.helpdesk.title = Helpdesk & Support IT
-services.helpdesk.body = Nous concevons et déployons des solutions helpdesk basées sur les bonnes pratiques ITIL : tickets, support à distance, parcours d’onboarding/offboarding, base de connaissances, gestion des SLA et des postes—pour des réponses plus rapides et des processus structurés.
+services.helpdesk.body = Nous concevons et déployons des solutions helpdesk basées sur les bonnes pratiques ITIL : tickets, support à distance, parcours d’onboarding/offboarding, base de connaissances, gestion des SLA et des postes, pour des réponses plus rapides et des processus structurés. Chaque ticket est enregistré, priorisé et suivi : les délais de réponse restent visibles et les incidents récurrents sont traités à la racine plutôt que colmatés.
 services.networks.title = Réseaux & Infrastructure
-services.networks.body = Nous bâtissons des réseaux sûrs, évolutifs et fiables, de bout en bout : câblage structuré, planification racks/topologie, configuration switches/routeurs/firewalls, jusqu’à l’interconnexion de sites, avec supervision et documentation adaptées pour soutenir votre croissance.
+services.networks.body = Nous bâtissons des réseaux sûrs, évolutifs et fiables, de bout en bout : câblage structuré, planification racks/topologie, configuration switches/routeurs/firewalls, jusqu’à l’interconnexion de sites, avec supervision et documentation adaptées pour soutenir votre croissance. Chaque modification est documentée au fur et à mesure. Nous remettons la documentation en fin de projet.
 services.syscloud.title = Administration Systèmes & Cloud
-services.syscloud.body = Nous prenons en charge serveurs, applications et plateformes cloud pour garantir stabilité et sécurité : gestion des utilisateurs, mises à jour, sauvegardes, déploiements, supervision et automatisation—pour une IT fluide et alignée à vos objectifs.
+services.syscloud.body = Nous prenons en charge serveurs, applications et plateformes cloud pour garantir stabilité et sécurité : gestion des utilisateurs, mises à jour, sauvegardes, déploiements, supervision et automatisation, pour une IT fluide et alignée à vos objectifs. Contrôles réguliers, mises à jour et sauvegardes testées vous informent avant toute panne, avec une documentation de chaque changement effectué. Chaque action est consignée dans un rapport.
 services.security.title = Cybersécurité
-services.security.body = Nous renforçons vos défenses et préparons votre entreprise aux menaces modernes : hardening, évaluation des vulnérabilités, protection des endpoints et supervision. Nous aidons à bâtir CSIRT/SOC selon le cadre NIST pour améliorer détection, réponse et résilience.
+services.security.body = Nous renforçons vos défenses et préparons votre entreprise aux menaces modernes : hardening, évaluation des vulnérabilités, protection des endpoints et supervision. Nous aidons à bâtir CSIRT/SOC selon le cadre NIST pour améliorer détection, réponse et résilience. Les constats sont remis avec des priorités claires. Un rapport priorisé clôt chaque évaluation.
 services.training.title = Formation IT
-services.training.body = Programmes structurés : fondamentaux IT, helpdesk & support, pratiques de sécurité défensive, sensibilisation sécurité pour tous les employés—sessions pratiques et faciles à suivre.
+services.training.body = Programmes structurés : fondamentaux IT, helpdesk & support, pratiques de sécurité défensive, sensibilisation sécurité pour tous les employés, sessions pratiques et faciles à suivre. Chaque session se termine par des exercices pratiques et un support écrit que vos équipes peuvent réutiliser après la formation. Chaque module se clôt par une évaluation courte. Le support reste utilisable après la session.
 services.consult.title = Conseil IT
-services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT avec des solutions alignées sur vos objectifs. Intéressé ? Contactez-nous et discutons de vos besoins.
+services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT avec des solutions alignées sur vos objectifs. Intéressé ? Contactez-nous et discutons de vos besoins. Nous commençons par évaluer votre environnement actuel, puis nous formalisons priorités, budget et risques dans une feuille de route documentée que vos équipes peuvent exécuter, avec nous ou en autonomie. Vos équipes gardent la pleine maîtrise du plan, de la documentation et des décisions.
 
 # Testimonials
 testimonials.title = Témoignages
@@ -64,7 +64,7 @@ pastwork.subtitle = Quelques marques avec lesquelles notre équipe a travaillé.
 
 # Get Quote
 quote.title = Demander un devis
-quote.subtitle = Partagez vos besoins, délais et contraintes. Nous sommes ravis de commencer par une courte conversation—même pour une simple question.
+quote.subtitle = Partagez vos besoins, délais et contraintes. Nous sommes ravis de commencer par une courte conversation, même pour une simple question.
 quote.form.name.placeholder = Votre nom
 quote.form.email.placeholder = Votre e-mail
 quote.form.company.placeholder = Société (optionnel)
@@ -86,6 +86,8 @@ contact.whatsapp.title = WhatsApp
 contact.whatsapp.body = Utilisez le bouton flottant pour discuter instantanément.
 
 # Footer
+footer.col.site = Site
+footer.col.contact = Contact
 footer.copyright = © 2026 Arfhacom de Arfhacorp. Tous droits réservés.
 footer.link.about = À propos
 footer.link.services = Services

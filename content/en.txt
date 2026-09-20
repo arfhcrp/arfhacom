@@ -34,17 +34,17 @@ about.card3.body = We operate with integrity and choose projects aligned with ou
 # Services
 services.title = Services
 services.helpdesk.title = IT Helpdesk & Support
-services.helpdesk.body = We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding/offboarding frameworks, knowledge base setup, SLA management, workstation management, and more—everything your IT support function needs.
+services.helpdesk.body = We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding/offboarding frameworks, knowledge base setup, SLA management, workstation management, and more: everything your IT support function needs. Every ticket is logged, prioritised and reviewed, so response times stay visible and recurring issues are fixed at the root rather than patched.
 services.networks.title = Networks & Infrastructure
-services.networks.body = We design and build secure, scalable, and reliable networks from the ground up to your requirements. Services include structured cabling, rack and topology planning, switch/router/firewall/appliance configuration, and complete networking—from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver infrastructure that supports your long-term growth.
+services.networks.body = We design and build secure, scalable, and reliable networks from the ground up to your requirements. Services include structured cabling, rack and topology planning, switch/router/firewall/appliance configuration, and complete networking, from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver infrastructure that supports your long-term growth. Each change is documented as we go.
 services.syscloud.title = System & Cloud Administration
-services.syscloud.body = We are available 24/7 to manage your servers, applications, and cloud platforms so they remain stable and secure. From user management, updates, and backups to deployments, monitoring, and automation — we keep your IT environment running smoothly and aligned to your business needs.
+services.syscloud.body = We are available 24/7 to manage your servers, applications, and cloud platforms so they remain stable and secure. From user management, updates, and backups to deployments, monitoring, and automation. We keep your IT environment running smoothly and aligned to your business needs. Routine health checks, patching, and tested backups keep you informed before anything breaks, with clear documentation of every change we make.
 services.security.title = Cybersecurity
-services.security.body = Our focus is strengthening defenses and ensuring your business is ready for modern threats. Services include system hardening, vulnerability assessment, endpoint protection, patch management, and centralized monitoring. We help you build CSIRT and SOC capabilities using the NIST framework and industry best practices to improve detection, response, and long-term resilience. Security is our top priority.
+services.security.body = Our focus is strengthening defenses and ensuring your business is ready for modern threats. Services include system hardening, vulnerability assessment, endpoint protection, patch management, and centralized monitoring. We help you build CSIRT and SOC capabilities using the NIST framework and industry best practices to improve detection, response, and long-term resilience. Security is our top priority. Findings are reported with clear priorities.
 services.training.title = IT Training
-services.training.body = We provide structured programs covering IT fundamentals, helpdesk and support, and defensive security practices—including security awareness for all employees. Sessions are practical and easy to follow. We recognize that human awareness is essential to business continuity and stability alongside technology.
+services.training.body = We provide structured programs covering IT fundamentals, helpdesk and support, and defensive security practices, including security awareness for all employees. Sessions are practical and easy to follow. We recognize that human awareness is essential to business continuity and stability alongside technology. Every session ends with practical exercises and written material your team can reuse long after the training is finished. Each module closes with a short assessment.
 services.consult.title = IT Consulting
-services.consult.body = We help you plan, assess, and improve your IT environment with solutions aligned to your goals. Interested and want to explore more? Contact us—ask anything, and let’s discuss what you need!
+services.consult.body = We help you plan, assess, and improve your IT environment with solutions aligned to your goals. Interested and want to explore more? Contact us: ask anything, and let’s discuss what you need! We start by assessing your current setup, then map priorities, budget, and risk into a documented roadmap your team can act on, with us or on its own. Your people keep full ownership of the plan, the documentation, and the decisions. The roadmap is yours to keep.
 
 # Testimonials
 testimonials.title = Testimonials
@@ -52,7 +52,7 @@ testimonial1.name = Motobayashi
 testimonial1.quote = “We’re very pleased that our network and infrastructure migration went smoothly without issues. Our accounting software is now centrally managed and can be monitored regularly.”
 testimonial1.role = Managing Director, Tokyo Consulting
 testimonial2.name = Mr. Suproni
-testimonial2.quote = “We faced a fairly critical incident that previously went unresolved, but since Arfhacom assisted us, we’ve understood what needed to be evaluated—including help with migrating our network and infrastructure, improving security at our plant, and delivering security awareness training. Thank you for the support.”
+testimonial2.quote = “We faced a fairly critical incident that previously went unresolved, but since Arfhacom assisted us, we’ve understood what needed to be evaluated, including help with migrating our network and infrastructure, improving security at our plant, and delivering security awareness training. Thank you for the support.”
 testimonial2.role = Section Head Warehouse, Mignon Sista International
 testimonial3.name = Yuliantama
 testimonial3.quote = “Thank you for your help migrating and managing our web hosting and company email.”
@@ -64,7 +64,7 @@ pastwork.subtitle = A few brands our team has worked with.
 
 # Get Quote
 quote.title = Get a Quote
-quote.subtitle = Tell us your needs, timeline, and constraints. We’re happy to start with a short conversation—even if it’s just a question.
+quote.subtitle = Tell us your needs, timeline, and constraints. We’re happy to start with a short conversation, even if it’s just a question.
 quote.form.name.placeholder = Your name
 quote.form.email.placeholder = Your email
 quote.form.company.placeholder = Company (optional)
@@ -86,6 +86,8 @@ contact.whatsapp.title = WhatsApp
 contact.whatsapp.body = Please use the floating button to chat instantly.
 
 # Footer
+footer.col.site = Site
+footer.col.contact = Contact
 footer.copyright = © 2026 Arfhacom from Arfhacorp. All rights reserved.
 footer.link.about = About
 footer.link.services = Services

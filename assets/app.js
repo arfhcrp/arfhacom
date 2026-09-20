@@ -57,7 +57,13 @@
     const fd=new FormData(form);
     const name=fd.get('name')||'', email=fd.get('email')||'', company=fd.get('company')||'', project=fd.get('project')||'', timeline=fd.get('timeline')||'';
     const subject=`Quote request from ${name}`;
-    const body=`Name: ${name}%0D%0AEmail: ${email}%0D%0ACompany: ${company}%0D%0ATimeline: ${timeline}%0D%0A%0D%0AProject Summary:%0D%0A${encodeURIComponent(project)}`;
+    // email TIDAK dimasukkan ke isi pesan: alamat pengirim diambil otomatis oleh
+    // aplikasi email user (mailto: tidak boleh menetapkan header From — RFC 6068)
+    const nl='%0D%0A';
+    const body='Name: '+encodeURIComponent(name)+nl
+      +'Company: '+encodeURIComponent(company)+nl
+      +'Timeline: '+encodeURIComponent(timeline)+nl+nl
+      +'Project Summary:'+nl+encodeURIComponent(project);
     window.location.href=`mailto:hello@arfhacorp.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   });
 })();
@@ -221,4 +227,96 @@
       langBtn.setAttribute('aria-expanded','false');
     });
   });
+})();
+
+// scroll progress + active nav (desain baru)
+(function(){
+  var bar=document.getElementById('progress');
+  var nav=[].slice.call(document.querySelectorAll('.mainnav a'));
+  function prog(){
+    var h=document.documentElement, max=h.scrollHeight-window.innerHeight;
+    var y=window.pageYOffset||h.scrollTop||0;
+    var p=max>0?Math.min(1,Math.max(0,y/max)):0;
+    if(bar) bar.style.transform='scaleX('+p.toFixed(4)+')';
+  }
+  function act(){
+    var y=window.innerHeight*0.35, cur=null;
+    nav.forEach(function(a){
+      var id=a.getAttribute('href');
+      if(!id||id.charAt(0)!=='#') return;
+      var s=document.querySelector(id);
+      if(s && s.getBoundingClientRect().top<=y) cur=id;
+    });
+    nav.forEach(function(a){ a.classList.toggle('is-active', a.getAttribute('href')===cur); });
+  }
+  function on(){ prog(); act(); }
+  window.addEventListener('scroll', on, {passive:true});
+  window.addEventListener('resize', on);
+  window.addEventListener('load', on);
+  on();
+})();
+
+// animasi gulir (kepala bagian + anak berurutan) — IntersectionObserver, tanpa library
+(function(){
+  var target=[];
+  document.querySelectorAll('.sec-head').forEach(function(el){target.push(el)});
+  ['.cards3','.svc-flip','.quotes','.contact-grid','.quote-grid','.foot'].forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el){el.classList.add('stagger');target.push(el)});
+  });
+  if(!('IntersectionObserver' in window)){target.forEach(function(el){el.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  target.forEach(function(el){io.observe(el)});
+})();
+
+// tandai halaman siap: memicu animasi hero (panel, grafik, batang)
+(function(){
+  function go(){document.body.classList.add('loaded')}
+  if(document.readyState==='complete'){setTimeout(go,120)}else{window.addEventListener('load',function(){setTimeout(go,120)})}
+})();
+
+// kartu layanan: di perangkat sentuh, ketuk untuk membalik (efek flip asli)
+(function(){
+  var sentuh = window.matchMedia && window.matchMedia('(hover:none)').matches;
+  if(!sentuh) return;
+  document.querySelectorAll('.flip').forEach(function(k){
+    k.addEventListener('click',function(){ k.classList.toggle('flipped') });
+    k.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); k.classList.toggle('flipped'); } });
+  });
+})();
+
+// titik data di banner: tiap titik berkedip sendiri (bukan satu blok), pause saat banner tak terlihat
+(function(){
+  var wrap=document.querySelector('.hero-leds'); if(!wrap) return;
+  var hero=document.querySelector('.hero') || wrap.parentElement;
+  var redusir=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var TILE_W=232, TILE_H=168, CW=18, CH=24;      // titik ~1 angka, sejajar grid pola
+  function bikin(){
+    if(redusir.matches) return;
+    var w=hero.clientWidth, h=hero.clientHeight; if(!w||!h) return;
+    var jumlah=Math.max(26, Math.min(120, Math.round(w*h/7000)));
+    var frag=document.createDocumentFragment();
+    for(var n=0;n<jumlah;n++){
+      var i=document.createElement('i');
+      var x=Math.round(Math.random()*(w-CW)/8)*8;
+      var y=Math.round(Math.random()*(h-CH)/8)*8;
+      i.style.cssText='left:'+x+'px;top:'+y+'px;width:'+CW+'px;height:'+CH+'px;'
+        +'background-position:'+(-(x%TILE_W))+'px '+(-(y%TILE_H))+'px;'
+        +'--dur:'+(6+Math.random()*10).toFixed(2)+'s;'
+        +'--delay:'+(-(Math.random()*16).toFixed(2))+'s';
+      frag.appendChild(i);
+    }
+    wrap.appendChild(frag);
+  }
+  bikin();
+  var tampak=false;
+  function main(){ wrap.classList.remove('paused'); }
+  function jeda(){ wrap.classList.add('paused'); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ tampak=e.isIntersecting; tampak ? main() : jeda(); });
+    },{threshold:0.06}).observe(hero);
+  }
+  document.addEventListener('visibilitychange', function(){ document.hidden ? jeda() : (tampak && main()); });
 })();

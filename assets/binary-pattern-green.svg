@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="232" height="168" viewBox="0 0 232 168">
+  <g>
+    <text x="0" y="16" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">1110 0100 1100 0110</text>
+    <text x="0" y="40" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">0000 0001 1100 1100</text>
+    <text x="0" y="64" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">1110 1101 0001 0110</text>
+    <text x="0" y="88" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">0000 0111 1001 1011</text>
+    <text x="0" y="112" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">0100 0000 1100 1001</text>
+    <text x="0" y="136" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">1011 0011 0001 0000</text>
+    <text x="0" y="160" textLength="232" lengthAdjust="spacing" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#34d399" fill-opacity=".95">1101 1100 0000 1110</text>
+  </g>
+</svg>

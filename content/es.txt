@@ -34,17 +34,17 @@ about.card3.body = Operamos con integridad y elegimos proyectos alineados con nu
 # Services
 services.title = Servicios
 services.helpdesk.title = Helpdesk y Soporte de TI
-services.helpdesk.body = Diseñamos e implementamos soluciones de helpdesk basadas en las mejores prácticas de ITIL: tickets, soporte remoto, procesos de onboarding/offboarding, base de conocimiento, gestión de SLAs y gestión de estaciones de trabajo—para respuestas más rápidas y procesos estructurados.
+services.helpdesk.body = Diseñamos e implementamos soluciones de helpdesk basadas en las mejores prácticas de ITIL: tickets, soporte remoto, procesos de onboarding/offboarding, base de conocimiento, gestión de SLAs y gestión de estaciones de trabajo, para respuestas más rápidas y procesos estructurados. Cada ticket se registra, se prioriza y se revisa: los tiempos de respuesta siguen siendo visibles y los incidentes recurrentes se corrigen de raíz en lugar de parchearse.
 services.networks.title = Redes e Infraestructura
-services.networks.body = Diseñamos y construimos redes seguras, escalables y confiables desde cero: cableado estructurado, planificación de racks y topología, configuración de switches/enrutadores/firewalls y soluciones completas desde conectividad local hasta integración entre sedes, con monitoreo y documentación adecuados.
+services.networks.body = Diseñamos y construimos redes seguras, escalables y confiables desde cero: cableado estructurado, planificación de racks y topología, configuración de switches/enrutadores/firewalls y soluciones completas desde conectividad local hasta integración entre sedes, con monitoreo y documentación adecuados. Cada cambio queda documentado sobre la marcha. Entregamos la documentación al cerrar el proyecto.
 services.syscloud.title = Administración de Sistemas y Nube
-services.syscloud.body = Gestionamos sus servidores, aplicaciones y plataformas en la nube para mantener todo estable y seguro: usuarios, actualizaciones y copias de seguridad; despliegues, monitoreo y automatización, para que su entorno de TI funcione sin fricciones y alineado con su negocio.
+services.syscloud.body = Gestionamos sus servidores, aplicaciones y plataformas en la nube para mantener todo estable y seguro: usuarios, actualizaciones y copias de seguridad; despliegues, monitoreo y automatización, para que su entorno de TI funcione sin fricciones y alineado con su negocio. Revisiones periódicas, parches y copias de seguridad probadas le mantienen informado antes de cualquier fallo, con documentación de cada cambio realizado. Cada acción queda registrada en un informe.
 services.security.title = Ciberseguridad
-services.security.body = Fortalecemos sus defensas y preparamos su empresa para amenazas modernas: hardening, evaluación de vulnerabilidades, protección de endpoints y monitoreo. Ayudamos a construir funciones de CSIRT y SOC bajo el marco NIST para mejorar detección, respuesta y resiliencia a largo plazo.
+services.security.body = Fortalecemos sus defensas y preparamos su empresa para amenazas modernas: hardening, evaluación de vulnerabilidades, protección de endpoints y monitoreo. Ayudamos a construir funciones de CSIRT y SOC bajo el marco NIST para mejorar detección, respuesta y resiliencia a largo plazo. Los hallazgos se entregan con prioridades claras. Cada evaluación cierra con un informe priorizado.
 services.training.title = Capacitación en TI
-services.training.body = Programas estructurados sobre fundamentos de TI, helpdesk y soporte, y prácticas de seguridad defensiva—incluida la concienciación en seguridad para todo el personal. Sesiones prácticas y fáciles de seguir.
+services.training.body = Programas estructurados sobre fundamentos de TI, helpdesk y soporte, y prácticas de seguridad defensiva, incluida la concienciación en seguridad para todo el personal. Sesiones prácticas y fáciles de seguir. Cada sesión termina con ejercicios prácticos y material escrito que su equipo puede reutilizar después de la formación. Cada módulo cierra con una evaluación breve. El material sigue disponible tras la sesión.
 services.consult.title = Consultoría de TI
-services.consult.body = Le ayudamos a planificar, evaluar y mejorar su entorno de TI con soluciones alineadas a sus objetivos. ¿Interesado? Contáctenos y conversemos sobre sus necesidades.
+services.consult.body = Le ayudamos a planificar, evaluar y mejorar su entorno de TI con soluciones alineadas a sus objetivos. ¿Interesado? Contáctenos y conversemos sobre sus necesidades. Empezamos evaluando su entorno actual y luego ordenamos prioridades, presupuesto y riesgos en una hoja de ruta documentada que su equipo puede ejecutar, con nosotros o de forma autónoma. Su equipo conserva el control total del plan, la documentación y las decisiones.
 
 # Testimonials
 testimonials.title = Testimonios
@@ -86,6 +86,8 @@ contact.whatsapp.title = WhatsApp
 contact.whatsapp.body = Use el botón flotante para chatear al instante.
 
 # Footer
+footer.col.site = Sitio
+footer.col.contact = Contacto
 footer.copyright = © 2026 Arfhacom de Arfhacorp. Todos los derechos reservados.
 footer.link.about = Sobre
 footer.link.services = Servicios

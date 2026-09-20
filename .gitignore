@@ -1,0 +1,7 @@
+# berkas sementara / sistem
+.DS_Store
+Thumbs.db
+*~
+*.bak
+*.swp
+_kerja/
