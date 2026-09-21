@@ -113,7 +113,7 @@ main{padding-top:72px}
   min-height:min(94vh,860px);display:flex;align-items:center;
   padding:clamp(56px,7vw,104px) var(--pad) clamp(56px,7vw,96px)}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:url("binary-pattern.svg");background-size:232px 168px;
+  background-image:url("binary-pattern.svg");background-size:228px 168px;
   -webkit-mask-image:linear-gradient(180deg,#000 52%,rgba(0,0,0,.12) 100%);
           mask-image:linear-gradient(180deg,#000 52%,rgba(0,0,0,.12) 100%)}
 .hero-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(80px)}
@@ -144,10 +144,13 @@ main{padding-top:72px}
    Tiap titik adalah potongan kecil pola biner yang sama (posisi latar
    diselaraskan), menyala-mati dengan durasi & jeda berbeda, supaya terasa
    seperti jendela kantor yang menyala acak di kota pada malam hari —
-   bukan satu blok yang berkedip bersamaan. Titik dibuat oleh app.js. */
+   bukan satu blok yang berkedip bersamaan. Titik dibuat oleh app.js.
+   INVARIAN: satu titik = tepat satu sel angka pola, jadi angka menyala utuh
+   (tidak terpotong). Sel = 228/19 = 12px lebar, 168/7 = 24px tinggi; ukuran
+   itu harus tetap sama di SVG pola, background-size, dan CW/CH di app.js. */
 .hero-leds{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero-leds i{position:absolute;display:block;background-image:url("binary-pattern-green.svg");
-  background-size:232px 168px;background-repeat:repeat;opacity:0;
+  background-size:228px 168px;background-repeat:repeat;opacity:0;
   animation:ledFlicker var(--dur,9s) linear var(--delay,0s) infinite}
 .hero-leds.paused i{animation-play-state:paused}
 @keyframes ledFlicker{0%,3%{opacity:0}7%,36%{opacity:1}44%,100%{opacity:0}}

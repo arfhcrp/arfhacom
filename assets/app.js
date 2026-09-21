@@ -291,7 +291,7 @@
   var wrap=document.querySelector('.hero-leds'); if(!wrap) return;
   var hero=document.querySelector('.hero') || wrap.parentElement;
   var redusir=window.matchMedia('(prefers-reduced-motion: reduce)');
-  var TILE_W=232, TILE_H=168, CW=18, CH=24;      // titik ~1 angka, sejajar grid pola
+  var TILE_W=228, TILE_H=168, CW=12, CH=24;      // CW/CH = satu sel angka (228/19 x 168/7)
   function bikin(){
     if(redusir.matches) return;
     var w=hero.clientWidth, h=hero.clientHeight; if(!w||!h) return;
@@ -299,8 +299,8 @@
     var frag=document.createDocumentFragment();
     for(var n=0;n<jumlah;n++){
       var i=document.createElement('i');
-      var x=Math.round(Math.random()*(w-CW)/8)*8;
-      var y=Math.round(Math.random()*(h-CH)/8)*8;
+      var x=Math.round(Math.random()*(w-CW)/CW)*CW;   // snap ke kolom angka
+      var y=Math.round(Math.random()*(h-CH)/CH)*CH;   // snap ke baris angka
       i.style.cssText='left:'+x+'px;top:'+y+'px;width:'+CW+'px;height:'+CH+'px;'
         +'background-position:'+(-(x%TILE_W))+'px '+(-(y%TILE_H))+'px;'
         +'--dur:'+(6+Math.random()*10).toFixed(2)+'s;'
