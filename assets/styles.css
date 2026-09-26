@@ -183,9 +183,14 @@ main{padding-top:72px}
 
 /* ---------- about ---------- */
 .bismillah{border-top:1px solid var(--hair-light);border-bottom:1px solid var(--hair-light);
-  padding:26px 0;margin-bottom:clamp(32px,4vw,52px)}
-.bismillah-ar{font-family:'Amiri','Scheherazade New','Times New Roman',serif;
+  padding:26px 0;margin-bottom:clamp(32px,4vw,52px);text-align:center}
+/* inline-block = kotak clip pas selebar teks, jadi reveal mulai dari huruf pertama (paling kanan) */
+.bismillah-ar{display:inline-block;font-family:'Amiri','Scheherazade New','Times New Roman',serif;
   font-size:clamp(21px,2.2vw,29px);line-height:1.9;color:var(--ink);text-align:center}
+/* .rtl-type hanya dipasang oleh JS (progressive enhancement): tanpa JS teks tampil utuh */
+/* bleed vertikal -20%: tanda baca (harakat) bisa menonjol sedikit di atas kotak baris,
+   tanpa bleed itu ujung harakat terpotong selama animasi */
+.bismillah-ar.rtl-type{clip-path:inset(-20% 0 -20% var(--reveal,100%))}
 .cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
 .card{padding:30px clamp(18px,2.4vw,32px) 6px;border-top:1px solid var(--hair-light)}
 .card:first-child{padding-left:0}

@@ -320,3 +320,39 @@
   }
   document.addEventListener('visibilitychange', function(){ document.hidden ? jeda() : (tampak && main()); });
 })();
+
+// bismillah: efek ketik dari kanan ke kiri (RTL) — sekali per kemunculan, tidak diulang
+(function(){
+  var el=document.querySelector('.bismillah-ar'); if(!el) return;
+  var redusir=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  var LANGKAH=34, DURASI=3000;   // 34 potongan huruf, total 3 detik → lambat
+  var raf=null, tampak=false;
+  function tulis(f){ el.style.setProperty('--reveal',(100-f*100).toFixed(3)+'%'); }
+  function batal(){ if(raf){ cancelAnimationFrame(raf); raf=null } }
+  function mulai(){
+    batal();
+    if(redusir && redusir.matches){ el.classList.remove('rtl-type'); tulis(1); return; }
+    el.classList.add('rtl-type'); tulis(0);
+    var t0=null;
+    function frame(t){
+      if(t0===null) t0=t;
+      var p=(t-t0)/DURASI; if(p>1) p=1;
+      tulis(Math.floor(p*LANGKAH)/LANGKAH);   // maju per huruf, bukan mengalir rata
+      if(p<1){ raf=requestAnimationFrame(frame) }
+      else { raf=null; el.classList.remove('rtl-type'); tulis(1); }
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  function sembunyi(){ batal(); el.classList.add('rtl-type'); tulis(0); }
+  if(!('IntersectionObserver' in window)){ el.classList.remove('rtl-type'); tulis(1); return; }
+  sembunyi();   // kondisi awal: belum terlihat → belum ada huruf
+  // diamati = pembungkus .bismillah, bukan elemen teksnya: elemen yang di-clip-path
+  // dilaporkan tidak berpotongan oleh IntersectionObserver (ratio 0) → animasi tak pernah mulai
+  var pemicu=el.parentElement||el;
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ if(!tampak){ tampak=true; mulai() } }   // masuk viewport → ketik ulang dari kanan
+      else if(tampak){ tampak=false; sembunyi() }                   // keluar viewport → reset, siap ketik lagi
+    });
+  },{threshold:.8}).observe(pemicu);
+})();
