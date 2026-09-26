@@ -25,7 +25,7 @@ cta.explore_services = Explorar servicios
 # About
 about.title = Sobre nosotros
 about.card1.title = Quiénes somos
-about.card1.body = Arfhacom es una empresa de tecnología de la información iniciada por un ingeniero con experiencia en entornos locales e internacionales. Priorizamos el rendimiento estable, una gobernanza sólida y un valor duradero.
+about.card1.body = Arfhacom es un contratista independiente de tecnología de la información iniciado por un ingeniero experimentado, con experiencia en entornos locales e internacionales desde 2010. Nos centramos en un rendimiento fiable, una gobernanza sólida y resultados sostenibles.
 about.card2.title = Qué hacemos
 about.card2.body = Cubrimos helpdesk y soporte de TI, redes e infraestructura, administración de sistemas y nube, ciberseguridad, capacitación en TI y consultoría. Nos enfocamos en pymes y empresas medianas, y también apoyamos necesidades a nivel corporativo.
 about.card3.title = Cómo trabajamos

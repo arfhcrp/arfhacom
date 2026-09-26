@@ -24,8 +24,8 @@ cta.explore_services = Lihat Layanan
 
 # About
 about.title = Tentang Kami
-about.card1.title = Siapa kami
-about.card1.body = Arfhacom adalah perusahaan Teknologi Informasi yang diinisiasi oleh engineer berpengalaman lintas lokal dan global sejak 2010. Kami mengutamakan kinerja stabil, tata kelola yang rapi, serta manfaat yang berkesinambungan.
+about.card1.title = Selayang pandang
+about.card1.body = Arfhacom adalah kontraktor Teknologi Informasi independen yang diinisiasi oleh engineer berpengalaman lintas lokal dan global sejak 2010. Kami mengutamakan kinerja stabil, tata kelola yang rapi, serta manfaat yang berkesinambungan.
 about.card2.title = Apa yang kami lakukan
 about.card2.body = Kami menangani IT helpdesk dan support, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT. Fokus kami ke arah UMKM dan organisasi menengah ke bawah, namun kami juga terbuka dan mendukung kebutuhan level enterprise.
 about.card3.title = Cara kami bekerja
