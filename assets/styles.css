@@ -21,9 +21,13 @@
   --ink-soft:#5c6152;      /* teks sekunder di terang */
   --hair-dark:rgba(232,229,218,.16);
   --hair-light:rgba(27,29,22,.14);
-  --accent:#10b981;        /* hijau merek */
-  --accent-dark:#34d399;   /* varian di latar gelap */
-  --accent-ink:#0a6b4b;    /* varian di latar terang */
+  /* hijau merek diambil dari logo itu sendiri: #192E1F ("arfha") + #1A7A45 ("com") */
+  --brand-dark:#192E1F;    /* huruf "arfha" pada logo */
+  --brand:#1A7A45;         /* huruf "com" pada logo, jadi aksen utama */
+  --accent:var(--brand);   /* aksen UI = hijau merek (kontras 4.79 di paper) */
+  --accent-dark:#56C288;   /* versi terang untuk pita gelap (8.04 di base) */
+  --accent-ink:#14603A;    /* versi gelap untuk teks kecil di pita terang (6.79) */
+  --accent-hover:#135536;  /* hover tombol utama (teks putih 8.82) */
   --sage:#627056;          /* aksen redup */
 
   /* ---- sistem tata letak (pola referensi) ---- */
@@ -34,8 +38,8 @@
   --r-pill:999px;          /* tombol pil */
   --surface:#ffffff;       /* permukaan kartu di pita terang */
   --surface-dark:#1e2119;  /* permukaan kartu di pita gelap */
-  --tile:rgba(16,185,129,.14);      /* petak ikon di pita terang */
-  --tile-dark:rgba(52,211,153,.16); /* petak ikon di pita gelap */
+  --tile:rgba(26,122,69,.14);       /* petak ikon di pita terang */
+  --tile-dark:rgba(86,194,136,.16); /* petak ikon di pita gelap */
   --shadow-card:0 26px 50px -28px rgba(11,12,9,.35);
   --shadow-card-dark:0 26px 50px -28px rgba(0,0,0,.6);
 
@@ -123,27 +127,43 @@ body.scrolled header{box-shadow:0 6px 22px -18px rgba(11,12,9,.55)}
 /* ---------- hero: satu pita banner, denyut biner di seluruh area ---------- */
 main{padding-top:64px}
 .hero{position:relative;overflow:hidden;color:var(--cream);
-  background:linear-gradient(180deg,var(--hero-bg-2) 0%,var(--hero-bg) 62%,#1c231d 100%);
-  padding-block:clamp(46px,5.8vw,74px) clamp(54px,6.8vw,88px);
+  /* warna banner diturunkan sedikit transparan (alfa .94) supaya dasar halaman samar menembus */
+  background:linear-gradient(180deg,rgba(35,43,35,.94) 0%,rgba(31,38,32,.94) 62%,rgba(28,35,29,.93) 100%);
+  padding-block:clamp(40px,4.6vw,64px) clamp(44px,5.2vw,72px);
   padding-inline:max(var(--pad),calc((100% - var(--wrap)) / 2));
-  min-height:min(94vh,860px);display:flex;align-items:center}
+  /* satu layar desktop: banner ~60% tinggi jendela, sisanya memperlihatkan bagian About */
+  min-height:min(60vh,580px);display:flex;align-items:center}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background-image:url("binary-pattern.svg");background-size:228px 168px;
   -webkit-mask-image:linear-gradient(180deg,#000 52%,rgba(0,0,0,.12) 100%);
           mask-image:linear-gradient(180deg,#000 52%,rgba(0,0,0,.12) 100%)}
 .hero-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(80px)}
-.hero-glow.g1{width:520px;height:520px;right:-140px;top:-160px;background:rgba(16,185,129,.20)}
+.hero-glow.g1{width:520px;height:520px;right:-140px;top:-160px;background:rgba(26,122,69,.20)}
 .hero-glow.g2{width:420px;height:420px;left:-160px;bottom:-180px;background:rgba(98,112,86,.22)}
 .hero-inner{position:relative;z-index:2;width:100%;min-width:0;
   display:grid;grid-template-columns:minmax(0,1fr);
   gap:clamp(24px,4vw,40px);align-items:center}
 .hero-copy{min-width:0}
 
-.display{font-size:clamp(34px,5vw,70px);font-weight:600;line-height:.98;letter-spacing:-.035em;
-  text-transform:uppercase;color:var(--cream);max-width:24ch;min-height:3.1em}
-.caret{display:inline-block;width:.1em;min-width:4px;height:.78em;background:var(--accent-dark);
-  margin-left:.08em;vertical-align:-.04em;animation:blink 1s steps(1,end) infinite}
-.glow{color:var(--accent-dark)}
+/* Judul banner: "WE <kata berganti> YOUR IT". Karena barisnya pendek, ukuran huruf
+   dinaikkan; tinggi minimum cukup untuk 1 baris (2 baris di layar sempit) supaya tidak
+   ada ruang kosong menganggur di dalam banner. */
+.display{font-size:clamp(32px,4.6vw,60px);font-weight:600;line-height:1;letter-spacing:-.035em;
+  text-transform:uppercase;color:var(--cream);min-height:1.1em}
+/* "WE" dan "YOUR" adalah kata tetap (warna krem seperti teks banner) dan tidak pernah kena
+   efek ketik/hapus. Hanya dua kata bergerak di antaranya yang diberi warna hijau merek,
+   jadi kata kuncinya yang menonjol; saat frasa lengkap keduanya menyala sedikit lebih terang
+   (.tw-sorot) sebagai penegas, tanpa efek glow pada seluruh baris. */
+.display .tw-fix{color:inherit}
+.display .tw-kunci{color:var(--accent-dark);transition:color .35s ease,filter .35s ease}
+.display.tw-sorot .tw-kunci{filter:brightness(1.22)}
+/* Kalimat penutup: kata tetap (WE/KAMI + kata ganti) tetap putih, hanya kata klaim yang
+   hijau; barisnya diberi jarak (tracking dinaikkan, jarak antar kata, jarak dari "WE") */
+.display{transition:letter-spacing .3s ease,word-spacing .3s ease}
+.display.tw-penutup{letter-spacing:.005em;word-spacing:.09em}
+.display.tw-penutup #twFinal{margin-left:.26em}
+.caret{display:inline-block;width:.09em;min-width:4px;height:.72em;background:var(--accent-dark);
+  margin-left:.06em;vertical-align:-.02em;animation:blink 1s steps(1,end) infinite}
 
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(26px,3.4vw,40px)}
 
@@ -152,12 +172,20 @@ main{padding-top:64px}
   border-radius:var(--r-pill);padding:14px 24px;border:1.5px solid transparent;cursor:pointer;
   font:inherit;font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;
   transition:transform .18s ease,background-color .18s,color .18s,border-color .18s,box-shadow .25s ease}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#04241a;
-  box-shadow:0 10px 24px -12px rgba(16,185,129,.55)}
-.btn.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);
-  transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(16,185,129,.6)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;
+  box-shadow:0 10px 24px -12px rgba(26,122,69,.45)}
+.btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);
+  transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(26,122,69,.5)}
 .btn.ghost{background:transparent;border-color:rgba(232,229,218,.32);color:#fff}
 .btn.ghost:hover{background:rgba(232,229,218,.10);border-color:rgba(232,229,218,.6);transform:translateY(-2px)}
+/* tombol "Explore Services" di banner: isiannya memakai nada gelap milik banner sendiri
+   (--base #171814, lalu naik sedikit ke --hero-bg-2 #232b23 saat hover) supaya tidak mencolok seperti
+   hitam pekat, tetapi tetap OPAK — bukan transparan. Yang hijau hanya pancaran (glow) di
+   sekelilingnya, dan geraknya sama dengan tombol utama: naik 2px. */
+.hero .btn.ghost{background:var(--base);border-color:rgba(232,229,218,.28);color:#fff;
+  box-shadow:0 10px 26px -10px rgba(26,122,69,.45)}
+.hero .btn.ghost:hover{background:var(--hero-bg-2);border-color:rgba(232,229,218,.45);color:#fff;
+  transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(26,122,69,.8)}
 
 /* ---------- titik data yang berkedip sendiri-sendiri di panel banner ----------
    Tiap titik adalah potongan kecil pola biner yang sama (posisi latar
@@ -205,6 +233,19 @@ main{padding-top:64px}
 .section--base .sub,.section--deep .sub{color:var(--muted)}
 
 /* ---------- about ---------- */
+/* padding atas lebih ringkas dari pita lain: judul About ikut terlihat di layar pertama */
+#about{padding-block-start:clamp(52px,5.6vw,68px)}
+/* jendela pendek (laptop 768-an): rapatkan banner & kepala About supaya keduanya masuk satu layar */
+@media (max-width:620px){
+  .display{min-height:2.25em}
+}
+@media (max-width:420px){
+  .display{min-height:3.3em}
+}
+@media (max-height:740px){
+  .hero{padding-block:clamp(32px,3.4vw,48px) clamp(32px,3.6vw,48px)}
+  #about{padding-block-start:30px}
+}
 .bismillah{border-top:1px solid var(--hair-light);border-bottom:1px solid var(--hair-light);
   padding:26px 0;margin-bottom:clamp(32px,4vw,52px);text-align:center}
 /* inline-block = kotak clip pas selebar teks, jadi reveal mulai dari huruf pertama (paling kanan) */
@@ -228,28 +269,44 @@ main{padding-top:64px}
 /* ---------- services: kartu tetap seperti semula, hanya balik 3D yang dibuang ----------
    Kartu, bingkai, sudut membulat, ikon, judul, isi, dan panah tetap sama; yang
    hilang hanya efek card flip (dulu saat hover kartu berbalik sampai isinya tak
-   terbaca). Sebagai gantinya: kartu terangkat, bingkai & ikon menyala aksen,
-   panah bergeser, dan sorotan lembut mengikuti kursor (--mx/--my diisi app.js). */
+   terbaca). Sebagai gantinya saat hover: kartu terangkat, bingkai menyala aksen,
+   panah bergeser, dan pola latar ikon sedikit lebih terlihat. Sorotan yang mengikuti
+   kursor TIDAK dipakai lagi — lapisan itu menutupi pola latar sehingga polanya
+   tampak berubah bentuk saat disorot. */
 .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;
   gap:24px;align-items:stretch}
-.svc{position:relative;display:flex;flex-direction:column;overflow:hidden;height:100%;
+.svc{position:relative;isolation:isolate;display:flex;flex-direction:column;overflow:hidden;height:100%;
   background:var(--sf);border:1px solid var(--sf-line);border-radius:var(--r);
   padding:clamp(26px,2.6vw,38px) clamp(22px,2.2vw,32px);
   transition:transform .25s ease,box-shadow .35s ease,border-color .3s ease}
-.svc::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  opacity:0;transition:opacity .35s ease;
-  background:radial-gradient(260px circle at var(--mx,50%) var(--my,35%),rgba(16,185,129,.16),transparent 62%)}
-.svc:hover::before,.svc:focus-within::before{opacity:1}
 .svc-head{display:flex;align-items:center;gap:12px;width:100%}
 .svc-num{font-size:13px;font-weight:600;letter-spacing:.14em;color:var(--accent-ink)}
-.svc-ic{display:inline-flex;margin-left:auto;color:var(--sf-soft);transition:color .3s ease}
-.svc-ic svg{width:24px;height:24px;display:block}
+/* ikon Layanan: saat istirahat jadi POLA latar besar & lembut di sudut kanan atas
+   (150-190px, tergelar sedikit keluar tepi sehingga terpotong tipis, pudar lewat
+   opasitas + blur). Saat kartu disorot, pola itu MENYUSUT jadi ikon kecil tajam
+   (27px) di sudut kanan atas konten, dan kembali jadi pola begitu kursor pindah
+   ke kartu lain. z-index:-1 di dalam kartu (isolation) menjaga teks tetap di atas. */
+.svc-ic{--pola:clamp(150px,26vw,190px);--ikon-kecil:27px;position:absolute;z-index:-1;
+  display:grid;place-items:center;background:none;color:var(--accent);pointer-events:none;
+  width:var(--pola);height:var(--pola);
+  top:calc(var(--pola) * -0.24);right:calc(var(--pola) * -0.24);
+  opacity:.09;filter:blur(2.5px);
+  transition:width .45s cubic-bezier(.2,.8,.2,1),height .45s cubic-bezier(.2,.8,.2,1),
+    top .45s cubic-bezier(.2,.8,.2,1),right .45s cubic-bezier(.2,.8,.2,1),
+    opacity .3s ease,filter .45s ease}
+.svc-ic svg{width:100%;height:100%;display:block}
+html[dir="rtl"] .svc-ic{right:auto;left:calc(var(--pola) * -0.24)}
+.svc:hover .svc-ic,.svc:focus-within .svc-ic{
+  width:var(--ikon-kecil);height:var(--ikon-kecil);
+  top:clamp(26px,2.6vw,38px);right:clamp(22px,2.2vw,32px);
+  opacity:1;filter:blur(0)}
+html[dir="rtl"] .svc:hover .svc-ic,html[dir="rtl"] .svc:focus-within .svc-ic{
+  right:auto;left:clamp(22px,2.2vw,32px)}
 .svc h3{font-size:20px;margin:18px 0 10px;color:var(--sf-ink)}
 .svc p{margin:0;font-size:15.4px;line-height:1.66;color:var(--sf-soft);max-width:64ch}
 .svc::after{content:"\2192";margin-top:auto;padding-top:22px;font-size:17px;line-height:1;
   color:var(--accent-ink);transition:transform .25s ease}
 .svc:hover::after{transform:translateX(5px)}
-.svc:hover .svc-ic,.svc:focus-within .svc-ic{color:var(--accent-ink)}
 html[dir="rtl"] .svc::after{content:"\2190"}
 html[dir="rtl"] .svc:hover::after{transform:translateX(-5px)}
 
@@ -268,10 +325,12 @@ figcaption{display:grid;gap:3px;justify-items:start}
 figcaption strong{font-size:14.5px;font-weight:600;color:var(--sf-ink);text-transform:none;letter-spacing:0}
 figcaption span{font-size:13.5px;color:var(--sf-soft)}
 .tst-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px}
-.tst-dots{display:flex;align-items:center;gap:9px}
-.tst-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;cursor:pointer;
-  background:rgba(232,229,218,.28);transition:background .3s ease,width .3s ease,border-radius .3s ease}
-.tst-dot.active{background:var(--accent-dark);width:28px;border-radius:5px}
+/* sasaran ketuk 25x25 px (minimal 24 menurut WCAG 2.2) dengan titik visual 9px di tengah */
+.tst-dots{display:flex;align-items:center;gap:0}
+.tst-dot{width:25px;height:25px;padding:0;border:8px solid transparent;cursor:pointer;
+  background-color:rgba(232,229,218,.28);background-clip:padding-box;border-radius:12.5px;
+  transition:background-color .3s ease,width .3s ease}
+.tst-dot.active{background-color:var(--accent-dark);width:44px}
 .tst-arrow{width:42px;height:42px;padding:0;display:grid;place-items:center;cursor:pointer;
   border-radius:50%;border:1px solid var(--hair-dark);background:transparent;color:var(--cream);
   transition:border-color .2s,color .2s,transform .2s}
@@ -320,20 +379,20 @@ figcaption span{font-size:13.5px;color:var(--sf-soft)}
   transition:transform .25s ease,box-shadow .35s ease,border-color .3s ease}
 .cblock h3{font-size:17px;letter-spacing:-.01em;color:var(--sf-ink);margin:18px 0 8px}
 .cblock p{margin:0;font-size:15.5px;line-height:1.66;color:var(--sf-soft);white-space:pre-line}
-.cblock a{color:var(--sf-ink);border-bottom:1px solid rgba(16,185,129,.55);padding-bottom:1px}
+.cblock a{color:var(--sf-ink);border-bottom:1px solid rgba(26,122,69,.55);padding-bottom:1px}
 .cblock a:hover{color:var(--accent-ink)}
 
 /* ---------- footer: kolom + palang hak cipta ---------- */
-footer{background:var(--paper);color:var(--ink-soft);border-top:1px solid var(--hair-light);
+footer{background:var(--cream);color:var(--ink-soft);border-top:1px solid var(--hair-light);
   padding-block:clamp(48px,6vw,76px) 26px;
   padding-inline:max(var(--pad),calc((100% - var(--wrap)) / 2))}
 .foot{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr) minmax(0,.8fr);
   gap:clamp(24px,4vw,64px)}
 .fmark{display:flex;align-items:center}
-.fmark .logo-img{height:42px;filter:none}
-.fname{margin:16px 0 0;font-size:19px;font-weight:600;letter-spacing:-.012em;color:var(--ink)}
-.ftag{margin:5px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-soft);max-width:34ch}
-.ftag::before{content:"\2014\A0"}
+.fmark .logo-img{height:36px;filter:none}
+/* nama usaha sebagai baris biasa di bawah logo, dengan em dash seperti gaya semula */
+.fname{margin:14px 0 0;font-size:15px;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
+.fname::before{content:"\2014\A0"}
 .fcol h3{font-size:14px;letter-spacing:.06em;color:var(--ink);margin-bottom:14px}
 .fcol ul{list-style:none;margin:0;padding:0}
 .fcol li{padding:7px 0}
@@ -358,10 +417,10 @@ footer{background:var(--paper);color:var(--ink-soft);border-top:1px solid var(--
 /* tombol naik: bulat penuh, warna aksen (pola tombol bulat referensi) */
 .to-top{position:fixed;right:24px;bottom:90px;z-index:44;display:none;width:48px;height:48px;
   align-items:center;justify-content:center;cursor:pointer;padding:0;border:0;
-  border-radius:50%;background:var(--accent);color:#04241a;
-  box-shadow:0 12px 26px -10px rgba(16,185,129,.6);transition:transform .2s ease,background-color .2s}
+  border-radius:50%;background:var(--accent);color:#fff;
+  box-shadow:0 12px 26px -10px rgba(26,122,69,.5);transition:transform .2s ease,background-color .2s}
 .to-top svg{width:18px;height:18px}
-.to-top:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.to-top:hover{background:var(--accent-hover);transform:translateY(-2px)}
 .to-top.show{display:flex}
 
 /* ---------- preloader ---------- */
@@ -479,17 +538,17 @@ body.scrolled .brand .underscore{display:inline-block;animation:blink 1s steps(1
    Aturan ini harus tetap berada SETELAH .reveal.show{transform:none} — bobot
    selector-nya sama, jadi yang belakangan menang; kalau tidak, kartu tak terangkat. */
 .card:hover,.cblock:hover,.svc:hover{transform:translateY(-4px);box-shadow:var(--sf-shadow);
-  border-color:rgba(16,185,129,.45)}
+  border-color:rgba(26,122,69,.45)}
 .card:hover .ic,.cblock:hover .ic{background:var(--accent);color:#fff}
 .section--base .card:hover,.section--base .cblock:hover,
 .section--base .svc:hover,
 .section--deep .card:hover,.section--deep .cblock:hover,
-.section--deep .svc:hover{border-color:rgba(52,211,153,.45)}
+.section--deep .svc:hover{border-color:rgba(86,194,136,.45)}
 
 /* (4) logo klien: cincin aksen + terangkat saat hover */
 .logo-wrap{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-.logo-wrap:hover{transform:translateY(-2px);border-color:rgba(16,185,129,.55);
-  box-shadow:0 0 0 2px rgba(16,185,129,.35),0 0 18px rgba(16,185,129,.22)}
+.logo-wrap:hover{transform:translateY(-2px);border-color:rgba(26,122,69,.55);
+  box-shadow:0 0 0 2px rgba(26,122,69,.35),0 0 18px rgba(26,122,69,.22)}
 
 /* (5) pita bagian: garis rambut menyala saat bagian disentuh kursor */
 @media (hover:hover){
@@ -499,11 +558,7 @@ body.scrolled .brand .underscore{display:inline-block;animation:blink 1s steps(1
 
 /* (6) kolom isian: cincin fokus hijau */
 .qform input:focus,.qform textarea:focus{border-color:var(--accent-dark);
-  box-shadow:0 0 0 3px rgba(16,185,129,.18)}
-
-/* (7) cahaya hijau pada kalimat penutup mesin tik */
-.glow{color:var(--accent-dark);
-  text-shadow:0 0 6px rgba(16,185,129,.55),0 0 14px rgba(16,185,129,.45),0 0 28px rgba(20,184,166,.35)}
+  box-shadow:0 0 0 3px rgba(26,122,69,.18)}
 
 /* (8) getaran lembut tombol WhatsApp (keyframes asli) */
 @keyframes fabNudge{0%{transform:translate(0,0)}12%{transform:translate(-2px,-2px)}24%{transform:translate(2px,0)}
@@ -520,7 +575,7 @@ body.scrolled .brand .underscore{display:inline-block;animation:blink 1s steps(1
 @keyframes bars{0%,80%,100%{transform:scaleY(.5);opacity:.3}40%{transform:scaleY(1.2);opacity:1}}
 
 /* (10) menu bahasa: sorotan aksen seperti aslinya */
-.lang-menu li:hover{background:rgba(16,185,129,.22)}
+.lang-menu li:hover{background:rgba(26,122,69,.22)}
 
 /* (11) tautan nav/footer: warna aksen saat hover */
 .mainnav a:hover{color:var(--accent-ink)}
@@ -530,7 +585,15 @@ body.scrolled .brand .underscore{display:inline-block;animation:blink 1s steps(1
 .loader .bar{background:var(--accent-dark)}
 .pl-txt{color:var(--cream)}
 
+/* (13) penanda fokus keyboard: satu cincin hijau merek, tetap terlihat di pita terang & gelap */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.hero a:focus-visible,.hero button:focus-visible,
+.section--base a:focus-visible,.section--base button:focus-visible,.section--base [tabindex]:focus-visible,
+.section--deep a:focus-visible,.section--deep button:focus-visible,.section--deep [tabindex]:focus-visible{
+  outline-color:var(--accent-dark)}
+
 @media (prefers-reduced-motion:reduce){
+  .svc-ic{transition:none}
   body.scrolled .brand .underscore{animation:none}
   .loader .bar{animation:none;opacity:1}
   .fab.nudging{animation:none}

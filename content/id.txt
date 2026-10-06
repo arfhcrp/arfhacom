@@ -13,12 +13,17 @@ nav.pastwork = Portofolio
 nav.quote = Dapatkan Penawaran
 nav.contact = Kontak
 
-# Hero typewriter lines (Indonesian)
-hero.line1 = Kami menyediakan solusi IT end-to-end
-hero.line2 = Kami memastikan perlindungan keamanan Anda
-hero.line3 = Kami menjaga sistem Anda tetap stabil
-hero.line4 = Kami menyederhanakan IT harian Anda
-hero.line5 = Kami mitra transofmasi digital Anda
+# Banner typewriter: hero.lede tetap di depan, hanya bagian cycleN yang berganti
+# format: kata kerja | bagian benda
+hero.lede = Kami
+hero.mid = 
+hero.tail = Anda
+hero.cycle1 = bantu | IT
+hero.cycle2 = amankan | data
+hero.cycle3 = otomatiskan | proses
+hero.cycle4 = maksimalkan | anggaran
+hero.cycle5 = dorong | pertumbuhan
+hero.final = *mitra|*terpercaya|Anda
 cta.get_quote = Dapatkan Penawaran
 cta.explore_services = Lihat Layanan
 
@@ -44,7 +49,7 @@ services.security.body = Kami memperkuat pertahanan Anda dari ancaman modern: ha
 services.training.title = Pelatihan IT
 services.training.body = Kami menyediakan pelatihan terstruktur untuk dasar-dasar IT, helpdesk dan dukungan, serta keamanan defensif termasuk security awareness bagi semua karyawan, dengan sesi praktis dan materi tertulis yang bisa dipakai ulang tim Anda.
 services.consult.title = Konsultasi IT
-services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda: menilai kondisi saat ini, lalu menyusun prioritas, anggaran, dan risiko menjadi peta jalan terdokumentasi yang bisa dijalankan tim Anda, bersama kami atau mandiri.
+services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda: menilai kondisi saat ini, lalu menyusun prioritas, anggaran, dan risiko menjadi peta jalan terdokumentasi yang bisa dijalankan tim Anda, bersama kami atau mandiri, dan peta jalan itu tetap milik Anda.
 
 # Testimonials
 testimonials.title = Testimoni

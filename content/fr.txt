@@ -13,12 +13,17 @@ nav.pastwork = Réalisations
 nav.quote = Demander un devis
 nav.contact = Contact
 
-# Hero
-hero.line1 = Nous fournissons des solutions IT de bout en bout
-hero.line2 = Nous protégeons votre sécurité
-hero.line3 = Nous maintenons la stabilité de vos systèmes
-hero.line4 = Nous simplifions votre informatique au quotidien
-hero.line5 = Votre partenaire de confiance en transformation numérique
+# Banner typewriter : hero.lede fixe, seuls les cycleN changent
+# format : verbe | partie objet
+hero.lede = Nous
+hero.mid = vos
+hero.tail = 
+hero.cycle1 = aidons | systèmes
+hero.cycle2 = protégeons | données
+hero.cycle3 = automatisons | processus
+hero.cycle4 = respectons | budgets
+hero.cycle5 = favorisons | objectifs
+hero.final = sommes|votre|*partenaire
 cta.get_quote = Obtenir un devis
 cta.explore_services = Découvrir les services
 
@@ -44,7 +49,7 @@ services.security.body = Nous renforçons vos défenses face aux menaces actuell
 services.training.title = Formation IT
 services.training.body = Nous proposons des formations structurées : fondamentaux IT, helpdesk et support, sécurité défensive, y compris la sensibilisation de tous les collaborateurs, avec des sessions pratiques et des supports écrits réutilisables par vos équipes.
 services.consult.title = Conseil IT
-services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT : nous évaluons votre existant, puis formalisons priorités, budget et risques dans une feuille de route que vos équipes peuvent exécuter, avec nous ou en autonomie.
+services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT : nous évaluons votre existant, puis formalisons priorités, budget et risques dans une feuille de route que vos équipes peuvent exécuter, avec nous ou en autonomie, et la feuille de route reste la vôtre.
 
 # Testimonials
 testimonials.title = Témoignages

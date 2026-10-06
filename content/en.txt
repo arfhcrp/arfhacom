@@ -13,12 +13,17 @@ nav.pastwork = Portfolio
 nav.quote = Get Quote
 nav.contact = Contact
 
-# Hero typewriter lines (English)
-hero.line1 = We provide end-to-end IT solutions
-hero.line2 = We ensure your security protections
-hero.line3 = We keep your systems steady
-hero.line4 = We simplify your everyday IT
-hero.line5 = We are your trusted digital transformation partner
+# Banner typewriter: hero.lede tetap di depan, hanya bagian cycleN yang berganti
+# format: kata kerja | bagian benda
+hero.lede = We
+hero.mid = Your
+hero.tail = 
+hero.cycle1 = Help | IT
+hero.cycle2 = Secure | Data
+hero.cycle3 = Automate | Workflows
+hero.cycle4 = Stretch | Budget
+hero.cycle5 = Drive | Growth
+hero.final = are|your|*trusted|*partners
 cta.get_quote = Get a Quote
 cta.explore_services = Explore Services
 

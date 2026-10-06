@@ -13,12 +13,17 @@ nav.pastwork = Portafolio
 nav.quote = Solicitar cotización
 nav.contact = Contacto
 
-# Hero
-hero.line1 = Ofrecemos soluciones de TI de extremo a extremo
-hero.line2 = Protegemos su seguridad
-hero.line3 = Mantenemos sus sistemas estables
-hero.line4 = Simplificamos su TI diaria
-hero.line5 = Su socio confiable en transformación digital
+# Banner typewriter: hero.lede fijo, solo los cycleN cambian
+# formato: verbo | parte del objeto
+hero.lede = 
+hero.mid = su
+hero.tail = 
+hero.cycle1 = cuidamos | IT
+hero.cycle2 = protegemos | información
+hero.cycle3 = automatizamos | operación
+hero.cycle4 = aprovechamos | presupuesto
+hero.cycle5 = impulsamos | crecimiento
+hero.final = somos|*socio|*de confianza
 cta.get_quote = Solicitar cotización
 cta.explore_services = Explorar servicios
 
@@ -44,7 +49,7 @@ services.security.body = Fortalecemos sus defensas frente a las amenazas moderna
 services.training.title = Capacitación en TI
 services.training.body = Ofrecemos formación estructurada en fundamentos de TI, helpdesk y soporte, y seguridad defensiva, incluida la concienciación para todo el personal, con sesiones prácticas y material escrito reutilizable por su equipo.
 services.consult.title = Consultoría de TI
-services.consult.body = Le ayudamos a planificar, evaluar y mejorar su entorno de TI: evaluamos su situación actual y ordenamos prioridades, presupuesto y riesgos en una hoja de ruta documentada que su equipo puede ejecutar, con nosotros o de forma autónoma.
+services.consult.body = Le ayudamos a planificar, evaluar y mejorar su entorno de TI: evaluamos su situación actual y ordenamos prioridades, presupuesto y riesgos en una hoja de ruta documentada que su equipo puede ejecutar, con nosotros o de forma autónoma, y la hoja de ruta sigue siendo suya.
 
 # Testimonials
 testimonials.title = Testimonios

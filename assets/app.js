@@ -10,15 +10,152 @@
   window.addEventListener('keydown',e=>{if(e.key==='Escape')show(false)});
 })();
 
-// typewriter EN
-
+// Banner: WE <kata bergerak 1> YOUR <kata bergerak 2>
+//   - "WE" (lede) dan "YOUR" (kata tetap tengah) tidak bergerak dan tidak kena efek
+//     ketik/hapus selama siklus; warnanya warna teks banner.
+//   - Hanya dua kata bergerak yang diketik maju lalu dihapus mundur, dan hanya keduanya
+//     berwarna hijau merek; saat frasa lengkap keduanya menyala sedikit lebih terang.
+//   - Setelah pasangan terakhir: semuanya dihapus mundur sampai menyisakan "WE", lalu diketik
+//     kalimat penutup TAHAN 5 detik, lalu dihapus mundur lagi sampai "WE" dan rotasi diulang.
+//     Di kalimat penutup, "WE" ikut hijau dan bagian-bagian yang ditandai * di berkas teks
+//     juga hijau (mis. WE ARE hijau - your putih - TRUSTED hijau - partners putih).
+// Teks per bahasa dari content/<lang>.txt: hero.lede, hero.mid, hero.cycle1..N, hero.final
+//
+// Kokoh: semua kelanjutan lewat nanti(g,...) yang memeriksa generasi SAAT TIMER MENYALA, jadi
+// mesin lama (mis. habis ganti bahasa) tidak bisa lagi menyentuh DOM -> tak ada tulisan beku.
 (function(){
-  const el=document.getElementById('typewrite'); if(!el) return;
-  const P=["We provide end-to-end IT solutions","We ensure your security protections","We keep your systems steady","We simplify your everyday IT","We are your trusted digital transformation partner"];
-  const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;
-  function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}
-  function x(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{x()},post)},glow)},pre);return}else{w=false;setTimeout(x,hd);return}}setTimeout(x,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(x,450);return}setTimeout(x,ed)}}
-  x();
+  var el=document.getElementById('typewrite');
+  if(!el) return;
+  var lede=document.getElementById('twLede'), v=document.getElementById('twV'),
+      mid=document.getElementById('twMid'), n=document.getElementById('twN'),
+      buntut=document.getElementById('twTail'),
+      akhir=document.getElementById('twFinal'), caret=el.querySelector('.caret');
+  if(!v||!mid||!n||!buntut||!akhir) return;
+  var gen=0, timers=[];
+  var td=85, ed=34, jedaKata=320, jedaFrasa=1800, tahanPenutup=5000, jedaUlang=560;
+
+  function nanti(g,fn,ms){ var id=setTimeout(function(){ if(g!==gen) return; fn() }, ms||0); timers.push(id) }
+  function tulis(e,t){ if(e) e.textContent=t }
+  function sorot(a){ if(caret&&a) a.insertAdjacentElement('afterend',caret) }
+  function berhenti(){ gen++; timers.forEach(clearTimeout); timers=[]; el.classList.remove('tw-sorot','tw-penutup') }
+
+  function data(t){
+    var out={lede:'We', mid:'Your', tail:'', final:[{t:'are',k:1},{t:'your',k:0},{t:'trusted',k:1},{t:'partners',k:0}], daftar:[]};
+    if(t){
+      var l=t('hero.lede'), m=t('hero.mid'), tl=t('hero.tail'), f=t('hero.final');
+      if(typeof l==='string') out.lede=l;
+      if(typeof m==='string') out.mid=m;
+      if(typeof tl==='string') out.tail=tl;
+      if(f){
+        var bagian=String(f).split('|').map(function(s){ s=s.trim(); return {t:s.replace(/^\*/,''), k:s.charAt(0)==='*'?1:0} })
+                                 .filter(function(b){ return b.t.length });
+        if(bagian.length) out.final=bagian;
+      }
+      for(var i=1;i<=12;i++){
+        var baris=t('hero.cycle'+i); if(!baris) break;
+        var bagi=String(baris).split('|').map(function(s){ return s.trim() });
+        if(bagi[0]&&bagi[1]) out.daftar.push([bagi[0],bagi[1]]);
+      }
+    }
+    if(!out.daftar.length) out.daftar=[['Help','IT'],['Secure','Data']];
+    return out;
+  }
+
+  // bangun ulang bagian kalimat penutup sesuai bahasa aktif (spannya dibuat di sini)
+  function siapkanBagian(d){
+    while(akhir.firstChild) akhir.removeChild(akhir.firstChild);
+    var arr=[];
+    d.final.forEach(function(b){
+      var sp=document.createElement('span');
+      if(b.k) sp.className='tw-kunci';
+      if(arr.length) akhir.appendChild(document.createTextNode(' '));   // pemisah antar bagian
+      akhir.appendChild(sp);
+      arr.push(sp);
+    });
+    return arr;
+  }
+
+  function mulai(t){
+    berhenti();
+    var g=gen, d=data(t), i=0, akhirPasangan=d.daftar.length-1;
+    var bagian=siapkanBagian(d);
+    tulis(lede,d.lede); tulis(mid,d.mid); tulis(buntut,d.tail);
+
+    function ketik(e,teks,selesai){
+      tulis(e,''); sorot(e);
+      var c=0, s=String(teks);
+      (function maju(){ if(g!==gen) return;
+        c++; tulis(e,s.slice(0,c));
+        if(c>=s.length){ nanti(g,selesai,0); return }
+        nanti(g,maju,td) })();
+    }
+    function hapus(e,selesai){
+      sorot(e); var s=String(e.textContent||'');
+      (function mundur(){ if(g!==gen) return;
+        s=s.slice(0,-1); tulis(e,s);
+        if(!s.length){ nanti(g,selesai,0); return }
+        nanti(g,mundur,ed) })();
+    }
+    function ketikBagian(idx,selesai){
+      if(idx>=d.final.length){ selesai(); return }
+      ketik(bagian[idx],d.final[idx].t,function(){ nanti(g,function(){ ketikBagian(idx+1,selesai) },120) });
+    }
+    function hapusBagian(idx,selesai){
+      if(idx<0){ selesai(); return }
+      hapus(bagian[idx],function(){ nanti(g,function(){ hapusBagian(idx-1,selesai) },0) });
+    }
+    // semua yang di belakang "WE" dihapus mundur (benda -> penambat belakang -> penambat tengah -> kata kerja)
+    function bersihkanSampaiWe(lanjut){
+      hapus(n,function(){ nanti(g,function(){
+        hapus(buntut,function(){ nanti(g,function(){
+          hapus(mid,function(){ nanti(g,function(){
+            hapus(v,function(){ nanti(g,lanjut,jedaKata) });
+          }, 0) });
+        }, 0) });
+      }, 0) });
+    }
+
+    function penutup(){
+      bersihkanSampaiWe(function(){                      // tersisa "WE" saja
+        el.classList.add('tw-penutup');                  // "WE" ikut hijau
+        ketikBagian(0,function(){ nanti(g,function(){
+          nanti(g,function(){                            // TAHAN 5 detik
+            hapusBagian(bagian.length-1,function(){ nanti(g,function(){
+              el.classList.remove('tw-penutup');         // "WE" kembali putih
+              tulis(mid,d.mid); tulis(buntut,d.tail); i=0;
+              nanti(g,putaran,jedaUlang);
+            }, jedaKata) });
+          }, tahanPenutup);
+        }, 240) });
+      });
+    }
+
+    function putaran(){
+      if(g!==gen) return;
+      var p=d.daftar[i];
+      tulis(mid,d.mid);                     // kata tetap "YOUR" selalu di tempatnya
+      sorot(v);
+      ketik(v,p[0],function(){ nanti(g,function(){          // kata bergerak 1
+        ketik(n,p[1],function(){ nanti(g,function(){        // kata bergerak 2 -> frasa lengkap
+          el.classList.add('tw-sorot');                      // kata kunci menyala terang
+          nanti(g,function(){
+            el.classList.remove('tw-sorot');
+            hapus(n,function(){ nanti(g,function(){
+              hapus(v,function(){ nanti(g,function(){
+                if(i<akhirPasangan){ i++; nanti(g,putaran,jedaUlang) }
+                else penutup();                          // pasangan terakhir -> kalimat penutup
+              }, jedaUlang) });
+            }, 0) });
+          }, jedaFrasa);
+        }, jedaKata) });
+      }, jedaKata) });
+    }
+
+    nanti(g,putaran,400);
+  }
+
+  window.__bannerMulai=mulai;   // dipanggil ulang tiap ganti bahasa
+  mulai(null);                  // teks awal sampai i18n siap
 })();
 
 // reveal
@@ -86,15 +223,6 @@
   window.addEventListener('load', apply);
 })();
 
-// typewriter ID
-(function(){
-  const el=document.getElementById('typewrite-id'); if(!el) return;
-  const P=["Kami menghadirkan solusi IT yang andal","Kami memastikan perlindungan keamanan Anda","Kami menjaga sistem Anda tetap stabil","Kami menyederhanakan IT harian Anda","Kami membimbing teknologi dengan penuh perhatian"];
-  const td=110,ed=55,hd=1600,pre=2000,glow=5000,post=2000;let pi=0,ci=0,w=true;
-  function r(t){el.textContent=t;el.insertAdjacentHTML('beforeend','<span class="caret" aria-hidden="true"></span>')}
-  function loop(){const L=P.length-1,tx=P[pi];if(w){ci++;r(tx.slice(0,ci));if(ci===tx.length){if(pi===L){w=false;setTimeout(()=>{el.classList.add('glow');setTimeout(()=>{el.classList.remove('glow');setTimeout(()=>{loop()},post)},glow)},pre);return}else{w=false;setTimeout(loop,hd);return}}setTimeout(loop,td)}else{ci--;r(tx.slice(0,ci));if(ci===0){w=true;pi=(pi+1)%P.length;setTimeout(loop,450);return}setTimeout(loop,ed)}}
-  loop();
-})();
 
 /* =========================
    I18N loader (content/*.txt)
@@ -106,8 +234,6 @@
   const html=document.documentElement;
   const langBtn=document.getElementById('langBtn');
   const langMenu=document.getElementById('langMenu');
-  const typeEN=document.getElementById('typewrite');
-  const typeID=document.getElementById('typewrite-id');
   const waTooltip=document.getElementById('waTooltip');
   const waFab=document.getElementById('waFab');
 
@@ -185,11 +311,8 @@
       if(hrefVal) waFab.setAttribute('href', hrefVal);
     }
 
-    // Toggle which typewriter is visible
-    if(typeEN && typeID){
-      if(lang==='id'){ typeEN.classList.add('hidden'); typeID.classList.remove('hidden'); }
-      else { typeID.classList.add('hidden'); typeEN.classList.remove('hidden'); }
-    }
+    // Mesin tik banner: mulai ulang dengan teks bahasa yang aktif
+    if(window.__bannerMulai){ window.__bannerMulai(function(key){ return t(key, lang) }); }
 
     // Button label
     langBtn.textContent = labelFor(lang);
@@ -276,19 +399,8 @@
   if(document.readyState==='complete'){setTimeout(go,120)}else{window.addEventListener('load',function(){setTimeout(go,120)})}
 })();
 
-// kartu layanan: sorotan lembut mengikuti kursor (pengganti efek balik 3D,
-// yang membuat judul & isi layanan tidak terbaca saat kartu berbalik)
-(function(){
-  var kartu=document.querySelectorAll('.svc'); if(!kartu.length) return;
-  kartu.forEach(function(k){
-    k.addEventListener('pointermove',function(e){
-      if(e.pointerType==='touch') return;   // di layar sentuh sorotan tidak perlu
-      var r=k.getBoundingClientRect(); if(!r.width||!r.height) return;
-      k.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(2)+'%');
-      k.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(2)+'%');
-    });
-  });
-})();
+// (kartu layanan tidak lagi memakai sorotan yang mengikuti kursor: lapisan itu
+// menutupi pola latar ikon sehingga polanya tampak berubah saat kartu disorot)
 
 // titik data di banner: tiap titik berkedip sendiri (bukan satu blok), pause saat banner tak terlihat
 (function(){
@@ -371,7 +483,7 @@
   var dotsBox=document.getElementById('tstDots');
   var prev=document.getElementById('tstPrev'), next=document.getElementById('tstNext');
   var redusir=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
-  var aktif=0, jam=null, JEDA=7000;
+  var aktif=0, jam=null, JEDA=12000;   // jeda ganti kutipan (sebelumnya 7 dtk, dibuat lebih lama)
 
   var dots=slides.map(function(s,n){
     var b=document.createElement('button');
