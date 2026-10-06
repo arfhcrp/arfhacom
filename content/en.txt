@@ -34,17 +34,17 @@ about.card3.body = We operate with integrity and choose projects aligned with ou
 # Services
 services.title = Services
 services.helpdesk.title = IT Helpdesk & Support
-services.helpdesk.body = We design and implement helpdesk solutions based on ITIL best practices. Our services cover ticketing systems, remote support, onboarding/offboarding frameworks, knowledge base setup, SLA management, workstation management, and more: everything your IT support function needs. Every ticket is logged, prioritised and reviewed, so response times stay visible and recurring issues are fixed at the root rather than patched.
+services.helpdesk.body = We design and implement helpdesk services on ITIL best practices: ticketing systems, remote support, onboarding and offboarding, knowledge base, SLA management and workstation management — everything your IT support function needs.
 services.networks.title = Networks & Infrastructure
-services.networks.body = We design and build secure, scalable, and reliable networks from the ground up to your requirements. Services include structured cabling, rack and topology planning, switch/router/firewall/appliance configuration, and complete networking, from local connectivity to site-to-site integration. With proper monitoring and documentation, we deliver infrastructure that supports your long-term growth. Each change is documented as we go.
+services.networks.body = We design and build secure, scalable and reliable networks to your requirements: structured cabling, rack and topology planning, and switch, router, firewall and appliance configuration, from local connectivity to site-to-site integration.
 services.syscloud.title = System & Cloud Administration
-services.syscloud.body = We are available 24/7 to manage your servers, applications, and cloud platforms so they remain stable and secure. From user management, updates, and backups to deployments, monitoring, and automation. We keep your IT environment running smoothly and aligned to your business needs. Routine health checks, patching, and tested backups keep you informed before anything breaks, with clear documentation of every change we make.
+services.syscloud.body = We manage your servers, applications and cloud platforms 24/7 so they stay stable and secure: user management, updates and backups, deployments, monitoring and automation, aligned with your business needs.
 services.security.title = Cybersecurity
-services.security.body = Our focus is strengthening defenses and ensuring your business is ready for modern threats. Services include system hardening, vulnerability assessment, endpoint protection, patch management, and centralized monitoring. We help you build CSIRT and SOC capabilities using the NIST framework and industry best practices to improve detection, response, and long-term resilience. Security is our top priority. Findings are reported with clear priorities.
+services.security.body = We strengthen your defenses against modern threats: system hardening, vulnerability assessment, endpoint protection, patch management and centralized monitoring, with CSIRT and SOC capabilities built on the NIST framework.
 services.training.title = IT Training
-services.training.body = We provide structured programs covering IT fundamentals, helpdesk and support, and defensive security practices, including security awareness for all employees. Sessions are practical and easy to follow. We recognize that human awareness is essential to business continuity and stability alongside technology. Every session ends with practical exercises and written material your team can reuse long after the training is finished. Each module closes with a short assessment.
+services.training.body = We deliver structured training on IT fundamentals, helpdesk and support, and defensive security, including security awareness for all employees, with practical sessions and written material your team can reuse.
 services.consult.title = IT Consulting
-services.consult.body = We help you plan, assess, and improve your IT environment with solutions aligned to your goals. Interested and want to explore more? Contact us: ask anything, and let’s discuss what you need! We start by assessing your current setup, then map priorities, budget, and risk into a documented roadmap your team can act on, with us or on its own. Your people keep full ownership of the plan, the documentation, and the decisions. The roadmap is yours to keep.
+services.consult.body = We help you plan, assess and improve your IT environment: we review your current setup, then map priorities, budget and risk into a documented roadmap your team can execute, with us or independently, and the roadmap stays yours.
 
 # Testimonials
 testimonials.title = Testimonials

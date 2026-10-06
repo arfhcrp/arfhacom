@@ -260,7 +260,7 @@
 (function(){
   var target=[];
   document.querySelectorAll('.sec-head').forEach(function(el){target.push(el)});
-  ['.cards3','.svc-flip','.quotes','.contact-grid','.quote-grid','.foot'].forEach(function(sel){
+  ['.cards3','.svc-grid','.contact-grid','.quote-grid','.foot'].forEach(function(sel){
     document.querySelectorAll(sel).forEach(function(el){el.classList.add('stagger');target.push(el)});
   });
   if(!('IntersectionObserver' in window)){target.forEach(function(el){el.classList.add('in')});return;}
@@ -276,20 +276,25 @@
   if(document.readyState==='complete'){setTimeout(go,120)}else{window.addEventListener('load',function(){setTimeout(go,120)})}
 })();
 
-// kartu layanan: di perangkat sentuh, ketuk untuk membalik (efek flip asli)
+// kartu layanan: sorotan lembut mengikuti kursor (pengganti efek balik 3D,
+// yang membuat judul & isi layanan tidak terbaca saat kartu berbalik)
 (function(){
-  var sentuh = window.matchMedia && window.matchMedia('(hover:none)').matches;
-  if(!sentuh) return;
-  document.querySelectorAll('.flip').forEach(function(k){
-    k.addEventListener('click',function(){ k.classList.toggle('flipped') });
-    k.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); k.classList.toggle('flipped'); } });
+  var kartu=document.querySelectorAll('.svc'); if(!kartu.length) return;
+  kartu.forEach(function(k){
+    k.addEventListener('pointermove',function(e){
+      if(e.pointerType==='touch') return;   // di layar sentuh sorotan tidak perlu
+      var r=k.getBoundingClientRect(); if(!r.width||!r.height) return;
+      k.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(2)+'%');
+      k.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(2)+'%');
+    });
   });
 })();
 
 // titik data di banner: tiap titik berkedip sendiri (bukan satu blok), pause saat banner tak terlihat
 (function(){
   var wrap=document.querySelector('.hero-leds'); if(!wrap) return;
-  var hero=document.querySelector('.hero') || wrap.parentElement;
+  // lapisan menutupi seluruh pita banner; ukuran & pemantauan pakai induknya (.hero)
+  var hero=wrap.parentElement || document.querySelector('.hero');
   var redusir=window.matchMedia('(prefers-reduced-motion: reduce)');
   var TILE_W=228, TILE_H=168, CW=12, CH=24;      // CW/CH = satu sel angka (228/19 x 168/7)
   function bikin(){
@@ -355,4 +360,64 @@
       else if(tampak){ tampak=false; sembunyi() }                   // keluar viewport → reset, siap ketik lagi
     });
   },{threshold:.8}).observe(pemicu);
+})();
+
+// testimoni: penggeser satu kutipan per layar (pola referensi)
+// titik & panah diisi dari sini supaya markup tetap ringkas; isi kutipan tetap dari content/*.txt
+(function(){
+  var track=document.getElementById('tstTrack'); if(!track) return;
+  var slides=[].slice.call(track.querySelectorAll('.quote'));
+  if(slides.length<2) return;
+  var dotsBox=document.getElementById('tstDots');
+  var prev=document.getElementById('tstPrev'), next=document.getElementById('tstNext');
+  var redusir=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  var aktif=0, jam=null, JEDA=7000;
+
+  var dots=slides.map(function(s,n){
+    var b=document.createElement('button');
+    b.type='button'; b.className='tst-dot';
+    b.setAttribute('aria-label','Testimonial '+(n+1));
+    b.addEventListener('click',function(){ ke(n,true) });
+    if(dotsBox) dotsBox.appendChild(b);
+    return b;
+  });
+
+  function tandai(n){
+    aktif=n;
+    dots.forEach(function(d,k){
+      d.classList.toggle('active',k===n);
+      d.setAttribute('aria-current',k===n?'true':'false');
+    });
+  }
+  function ke(n,manual){
+    n=(n+slides.length)%slides.length;
+    tandai(n);
+    var s=slides[n]; if(!s) return;
+    // geser LANGSUNG di dalam trek (scrollBy), bukan scrollIntoView:
+    // scrollIntoView ikut menggulir HALAMAN ke bagian testimoni tiap 7 detik.
+    // Delta dihitung dari selisih kotak (bukan offsetLeft) supaya arah RTL benar.
+    var delta=Math.round(s.getBoundingClientRect().left - track.getBoundingClientRect().left);
+    var opsi={left:delta,behavior:(redusir&&redusir.matches)?'auto':'smooth'};
+    if(track.scrollBy){ track.scrollBy(opsi) } else { track.scrollLeft=track.scrollLeft+delta }
+    if(manual) mulai();
+  }
+  function mulai(){ if(redusir&&redusir.matches) return; henti(); jam=setInterval(function(){ ke(aktif+1) },JEDA); }
+  function henti(){ if(jam){ clearInterval(jam); jam=null } }
+
+  // geser manual (swipe/scroll) tetap memperbarui titik aktif
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ var n=slides.indexOf(e.target); if(n>-1) tandai(n) } });
+    },{root:track,threshold:.6});
+    slides.forEach(function(s){ io.observe(s) });
+  }
+  track.addEventListener('mouseenter',henti);
+  track.addEventListener('mouseleave',mulai);
+  track.addEventListener('focusin',henti);
+  track.addEventListener('focusout',mulai);
+  document.addEventListener('visibilitychange',function(){ document.hidden?henti():mulai() });
+  if(prev) prev.addEventListener('click',function(){ ke(aktif-1,true) });
+  if(next) next.addEventListener('click',function(){ ke(aktif+1,true) });
+  tandai(0);
+  mulai();
 })();
