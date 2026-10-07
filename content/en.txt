@@ -39,7 +39,7 @@ about.card3.body = We operate with integrity and choose projects aligned with ou
 # Services
 services.title = Services
 services.helpdesk.title = IT Helpdesk & Support
-services.helpdesk.body = We design and implement helpdesk services on ITIL best practices: ticketing systems, remote support, onboarding and offboarding, knowledge base, SLA management and workstation management — everything your IT support function needs.
+services.helpdesk.body = We design and implement helpdesk services on ITIL best practices: ticketing systems, remote support, onboarding and offboarding, knowledge base, SLA management and workstation management, everything your IT support function needs.
 services.networks.title = Networks & Infrastructure
 services.networks.body = We design and build secure, scalable and reliable networks to your requirements: structured cabling, rack and topology planning, and switch, router, firewall and appliance configuration, from local connectivity to site-to-site integration.
 services.syscloud.title = System & Cloud Administration
@@ -49,7 +49,7 @@ services.security.body = We strengthen your defenses against modern threats: sys
 services.training.title = IT Training
 services.training.body = We deliver structured training on IT fundamentals, helpdesk and support, and defensive security, including security awareness for all employees, with practical sessions and written material your team can reuse.
 services.consult.title = IT Consulting
-services.consult.body = We help you plan, assess and improve your IT environment: we review your current setup, then map priorities, budget and risk into a documented roadmap your team can execute, with us or independently, and the roadmap stays yours.
+services.consult.body = We help you plan, assess, maintain and improve your IT for business continuity: from priorities, budgeting and equipment selection to risk and implementation effectiveness, everything documented as a roadmap. Talk to us for the details.
 
 # Testimonials
 testimonials.title = Testimonials

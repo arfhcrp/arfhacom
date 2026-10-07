@@ -39,7 +39,7 @@ about.card3.body = Nous agissons avec intégrité et choisissons des projets ali
 # Services
 services.title = Services
 services.helpdesk.title = Helpdesk & Support IT
-services.helpdesk.body = Nous concevons et déployons votre helpdesk selon les bonnes pratiques ITIL : tickets, support à distance, onboarding et offboarding, base de connaissances, gestion des SLA et des postes de travail — tout ce dont votre service support a besoin.
+services.helpdesk.body = Nous concevons et déployons votre helpdesk selon les bonnes pratiques ITIL : tickets, support à distance, onboarding et offboarding, base de connaissances, gestion des SLA et des postes de travail, tout ce dont votre service support a besoin.
 services.networks.title = Réseaux & Infrastructure
 services.networks.body = Nous concevons et bâtissons des réseaux sûrs, évolutifs et fiables selon vos besoins : câblage structuré, planification des racks et de la topologie, et configuration des switches, routeurs, firewalls et appliances, du local à l’interconnexion de sites.
 services.syscloud.title = Administration Systèmes & Cloud
@@ -49,7 +49,7 @@ services.security.body = Nous renforçons vos défenses face aux menaces actuell
 services.training.title = Formation IT
 services.training.body = Nous proposons des formations structurées : fondamentaux IT, helpdesk et support, sécurité défensive, y compris la sensibilisation de tous les collaborateurs, avec des sessions pratiques et des supports écrits réutilisables par vos équipes.
 services.consult.title = Conseil IT
-services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT : nous formalisons priorités, budget et risques dans une feuille de route exécutable par vos équipes, avec nous ou en autonomie, et la feuille de route reste la vôtre.
+services.consult.body = Nous vous aidons à planifier, évaluer, maintenir et améliorer votre IT pour la continuité de votre activité : priorités, budget, choix du matériel, risques et efficacité, le tout en feuille de route. Écrivez-nous pour les détails.
 
 # Testimonials
 testimonials.title = Témoignages

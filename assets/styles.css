@@ -1,7 +1,7 @@
 /* =========================================================
-   Arfhacom — company profile
+   Arfhacom: company profile
    v4 "reference layout": susunan halaman mengikuti pola tata
-   letak pritech.co.id — kontainer 1160px, pita bagian 92px,
+   letak pritech.co.id: kontainer 1160px, pita bagian 92px,
    hero dua kolom (teks | panel visual), kartu membulat
    berbingkai dengan petak ikon, tombol pil, penggeser
    testimoni, footer berkolom dengan tombol naik bulat.
@@ -180,7 +180,7 @@ main{padding-top:64px}
 .btn.ghost:hover{background:rgba(232,229,218,.10);border-color:rgba(232,229,218,.6);transform:translateY(-2px)}
 /* tombol "Explore Services" di banner: isiannya memakai nada gelap milik banner sendiri
    (--base #171814, lalu naik sedikit ke --hero-bg-2 #232b23 saat hover) supaya tidak mencolok seperti
-   hitam pekat, tetapi tetap OPAK — bukan transparan. Yang hijau hanya pancaran (glow) di
+   hitam pekat, tetapi tetap OPAK, bukan transparan. Yang hijau hanya pancaran (glow) di
    sekelilingnya, dan geraknya sama dengan tombol utama: naik 2px. */
 .hero .btn.ghost{background:var(--base);border-color:rgba(232,229,218,.28);color:#fff;
   box-shadow:0 10px 26px -10px rgba(26,122,69,.45)}
@@ -190,7 +190,7 @@ main{padding-top:64px}
 /* ---------- titik data yang berkedip sendiri-sendiri di panel banner ----------
    Tiap titik adalah potongan kecil pola biner yang sama (posisi latar
    diselaraskan), menyala-mati dengan durasi & jeda berbeda, supaya terasa
-   seperti jendela kantor yang menyala acak di kota pada malam hari —
+   seperti jendela kantor yang menyala acak di kota pada malam hari,
    bukan satu blok yang berkedip bersamaan. Titik dibuat oleh app.js.
    INVARIAN: satu titik = tepat satu sel angka pola, jadi angka menyala utuh
    (tidak terpotong). Sel = 228/19 = 12px lebar, 168/7 = 24px tinggi; ukuran
@@ -214,7 +214,7 @@ main{padding-top:64px}
 .section--base{background:var(--base);color:var(--cream)}
 .section--deep{background:var(--deep);color:var(--cream)}
 
-/* permukaan kartu per pita — kartu mengikuti warna pitanya */
+/* permukaan kartu per pita: kartu mengikuti warna pitanya */
 .section--paper,.section--cream,.section--white{
   --sf:var(--surface);--sf-line:var(--hair-light);--sf-ink:var(--ink);
   --sf-soft:var(--ink-soft);--sf-tile:var(--tile);--sf-icon:var(--accent-ink);--sf-shadow:var(--shadow-card)}
@@ -271,7 +271,7 @@ main{padding-top:64px}
    hilang hanya efek card flip (dulu saat hover kartu berbalik sampai isinya tak
    terbaca). Sebagai gantinya saat hover: kartu terangkat, bingkai menyala aksen,
    panah bergeser, dan pola latar ikon sedikit lebih terlihat. Sorotan yang mengikuti
-   kursor TIDAK dipakai lagi — lapisan itu menutupi pola latar sehingga polanya
+   kursor TIDAK dipakai lagi, karena lapisan itu menutupi pola latar sehingga polanya
    tampak berubah bentuk saat disorot. */
 .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;
   gap:24px;align-items:stretch}
@@ -476,7 +476,7 @@ html[dir="rtl"] .lang-menu{right:auto;left:0}
 }
 
 /* =========================================================
-   Animasi gulir + ornamen — semua via CSS transition &
+   Animasi gulir + ornamen, semua via CSS transition &
    IntersectionObserver (tanpa library, tanpa video).
    ========================================================= */
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -521,7 +521,7 @@ body.loaded .hero-glow.g1{animation:sweep 16s ease-in-out infinite}
 
 
 /* =========================================================
-   Restorasi efek dari web asli (arfha.com) — diadaptasi ke
+   Restorasi efek dari web asli (arfha.com), diadaptasi ke
    tata letak v4, tetapi efek & perilakunya tetap ada.
    ========================================================= */
 
@@ -535,7 +535,7 @@ body.scrolled .brand .underscore{display:inline-block;animation:blink 1s steps(1
 .subtag{font-style:italic;font-size:11px;color:var(--ink-soft);margin-top:4px}
 
 /* (3) kartu about / layanan / kontak: terangkat, bingkai & petak ikon jadi aksen.
-   Aturan ini harus tetap berada SETELAH .reveal.show{transform:none} — bobot
+   Aturan ini harus tetap berada SETELAH .reveal.show{transform:none}, bobot
    selector-nya sama, jadi yang belakangan menang; kalau tidak, kartu tak terangkat. */
 .card:hover,.cblock:hover,.svc:hover{transform:translateY(-4px);box-shadow:var(--sf-shadow);
   border-color:rgba(26,122,69,.45)}

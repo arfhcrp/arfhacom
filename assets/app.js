@@ -195,7 +195,7 @@
     const name=fd.get('name')||'', email=fd.get('email')||'', company=fd.get('company')||'', project=fd.get('project')||'', timeline=fd.get('timeline')||'';
     const subject=`Quote request from ${name}`;
     // email TIDAK dimasukkan ke isi pesan: alamat pengirim diambil otomatis oleh
-    // aplikasi email user (mailto: tidak boleh menetapkan header From — RFC 6068)
+    // aplikasi email user (mailto: tidak boleh menetapkan header From, lihat RFC 6068)
     const nl='%0D%0A';
     const body='Name: '+encodeURIComponent(name)+nl
       +'Company: '+encodeURIComponent(company)+nl
@@ -379,7 +379,7 @@
   on();
 })();
 
-// animasi gulir (kepala bagian + anak berurutan) — IntersectionObserver, tanpa library
+// animasi gulir (kepala bagian + anak berurutan) pakai IntersectionObserver, tanpa library
 (function(){
   var target=[];
   document.querySelectorAll('.sec-head').forEach(function(el){target.push(el)});
@@ -438,7 +438,7 @@
   document.addEventListener('visibilitychange', function(){ document.hidden ? jeda() : (tampak && main()); });
 })();
 
-// bismillah: efek ketik dari kanan ke kiri (RTL) — sekali per kemunculan, tidak diulang
+// bismillah: efek ketik dari kanan ke kiri (RTL), sekali per kemunculan, tidak diulang
 (function(){
   var el=document.querySelector('.bismillah-ar'); if(!el) return;
   var redusir=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');

@@ -39,17 +39,17 @@ about.card3.body = Kami bekerja dengan integritas dan memilih proyek yang selara
 # Services
 services.title = Layanan
 services.helpdesk.title = Helpdesk & Dukungan IT
-services.helpdesk.body = Kami merancang dan menerapkan layanan helpdesk berbasis ITIL best practices: sistem tiketing, remote support, alur onboarding dan offboarding, knowledge base, dan manajemen SLA — semua yang dibutuhkan fungsi IT support Anda.
+services.helpdesk.body = Kami merancang dan menerapkan layanan IT helpdesk berbasis ITIL best practices: mulai dari sistem tiketing, remote support, alur onboarding dan offboarding, knowledge base, hingga manajemen SLA, semua yang dibutuhkan IT support Anda.
 services.networks.title = Jaringan & Infrastruktur
-services.networks.body = Kami merancang dan membangun jaringan yang aman, skalabel, dan andal: kabel terstruktur, perencanaan rack dan topologi, serta konfigurasi switch, router, firewall, dan appliance, dari konektivitas lokal hingga integrasi antar-site.
+services.networks.body = Kami merancang dan membangun jaringan yang aman, skalabel, dan andal: mulai dari perencanaan rack dan topologi, konfigurasi switch, router, firewall, dan appliance jaringan, dari konektivitas lokal hingga integrasi antar-site dan tunneling.
 services.syscloud.title = Administrasi Sistem & Cloud
-services.syscloud.body = Kami mengelola server, aplikasi, dan platform cloud Anda 24/7 agar tetap stabil dan aman. Dari manajemen user dan deployment hingga monitoring, automasi, serta AI assistant, semuanya selaras dengan kebutuhan bisnis Anda.
+services.syscloud.body = Kami mengelola server, aplikasi, dan platform cloud Anda 24/7 agar tetap stabil dan aman. Mulai dari manajemen user dan deployment hingga monitoring, automasi, serta penerapan AI assistant, semuanya diselaraskan dengan kebutuhan bisnis Anda.
 services.security.title = Keamanan Siber
-services.security.body = Kami memperkuat pertahanan Anda dari ancaman modern: hardening sistem, penilaian kerentanan, proteksi endpoint, patch management, dan monitoring terpusat, dengan kapabilitas CSIRT dan SOC berbasis NIST framework.
+services.security.body = Kami siap memperkuat pertahanan Anda dari ancaman siber: mulai dari hardening sistem, penilaian kerentanan, proteksi endpoint, dan patch management, sampai monitoring terpusat dengan kapabilitas CSIRT dan SOC berbasis NIST framework.
 services.training.title = Pelatihan IT
-services.training.body = Kami menyediakan pelatihan terstruktur untuk dasar-dasar IT, helpdesk dan dukungan, serta keamanan defensif termasuk security awareness bagi semua karyawan, dengan sesi praktis dan materi tertulis yang bisa dipakai ulang tim Anda.
+services.training.body = Kami menyediakan pelatihan terstruktur untuk dasar-dasar IT, helpdesk dan support, serta pelatihan SOC dan security awareness bagi semua karyawan, dengan metode berbasis materi, simulasi, dan analisis berbasis risiko.
 services.consult.title = Konsultasi IT
-services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda: menyusun prioritas, anggaran, dan risiko menjadi peta jalan terdokumentasi yang bisa dijalankan tim Anda, bersama kami atau mandiri, dan peta jalan itu tetap milik Anda.
+services.consult.body = Kami merencanakan, menilai, menjaga, dan meningkatkan IT demi kontinuitas bisnis: prioritas, anggaran, pemilihan perangkat, penilaian risiko, dan efektivitas implementasi jadi roadmap terdokumentasi. Konsultasikan kebutuhan Anda untuk detailnya.
 
 # Testimonials
 testimonials.title = Testimoni
