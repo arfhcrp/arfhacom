@@ -43,13 +43,13 @@ services.helpdesk.body = Diseñamos e implementamos servicios de helpdesk basado
 services.networks.title = Redes e Infraestructura
 services.networks.body = Diseñamos y construimos redes seguras, escalables y confiables: cableado estructurado, racks y topología, configuración de switches, enrutadores, firewalls y appliances, desde conectividad local hasta integración entre sedes.
 services.syscloud.title = Administración de Sistemas y Nube
-services.syscloud.body = Gestionamos sus servidores, aplicaciones y plataformas en la nube 24/7 para mantenerlos estables y seguros: usuarios, actualizaciones y copias de seguridad, despliegues, monitoreo y automatización, alineados con su negocio.
+services.syscloud.body = Gestionamos sus servidores, aplicaciones y plataformas en la nube 24/7 para que se mantengan estables y seguros. De la gestión de usuarios y el despliegue al monitoreo, la automatización y un asistente de IA, todo alineado con su negocio.
 services.security.title = Ciberseguridad
 services.security.body = Fortalecemos sus defensas frente a las amenazas modernas: hardening de sistemas, evaluación de vulnerabilidades, protección de endpoints, gestión de parches y monitoreo centralizado, con capacidades CSIRT y SOC bajo el marco NIST.
 services.training.title = Capacitación en TI
 services.training.body = Ofrecemos formación estructurada en fundamentos de TI, helpdesk y soporte, y seguridad defensiva, incluida la concienciación para todo el personal, con sesiones prácticas y material escrito reutilizable por su equipo.
 services.consult.title = Consultoría de TI
-services.consult.body = Le ayudamos a planificar, evaluar y mejorar su entorno de TI: evaluamos su situación actual y ordenamos prioridades, presupuesto y riesgos en una hoja de ruta documentada que su equipo puede ejecutar, con nosotros o de forma autónoma, y la hoja de ruta sigue siendo suya.
+services.consult.body = Le ayudamos a planificar, evaluar y mejorar su TI: ordenamos prioridades, presupuesto y riesgos en una hoja de ruta documentada que su equipo puede ejecutar, con nosotros o de forma autónoma, y la hoja de ruta sigue siendo suya.
 
 # Testimonials
 testimonials.title = Testimonios

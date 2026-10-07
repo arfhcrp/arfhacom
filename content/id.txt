@@ -39,17 +39,17 @@ about.card3.body = Kami bekerja dengan integritas dan memilih proyek yang selara
 # Services
 services.title = Layanan
 services.helpdesk.title = Helpdesk & Dukungan IT
-services.helpdesk.body = Kami merancang dan menerapkan layanan helpdesk berbasis ITIL best practices: sistem tiketing, remote support, alur onboarding dan offboarding, knowledge base, manajemen SLA, dan workstation management — semua yang dibutuhkan fungsi IT support Anda.
+services.helpdesk.body = Kami merancang dan menerapkan layanan helpdesk berbasis ITIL best practices: sistem tiketing, remote support, alur onboarding dan offboarding, knowledge base, dan manajemen SLA — semua yang dibutuhkan fungsi IT support Anda.
 services.networks.title = Jaringan & Infrastruktur
 services.networks.body = Kami merancang dan membangun jaringan yang aman, skalabel, dan andal: kabel terstruktur, perencanaan rack dan topologi, serta konfigurasi switch, router, firewall, dan appliance, dari konektivitas lokal hingga integrasi antar-site.
 services.syscloud.title = Administrasi Sistem & Cloud
-services.syscloud.body = Kami mengelola server, aplikasi, dan platform cloud Anda 24/7 agar tetap stabil dan aman: manajemen user, update dan backup, deployment, monitoring, dan automasi, selaras dengan kebutuhan dan pertumbuhan bisnis Anda.
+services.syscloud.body = Kami mengelola server, aplikasi, dan platform cloud Anda 24/7 agar tetap stabil dan aman. Dari manajemen user dan deployment hingga monitoring, automasi, serta AI assistant, semuanya selaras dengan kebutuhan bisnis Anda.
 services.security.title = Keamanan Siber
 services.security.body = Kami memperkuat pertahanan Anda dari ancaman modern: hardening sistem, penilaian kerentanan, proteksi endpoint, patch management, dan monitoring terpusat, dengan kapabilitas CSIRT dan SOC berbasis NIST framework.
 services.training.title = Pelatihan IT
 services.training.body = Kami menyediakan pelatihan terstruktur untuk dasar-dasar IT, helpdesk dan dukungan, serta keamanan defensif termasuk security awareness bagi semua karyawan, dengan sesi praktis dan materi tertulis yang bisa dipakai ulang tim Anda.
 services.consult.title = Konsultasi IT
-services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda: menilai kondisi saat ini, lalu menyusun prioritas, anggaran, dan risiko menjadi peta jalan terdokumentasi yang bisa dijalankan tim Anda, bersama kami atau mandiri, dan peta jalan itu tetap milik Anda.
+services.consult.body = Kami membantu merencanakan, menilai, dan meningkatkan lingkungan IT Anda: menyusun prioritas, anggaran, dan risiko menjadi peta jalan terdokumentasi yang bisa dijalankan tim Anda, bersama kami atau mandiri, dan peta jalan itu tetap milik Anda.
 
 # Testimonials
 testimonials.title = Testimoni

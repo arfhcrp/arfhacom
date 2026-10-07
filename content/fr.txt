@@ -43,13 +43,13 @@ services.helpdesk.body = Nous concevons et déployons votre helpdesk selon les b
 services.networks.title = Réseaux & Infrastructure
 services.networks.body = Nous concevons et bâtissons des réseaux sûrs, évolutifs et fiables selon vos besoins : câblage structuré, planification des racks et de la topologie, et configuration des switches, routeurs, firewalls et appliances, du local à l’interconnexion de sites.
 services.syscloud.title = Administration Systèmes & Cloud
-services.syscloud.body = Nous gérons vos serveurs, applications et plateformes cloud 24/7 pour qu’ils restent stables et sûrs : comptes utilisateurs, mises à jour et sauvegardes, déploiements, supervision et automatisation, en phase avec vos objectifs.
+services.syscloud.body = Nous gérons vos serveurs, applications et plateformes cloud 24/7 pour qu’ils restent stables et sûrs. De la gestion des utilisateurs et du déploiement à la supervision, l’automatisation et un assistant IA, tout reste aligné sur vos objectifs.
 services.security.title = Cybersécurité
-services.security.body = Nous renforçons vos défenses face aux menaces actuelles : durcissement des systèmes, évaluation des vulnérabilités, protection des postes, gestion des correctifs et supervision centralisée, avec des capacités CSIRT et SOC selon le cadre NIST.
+services.security.body = Nous renforçons vos défenses face aux menaces actuelles : durcissement, évaluation des vulnérabilités, protection des postes, gestion des correctifs et supervision centralisée, avec des capacités CSIRT et SOC selon le cadre NIST.
 services.training.title = Formation IT
 services.training.body = Nous proposons des formations structurées : fondamentaux IT, helpdesk et support, sécurité défensive, y compris la sensibilisation de tous les collaborateurs, avec des sessions pratiques et des supports écrits réutilisables par vos équipes.
 services.consult.title = Conseil IT
-services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT : nous évaluons votre existant, puis formalisons priorités, budget et risques dans une feuille de route que vos équipes peuvent exécuter, avec nous ou en autonomie, et la feuille de route reste la vôtre.
+services.consult.body = Nous vous aidons à planifier, évaluer et améliorer votre environnement IT : nous formalisons priorités, budget et risques dans une feuille de route exécutable par vos équipes, avec nous ou en autonomie, et la feuille de route reste la vôtre.
 
 # Testimonials
 testimonials.title = Témoignages
