@@ -888,7 +888,8 @@ footer .fmark .logo-img{height:34px}
 /* ---------- footer: Arfha dan Computindo satu warna, tampil sebagai hiasan yang tenang ----------
    PENTING: jangan meredupkan dengan opacity di sini. Blok footer memakai animasi reveal
    (opacity 0 -> 1), jadi opacity statis akan ditimpa dan hasilnya kembali pekat.
-   Jadi peredupannya lewat WARNA tunggal: --ink-soft (#5c6152) untuk keduanya,
-   nilai yang sama juga dipakai sebagai fill di assets/arfha-logo.svg.
-   Kontras #5c6152 di atas krem sekitar 5,1:1, jadi tenang tetapi masih lolos AA teks. */
-.fsub{color:var(--ink-soft);font-style:italic;font-weight:600}
+   Jadi peredupannya lewat WARNA tunggal #9a9990 untuk keduanya (nilai sama dipakai sebagai
+   fill di assets/arfha-logo.svg). Kontras sekitar 2,3:1 di atas krem, jadi murni hiasan:
+   karena itu blok ini diberi aria-hidden dan alt kosong supaya tidak dianggap teks biasa
+   yang gagal kontras. Nama badan usaha tetap ada di baris hak cipta. */
+.fsub{color:#9a9990;font-style:italic;font-weight:600}
