@@ -893,3 +893,10 @@ footer .fmark .logo-img{height:34px}
    karena itu blok ini diberi aria-hidden dan alt kosong supaya tidak dianggap teks biasa
    yang gagal kontras. Nama badan usaha tetap ada di baris hak cipta. */
 .fsub{color:#9a9990;font-style:italic;font-weight:600}
+
+/* ---------- footer: bio singkat di bawah logo Arfha Computindo ----------
+   Isinya diambil dari konten About Us (about.card1.body), jadi ikut berganti mengikuti
+   bahasa yang dipilih. Warnanya disamakan persis dengan tautan menu di footer (--ink-soft),
+   lebarnya dibatasi supaya tetap enak dibaca seperti contoh di btech.id dan imtek.id. */
+.fbio{margin:14px 0 0;color:var(--ink-soft);font-size:15px;line-height:1.62;
+  max-width:min(100%,340px)}
