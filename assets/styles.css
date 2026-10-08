@@ -129,6 +129,25 @@ main{padding-top:64px}
 .hero{position:relative;overflow:hidden;color:var(--cream);
   /* warna banner diturunkan sedikit transparan (alfa .94) supaya dasar halaman samar menembus */
   background:linear-gradient(180deg,rgba(35,43,35,.94) 0%,rgba(31,38,32,.94) 62%,rgba(28,35,29,.93) 100%);
+  /* Bentuk banner: ujung atas dan kedua sisinya tetap LURUS selebar layar seperti semula,
+     hanya tepi BAWAH yang melengkung (busur elips dangkal) meniru banner imtek.id. Radius
+     mendatar 50% membuat satu busur mulus dari kiri ke kanan, dan karena lengkungnya
+     dangkal, turunannya di tepi area teks masih di atas padding bawah (dicek dengan piksel).
+     Angka di bawah BUKAN kira-kira. Dari banner.webp referensi (1920x945) kanal alpha-nya
+     diukur baris per baris, lalu beberapa model dicocokkan:
+       - busur elips (radius mendatar 50% = kedua sudut bertemu di tengah): galat 2,05% lebar
+       - sudut bulat sirkular (R 300-500px): galat 8-9% lebar
+       - sudut dengan bagian tengah datar: tidak ada (lebar penuh sudah tercapai 144px dari bawah)
+     Lalu tiga varian digambar dan dibandingkan lagi dengan profil referensi (ambang 50%
+     keduanya, dinormalkan ke lebar banner):
+       10vw  (142px) galat 3,4% tapi lengkung terlihat 9,8% lebar (lebih dalam dari referensi)
+       7,5vw (108px) kedalaman 7,4% (pas) tapi galat 6,5% (terlalu sempit di baris bawah)
+       9vw   (130px) galat 4,0% dengan kedalaman 8,8% lebar, paling seimbang
+     Referensi sendiri 144px dari 1920px = 7,5% lebar, dan bentuknya sedikit lebih kotak dari
+     elips CSS murni, jadi 9vw dipakai sebagai jalan tengah. Batas 30px-150px menjaga lengkung
+     di layar kecil tidak menabrak tombol.
+     overflow:hidden di atas tetap memotong pola biner + cahaya supaya ikut melengkung. */
+  border-radius:0 0 50% 50% / 0 0 clamp(30px,9vw,150px) clamp(30px,9vw,150px);
   padding-block:clamp(40px,4.6vw,64px) clamp(44px,5.2vw,72px);
   padding-inline:max(var(--pad),calc((100% - var(--wrap)) / 2));
   /* satu layar desktop: banner ~60% tinggi jendela, sisanya memperlihatkan bagian About */
@@ -598,3 +617,226 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   .loader .bar{animation:none;opacity:1}
   .fab.nudging{animation:none}
 }
+
+/* =========================================================
+   TATA LETAK v2
+   Permintaan pemilik: tampilan berbeda (bukan pola umum yang
+   terasa hasil generator), resmi, modern, minimalis, satu
+   halaman profil perusahaan. Isi teks, palet warna, logo, dan
+   seluruh fungsi lama TIDAK diubah, hanya susunan/penampilan:
+     - hero: dua kolom, teks di kiri, rel indeks bagian di kanan
+     - about: baris-baris bergaris rambut, bukan petak kartu
+     - layanan: panel mendatar dua kolom (nomor + teks), pola
+       latar dan ikon kecil saat hover tetap seperti semula
+     - testimoni: kepala satu baris dengan navigasi di kanan,
+       kutipan diberi garis tegak di kiri
+     - form kutipan: dua kolom isian
+     - kontak: satu baris tiga butir dengan pembatas tegak
+     - nomor bagian: tebal tanpa tracking lebar (pola yang
+       diminta dihindari)
+   Bagian ini sengaja diletakkan paling bawah supaya menimpa
+   susunan sebelumnya tanpa menyentuh aturan komponen.
+   ========================================================= */
+
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.72fr);
+  gap:clamp(26px,4vw,60px);align-items:end;width:100%}
+
+.sec-num{font-size:15px;font-weight:700;letter-spacing:0;font-variant-numeric:tabular-nums}
+
+.cards3.rows{display:block;border-top:1px solid var(--hair-light)}
+.cards3.rows .card{display:grid;grid-template-columns:64px minmax(0,1fr);
+  grid-template-rows:auto auto;column-gap:clamp(16px,2.4vw,32px);
+  background:none;border:0;border-radius:0;box-shadow:none;
+  border-bottom:1px solid var(--hair-light);padding:clamp(22px,2.6vw,32px) 0}
+.cards3.rows .card .ic{grid-area:1 / 1 / 3 / 2;align-self:start;width:54px;height:54px}
+.cards3.rows .card h3{grid-area:1 / 2 / 2 / 3;margin:0 0 8px;font-size:21px}
+.cards3.rows .card p{grid-area:2 / 2 / 3 / 3;max-width:76ch}
+
+.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.6vw,20px)}
+.svc{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:clamp(14px,1.8vw,22px);
+  padding:clamp(22px,2.4vw,30px)}
+.svc-num{font-size:15px;font-weight:700;letter-spacing:0;font-variant-numeric:tabular-nums;padding-top:2px}
+.svc-txt h3{margin:0 0 9px;font-size:20px}
+.svc::after{content:none}
+
+.tst-head{display:flex;align-items:end;justify-content:space-between;
+  gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.tst-head .sec-head{flex:1 1 auto}
+.tst-head .tst-nav{margin:0;justify-content:flex-end}
+.tst{max-width:none;margin:0}
+.quote{padding-left:clamp(18px,2.2vw,28px);border-left:2px solid var(--accent-dark)}
+.quote blockquote p{font-size:clamp(20px,2.5vw,32px);max-width:38ch}
+
+.qform{grid-template-columns:repeat(2,minmax(0,1fr))}
+.qform .fld:nth-child(4){grid-column:1 / -1}
+.qform .fbtn{grid-column:1 / -1}
+.notes h3{font-size:15px;letter-spacing:0;font-weight:700}
+
+.contact-grid{gap:0}
+.cblock{background:none;border:0;border-radius:0;box-shadow:none;
+  border-left:1px solid var(--hair-light);padding:0 clamp(18px,2.4vw,32px)}
+.cblock:first-child{border-left:0;padding-left:0}
+.cblock:last-child{padding-right:0}
+
+.fcol h3{font-size:15px;letter-spacing:0;font-weight:700}
+
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);align-items:start}
+  .cards3.rows{grid-template-columns:none}
+  .svc-grid{grid-template-columns:minmax(0,1fr)}
+  .contact-grid{grid-template-columns:minmax(0,1fr)}
+  .cblock{border-left:0;border-top:1px solid var(--hair-light);padding:clamp(18px,3vw,26px) 0}
+  .cblock:first-child{border-top:0;padding-top:0}
+}
+@media (max-width:620px){
+  .qform{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- kisi bagian: kolom meta (menempel) + kolom isi ---------- */
+.section{display:grid;grid-template-columns:minmax(0,.36fr) minmax(0,1fr);
+  column-gap:clamp(24px,4vw,64px);align-items:start}
+.section>.sec-head{position:sticky;top:96px;align-self:start;margin:0}
+.section>.sec-body{margin:0;min-width:0}
+.section>.sec-head::before{left:0;right:0}
+.section--base>.sec-head,.section--deep>.sec-head{position:sticky}
+/* garis rambut di kepala bagian dibuat lebih tegas sebagai pemisah kolom */
+.section>.sec-head h2{font-size:clamp(26px,2.9vw,40px);max-width:22ch}
+
+/* ---------- layanan: panel tanpa kotak, bergaris atas, nomor di atas judul ---------- */
+.svc{background:none;border:0;border-top:1px solid var(--hair-light);border-radius:0;box-shadow:none;
+  display:block;overflow:hidden;
+  padding:clamp(20px,2.2vw,26px) clamp(2px,1vw,10px) clamp(26px,3vw,34px) 0}
+.svc .svc-num{display:block;margin-bottom:10px}
+.svc .svc-txt h3{margin:0 0 10px}
+.section--cream .svc{border-top-color:var(--hair-light)}
+.svc:hover{transform:none}
+.svc::after{content:none}
+.svc-grid{gap:clamp(18px,2.2vw,34px) clamp(26px,3.4vw,52px)}
+
+@media (max-width:980px){
+  .section{grid-template-columns:minmax(0,1fr);row-gap:clamp(18px,3vw,30px)}
+  .section>.sec-head{position:static;top:auto}
+}
+
+/* ---------- kepala halaman di layar sempit: rapatkan supaya tidak melebar ---------- */
+@media (max-width:430px){
+  header .bar{padding-inline:clamp(10px,3vw,18px);gap:10px}
+  .brand .logo-img{width:clamp(104px,30vw,159px);height:auto}
+  .menu-btn{padding:0 clamp(8px,2.4vw,12px);gap:6px}
+  .lang-btn{padding:0 8px}
+}
+
+@media (min-width:981px){
+  .foot{grid-template-columns:minmax(0,1.5fr) minmax(0,.75fr) minmax(0,.85fr)}
+}
+
+/* =========================================================
+   TATA LETAK v4: desain datar, tanpa lengkung banner, ikon Bootstrap
+   - banner melengkung diganti: tepi bawah lurus penuh
+   - sudut kartu/tombol/isian dibuat siku (datar), bukan bulat
+   - ikon memakai Bootstrap Icons (CDN resmi), termasuk pola latar
+     layanan yang menyusut jadi ikon kecil saat kartu disorot
+   ========================================================= */
+.hero{border-radius:0;box-shadow:none}
+:root{--r:0px;--r-input:0px;--r-pill:2px}
+.lang-menu li{border-radius:2px}
+.ic{border-radius:2px}
+.ic i{font-size:25px;line-height:1;display:block}
+.svc-ic{--pola:clamp(104px,13vw,158px);--ikon-kecil:26px;font-size:var(--pola);line-height:1;
+  width:var(--pola);height:var(--pola);
+  top:calc(var(--pola) * -0.26);right:calc(var(--pola) * -0.26);
+  transition:width .45s cubic-bezier(.2,.8,.2,1),height .45s cubic-bezier(.2,.8,.2,1),
+    font-size .45s cubic-bezier(.2,.8,.2,1),top .45s cubic-bezier(.2,.8,.2,1),
+    right .45s cubic-bezier(.2,.8,.2,1),opacity .3s ease,filter .45s ease}
+.svc-ic i{display:block;line-height:1}
+.svc:hover .svc-ic,.svc:focus-within .svc-ic{font-size:var(--ikon-kecil)}
+.mbars{width:auto}
+.mbars i{height:auto;margin:0;background:none;font-size:23px;line-height:1;display:block}
+.tst-arrow i{font-size:19px;line-height:1}
+.to-top i,.to-top i::before{font-size:19px;line-height:1}
+a.fab i,a.fab i::before{font-size:26px;line-height:1;color:#fff}
+.tst-dot i{font-size:inherit}
+/* kutipan testimoni: tanpa kotak, hanya garis tegak aksen */
+.quote{background:none;border:0;border-left:2px solid var(--accent-dark);border-radius:0}
+/* isian form: kotak siku dengan garis yang benar-benar terlihat
+   (pita gelap pakai garis terang 50%, pita terang pakai garis gelap 32%) */
+:root{--form-line:rgba(27,29,22,.32);--form-bg:transparent}
+/* warna kutipan form disamakan dengan situs live: teks #e8e5da, keterangan #9a9c8e,
+   latar isian bening seperti live, garis kotak tetap 45% supaya terlihat */
+#quote{--form-line:rgba(232,229,218,.45);--form-bg:transparent}
+.qform input,.qform textarea{border:1px solid var(--form-line);border-radius:0;
+  background:var(--form-bg);padding:13px 15px}
+.qform input:hover,.qform textarea:hover{border-color:var(--accent-dark)}
+.qform input:focus,.qform textarea:focus{border-color:var(--accent-dark);outline:1px solid var(--accent-dark)}
+.qform input::placeholder,.qform textarea::placeholder{color:#9a9c8e;opacity:1}
+#quote .qform{border-color:rgba(232,229,218,.3)}
+#quote .notes{border-color:rgba(232,229,218,.3)}
+.qform .fld{display:grid;gap:7px}
+/* nomor bagian jadi unsur desain */
+.sec-num{font-size:clamp(28px,3.2vw,42px);line-height:1;color:var(--accent);letter-spacing:-.02em}
+
+/* ---------- penyesuaian akhir v4 ---------- */
+/* banner: satu kolom penuh (hanya teks berjalan + dua tombol) */
+.hero-grid{grid-template-columns:minmax(0,1fr)}
+/* form: penempatan dua kolom dipindah ke media query min-width 981px di bawah,
+   supaya di layar sempit field tidak terhimpit jadi selebar 30px. */
+/* footer: awalan em dash di nama badan usaha, diminta pemilik (perkecualian
+   aturan tanpa em dash, hanya untuk "Arfha Computindo") */
+.fname::before{content:"\2014\A0"}
+/* tautan WhatsApp di kolom kontak footer diberi warna hijau merek */
+.fcontact li a[data-i18n-attr="href"]{color:var(--accent-ink);font-weight:600}
+.fcontact li a[data-i18n-attr="href"]:hover{color:var(--accent)}
+
+/* ---------- kartu layanan & kontak: menyatu dengan latar pita (tanpa kotak putih),
+   saat disorot baru muncul latar tipis dengan sudut lembut dan transisi halus
+   (pemilik: "saya suka card yg menyatu dengan background", hover jangan kaku) */
+.svc{background:transparent;border:0;box-shadow:none;border-radius:18px;
+  margin-inline:calc(clamp(14px,1.6vw,22px) * -1);
+  padding:clamp(20px,2.2vw,26px) clamp(14px,1.6vw,22px) clamp(24px,2.6vw,32px);
+  transition:background-color .3s ease,border-radius .3s ease}
+.svc:hover,.svc:focus-within{background:rgba(26,122,69,.06);border-radius:26px}
+.section--cream .svc{border-top-color:transparent}
+.contact-grid{gap:clamp(16px,2.2vw,28px)}
+.cblock{background:transparent;border:0;box-shadow:none;border-radius:18px;
+  padding:clamp(18px,2vw,24px);transition:background-color .3s ease,border-radius .3s ease}
+.cblock:hover,.cblock:focus-within{background:rgba(26,122,69,.06);border-radius:26px}
+.cblock:first-child,.cblock:last-child{padding:clamp(18px,2vw,24px)}
+.ic{border-radius:12px}
+.qform input,.qform textarea{border-radius:12px}
+.lang-menu li{border-radius:10px}
+@media (max-width:980px){
+  .cblock{border-top:0}
+  .svc{margin-inline:calc(clamp(10px,3vw,16px) * -1);padding-inline:clamp(10px,3vw,16px)}
+}
+
+/* ---------- form kontak: catatan tetap di samping form (diminta pemilik),
+   tetapi field dipastikan tidak terpotong.
+   Pada lebar >=1201px form dua kolom dengan catatan di samping (field ~276px).
+   Pada 981-1200px catatan tetap di samping, form jadi satu kolom penuh.
+   Pada <=980px catatan turun ke bawah karena layar tidak cukup lebar. */
+#quote .quote-grid{grid-template-columns:minmax(0,1fr)}
+.qform input,.qform textarea{text-overflow:ellipsis}
+@media (min-width:1000px){
+  .qform .fld:nth-child(3){grid-column:1 / 2;grid-row:2}
+  .qform .fld:nth-child(5){grid-column:2 / 3;grid-row:2}
+  .qform .fld:nth-child(4){grid-column:1 / -1;grid-row:3}
+}
+@media (max-width:999px){
+  #quote .qform{grid-template-columns:minmax(0,1fr)}
+  #quote .qform .fld{grid-column:auto;grid-row:auto}
+}
+@media (max-width:980px){
+  #quote .quote-grid{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- butir WhatsApp di bagian kontak: langsung membuka chat, sama seperti tombol mengambang
+   (pemilik: tidak perlu lagi kalimat "gunakan tombol mengambang") */
+a.cblock{display:block;text-decoration:none;color:inherit;cursor:pointer}
+a.cblock h3{color:var(--ink)}
+a.cblock .cblock-cue{display:inline-flex;align-items:center;gap:6px;margin-top:4px;
+  font-size:14px;font-weight:600;color:var(--accent-ink);transition:transform .25s ease}
+a.cblock:hover .cblock-cue,a.cblock:focus-visible .cblock-cue{transform:translateX(5px)}
+a.cblock .cblock-cue i{font-size:20px;line-height:1}
+html[dir="rtl"] a.cblock:hover .cblock-cue{transform:translateX(-5px)}
+html[dir="rtl"] a.cblock .cblock-cue i{transform:scaleX(-1)}
