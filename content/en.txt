@@ -1,5 +1,5 @@
 # General / UI
-preloader.loading = Loading…
+preloader.loading = Loading webpage
 brand.subtag = IT Solutions Integrator
 menu.label = Menu
 tooltip.whatsapp = Chat on WhatsApp

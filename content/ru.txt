@@ -1,5 +1,5 @@
 # General / UI
-preloader.loading = Загрузка…
+preloader.loading = Загрузка страницы
 brand.subtag = Интегратор IT-решений
 menu.label = Меню
 tooltip.whatsapp = Чат в WhatsApp

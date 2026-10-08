@@ -1,5 +1,5 @@
 # General / UI
-preloader.loading = جارٍ التحميل…
+preloader.loading = جارٍ تحميل الصفحة
 brand.subtag = مدمِج حلول تقنية المعلومات
 menu.label = القائمة
 tooltip.whatsapp = الدردشة عبر واتساب

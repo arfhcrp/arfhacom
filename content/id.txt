@@ -1,5 +1,5 @@
 # General / UI
-preloader.loading = Memuat…
+preloader.loading = Memuat halaman web
 brand.subtag = IT Solusi Integrator
 menu.label = Menu
 tooltip.whatsapp = Chat di WhatsApp

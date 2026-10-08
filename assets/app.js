@@ -208,11 +208,28 @@
 // no right-click
 (function(){document.addEventListener('contextmenu',e=>e.preventDefault())})();
 
-// preloader hide
+// preloader: garis progres + catatan loading + persentase
 (function(){
-  const pl=document.getElementById('preloader');
-  function hide(){ if(!pl) return; pl.style.opacity='0'; pl.style.transition='opacity .35s ease'; setTimeout(()=>pl.style.display='none',380); }
-  window.addEventListener('load', ()=> setTimeout(hide, 450));
+  const pl=document.getElementById('preloader'); if(!pl) return;
+  const isi=pl.querySelector('.pl-line i'), pct=pl.querySelector('.pl-pct');
+  const T=1400, t0=performance.now();
+  let muat=null, selesai=false;
+  const lancar=t=>1-Math.pow(1-t,2.2);
+  function sembunyi(){
+    pl.style.opacity='0'; pl.style.transition='opacity .35s ease';
+    setTimeout(function(){ pl.style.display='none'; },380);
+  }
+  function langkah(){
+    const kini=performance.now(); let p;
+    if(muat===null){ p=lancar(Math.min(1,(kini-t0)/T))*0.92; }   // sebelum load: sampai 92%
+    else { p=0.92+0.08*Math.min(1,(kini-muat)/260); }            // sesudah load: tuntaskan ke 100%
+    if(isi) isi.style.transform='scaleX('+p.toFixed(4)+')';
+    if(pct) pct.textContent=Math.round(p*100)+'%';
+    if(p>=1){ if(!selesai){ selesai=true; setTimeout(sembunyi,200); } return; }
+    requestAnimationFrame(langkah);
+  }
+  window.addEventListener('load', function(){ if(muat===null) muat=performance.now(); });
+  requestAnimationFrame(langkah);
 })();
 
 // header logo underscore on scroll

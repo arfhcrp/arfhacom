@@ -1,5 +1,5 @@
 # General / UI
-preloader.loading = Chargement…
+preloader.loading = Chargement de la page
 brand.subtag = Intégrateur de solutions IT
 menu.label = Menu
 tooltip.whatsapp = Discuter sur WhatsApp
