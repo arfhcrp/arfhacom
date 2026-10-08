@@ -912,3 +912,16 @@ footer .fmark .logo-img{height:34px}
 .fsos-i{display:inline-flex;align-items:center;justify-content:center;color:var(--ink-soft);
   font-size:19px;line-height:1}
 .fsos-i i{display:block;line-height:1}
+
+/* ---------- footer: ikon sosial bisa disorot, berwarna saat hover, dan bisa diklik ----------
+   Tautannya sengaja hanya ke https://arfha.com/# supaya tidak membuka apa pun (belum ada
+   akun resminya). Warna hover memakai warna khas masing-masing layanan, plus sedikit naik. */
+.fsos-i{text-decoration:none;transition:color .22s ease,transform .22s ease}
+.fsos-i:hover,.fsos-i:focus-visible{transform:translateY(-2px)}
+.fsos-fb:hover,.fsos-fb:focus-visible{color:#1877f2}
+.fsos-ig:hover,.fsos-ig:focus-visible{color:#e4405f}
+.fsos-x:hover,.fsos-x:focus-visible{color:#0b0c09}
+.fsos-li:hover,.fsos-li:focus-visible{color:#0a66c2}
+.fsos-yt:hover,.fsos-yt:focus-visible{color:#ff0000}
+.fsos-gh:hover,.fsos-gh:focus-visible{color:#24292f}
+@media (prefers-reduced-motion:reduce){.fsos-i{transition:none}}
