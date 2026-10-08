@@ -884,3 +884,11 @@ footer .fmark .logo-img{height:30px;width:auto}
    Tinggi logo 34px (naik dari 30px) dan Computindo 24px supaya bobot hurufnya sepadan. */
 footer .fmark .logo-img{height:34px}
 .fsub{font-size:clamp(26px,2.15vw,29px);font-style:italic;letter-spacing:.005em;margin-top:3px;line-height:1.05}
+
+/* ---------- footer: Arfha dan Computindo satu warna, tampil sebagai hiasan yang tenang ----------
+   PENTING: jangan meredupkan dengan opacity di sini. Blok footer memakai animasi reveal
+   (opacity 0 -> 1), jadi opacity statis akan ditimpa dan hasilnya kembali pekat.
+   Jadi peredupannya lewat WARNA tunggal: --ink-soft (#5c6152) untuk keduanya,
+   nilai yang sama juga dipakai sebagai fill di assets/arfha-logo.svg.
+   Kontras #5c6152 di atas krem sekitar 5,1:1, jadi tenang tetapi masih lolos AA teks. */
+.fsub{color:var(--ink-soft);font-style:italic;font-weight:600}
