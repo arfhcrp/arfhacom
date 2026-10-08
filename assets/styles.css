@@ -900,7 +900,8 @@ footer .fmark .logo-img{height:34px}
    lebarnya dibatasi supaya tetap enak dibaca seperti contoh di btech.id dan imtek.id. */
 .fbrand-txt{max-width:min(100%,340px)}
 .fbio{margin:14px 0 0;color:var(--ink-soft);font-size:15px;line-height:1.62;
-  text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;
+  text-align:justify;text-justify:inter-word;
+  hyphens:none;-webkit-hyphens:none;      /* tanpa pemenggalan: tidak ada kata terpotong */
   overflow-wrap:break-word}
 
 /* ---------- footer: deretan ikon sosial di bawah bio (belum ditautkan ke mana pun) ----------

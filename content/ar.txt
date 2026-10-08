@@ -93,6 +93,7 @@ contact.whatsapp.body = استخدم الزر العائم للدردشة فور
 # Footer
 footer.col.site = الموقع
 footer.col.contact = اتصل بنا
+footer.bio = مستشار تقنية معلومات مستقل منذ 2010. نقدم الدعم الفني، والشبكات والبنية التحتية، وإدارة الأنظمة والسحابة، والأمن السيبراني، والتدريب، والاستشارات.
 footer.copyright = © 2026 Arfhacom من Arfhacorp. جميع الحقوق محفوظة.
 footer.link.about = نبذة
 footer.link.services = الخدمات
