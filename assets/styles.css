@@ -898,7 +898,16 @@ footer .fmark .logo-img{height:34px}
    Isinya diambil dari konten About Us (about.card1.body), jadi ikut berganti mengikuti
    bahasa yang dipilih. Warnanya disamakan persis dengan tautan menu di footer (--ink-soft),
    lebarnya dibatasi supaya tetap enak dibaca seperti contoh di btech.id dan imtek.id. */
+.fbrand-txt{max-width:min(100%,340px)}
 .fbio{margin:14px 0 0;color:var(--ink-soft);font-size:15px;line-height:1.62;
-  max-width:min(100%,340px);
   text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;
   overflow-wrap:break-word}
+
+/* ---------- footer: deretan ikon sosial di bawah bio (belum ditautkan ke mana pun) ----------
+   Urutan sesuai permintaan: Facebook, Instagram, X, LinkedIn, YouTube, GitHub.
+   Karena belum ada tautan, baris ini murni hiasan: diberi aria-hidden dan tanpa hover
+   yang mengesankan bisa diklik. Warnanya sama dengan tautan menu footer. */
+.fsos{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}
+.fsos-i{display:inline-flex;align-items:center;justify-content:center;color:var(--ink-soft);
+  font-size:19px;line-height:1}
+.fsos-i i{display:block;line-height:1}
