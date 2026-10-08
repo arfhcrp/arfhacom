@@ -212,7 +212,7 @@
 (function(){
   const pl=document.getElementById('preloader'); if(!pl) return;
   const isi=pl.querySelector('.pl-line i'), pct=pl.querySelector('.pl-pct');
-  const T=1400, t0=performance.now();
+  const T=1400;   // performance.now() dihitung dari awal navigasi, jadi progres ikut sejak halaman mulai dimuat
   let muat=null, selesai=false;
   const lancar=t=>1-Math.pow(1-t,2.2);
   function sembunyi(){
@@ -221,7 +221,7 @@
   }
   function langkah(){
     const kini=performance.now(); let p;
-    if(muat===null){ p=lancar(Math.min(1,(kini-t0)/T))*0.92; }   // sebelum load: sampai 92%
+    if(muat===null){ p=lancar(Math.min(1,kini/T))*0.92; }        // sebelum load: sampai 92%
     else { p=0.92+0.08*Math.min(1,(kini-muat)/260); }            // sesudah load: tuntaskan ke 100%
     if(isi) isi.style.transform='scaleX('+p.toFixed(4)+')';
     if(pct) pct.textContent=Math.round(p*100)+'%';
