@@ -879,3 +879,8 @@ footer .fmark .logo-img{height:30px;width:auto}
 
 /* preloader: satu kalimat "Loading webpage 42%" (diminta pemilik) */
 .pl-meta{justify-content:center;gap:5px;width:auto;margin-top:11px}
+
+/* footer: Arfha dan Computindo dibuat seimbang, Computindo jangan kecil.
+   Tinggi logo 34px (naik dari 30px) dan Computindo 24px supaya bobot hurufnya sepadan. */
+footer .fmark .logo-img{height:34px}
+.fsub{font-size:clamp(26px,2.15vw,29px);font-style:italic;letter-spacing:.005em;margin-top:3px;line-height:1.05}
