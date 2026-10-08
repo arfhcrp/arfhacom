@@ -840,3 +840,10 @@ a.cblock:hover .cblock-cue,a.cblock:focus-visible .cblock-cue{transform:translat
 a.cblock .cblock-cue i{font-size:20px;line-height:1}
 html[dir="rtl"] a.cblock:hover .cblock-cue{transform:translateX(-5px)}
 html[dir="rtl"] a.cblock .cblock-cue i{transform:scaleX(-1)}
+
+/* ---------- perataan teks rata kanan-kiri (justify) diminta pemilik:
+   kartu layanan, kartu About Us, dan kutipan testimoni ---------- */
+.svc p,.svc .svc-txt p,
+.cards3 .card p,.cards3.rows .card p,
+.quote blockquote p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;
+  overflow-wrap:break-word;word-break:normal}
