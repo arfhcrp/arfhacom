@@ -93,7 +93,7 @@ contact.whatsapp.body = Silakan gunakan tombol mengambang untuk chat langsung.
 # Footer
 footer.col.site = Situs
 footer.col.contact = Kontak
-footer.bio = Konsultan TI independen sejak 2010. Kami menangani helpdesk dan dukungan IT, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT.
+footer.bio = Arfhacom adalah konsultan TI independen sejak 2010. Kami mengutamakan kinerja yang stabil, tata kelola yang rapi, dan manfaat yang berkesinambungan. Kami menangani helpdesk dan dukungan IT, jaringan dan infrastruktur, administrasi sistem dan cloud, keamanan siber, pelatihan IT, serta konsultasi IT.
 footer.copyright = © 2026 Arfhacom dari Arfhacorp. Semua hak dilindungi.
 footer.link.about = Tentang
 footer.link.services = Layanan

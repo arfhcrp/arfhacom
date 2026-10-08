@@ -93,7 +93,7 @@ contact.whatsapp.body = Utilisez le bouton flottant pour discuter instantanémen
 # Footer
 footer.col.site = Site
 footer.col.contact = Contact
-footer.bio = Consultant informatique indépendant depuis 2010. Nous assurons l'assistance et le support, les réseaux et infrastructures, l'administration système et cloud, la cybersécurité, la formation et le conseil.
+footer.bio = Arfhacom est un consultant informatique indépendant depuis 2010. Nous privilégions une performance fiable, une gouvernance solide et des résultats durables. Nous assurons l'assistance et le support, les réseaux et infrastructures, l'administration système et cloud, la cybersécurité, la formation et le conseil.
 footer.copyright = © 2026 Arfhacom de Arfhacorp. Tous droits réservés.
 footer.link.about = À propos
 footer.link.services = Services

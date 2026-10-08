@@ -93,7 +93,7 @@ contact.whatsapp.body = Please use the floating button to chat instantly.
 # Footer
 footer.col.site = Site
 footer.col.contact = Contact
-footer.bio = Independent IT consultant since 2010. We provide IT helpdesk and support, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consulting.
+footer.bio = Arfhacom is an independent IT consultant since 2010. We focus on reliable performance, robust governance, and sustainable outcomes. We provide IT helpdesk and support, networks and infrastructure, system and cloud administration, cybersecurity, IT training, and IT consulting.
 footer.copyright = © 2026 Arfhacom from Arfhacorp. All rights reserved.
 footer.link.about = About
 footer.link.services = Services

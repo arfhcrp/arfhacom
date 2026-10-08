@@ -93,7 +93,7 @@ contact.whatsapp.body = Use el botón flotante para chatear al instante.
 # Footer
 footer.col.site = Sitio
 footer.col.contact = Contacto
-footer.bio = Consultor independiente de TI desde 2010. Ofrecemos helpdesk y soporte, redes e infraestructura, administración de sistemas y nube, ciberseguridad, formación en TI y consultoría.
+footer.bio = Arfhacom es un consultor independiente de TI desde 2010. Nos centramos en un rendimiento fiable, una gobernanza sólida y resultados sostenibles. Ofrecemos helpdesk y soporte, redes e infraestructura, administración de sistemas y nube, ciberseguridad, formación en TI y consultoría.
 footer.copyright = © 2026 Arfhacom de Arfhacorp. Todos los derechos reservados.
 footer.link.about = Sobre
 footer.link.services = Servicios
