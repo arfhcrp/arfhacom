@@ -847,3 +847,15 @@ html[dir="rtl"] a.cblock .cblock-cue i{transform:scaleX(-1)}
 .cards3 .card p,.cards3.rows .card p,
 .quote blockquote p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;
   overflow-wrap:break-word;word-break:normal}
+
+/* ---------- preloader: hanya satu garis progres (permintaan pemilik),
+   mengisi cepat lalu melambat, dan sisanya (logo/teks) tidak dipakai lagi ---------- */
+#preloader{gap:0}
+.pl-mark,.loader,.pl-txt{display:none}
+.pl-line{width:min(260px,60vw);height:3px;border-radius:999px;background:rgba(232,229,218,.16);overflow:hidden}
+.pl-line i{display:block;height:100%;border-radius:999px;background:var(--accent-dark);
+  transform:scaleX(0);transform-origin:0 50%;
+  animation:plIsi 1.4s cubic-bezier(.1,.8,.2,1) forwards}
+@keyframes plIsi{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+html[dir="rtl"] .pl-line i{transform-origin:100% 50%}
+@media (prefers-reduced-motion:reduce){.pl-line i{animation:none;transform:scaleX(1)}}
