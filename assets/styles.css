@@ -845,7 +845,8 @@ html[dir="rtl"] a.cblock .cblock-cue i{transform:scaleX(-1)}
    kartu layanan, kartu About Us, dan kutipan testimoni ---------- */
 .svc p,.svc .svc-txt p,
 .cards3 .card p,.cards3.rows .card p,
-.quote blockquote p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;
+.quote blockquote p{text-align:justify;text-justify:inter-word;
+  hyphens:none;-webkit-hyphens:none;      /* tanpa pemenggalan: satu kata tidak terpotong saat wrap */
   overflow-wrap:break-word;word-break:normal}
 
 /* ---------- preloader: hanya satu garis progres (permintaan pemilik),
