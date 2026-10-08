@@ -899,4 +899,6 @@ footer .fmark .logo-img{height:34px}
    bahasa yang dipilih. Warnanya disamakan persis dengan tautan menu di footer (--ink-soft),
    lebarnya dibatasi supaya tetap enak dibaca seperti contoh di btech.id dan imtek.id. */
 .fbio{margin:14px 0 0;color:var(--ink-soft);font-size:15px;line-height:1.62;
-  max-width:min(100%,340px)}
+  max-width:min(100%,340px);
+  text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;
+  overflow-wrap:break-word}
